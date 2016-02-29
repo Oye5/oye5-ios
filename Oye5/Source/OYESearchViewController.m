@@ -1,18 +1,18 @@
 //
-//  SecondViewController.m
+//  OYECategoriesViewController.m
 //  Oye5
 //
 //  Created by Rita Kyauk on 2/21/16.
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "OYESearchViewController.h"
 
-@interface SecondViewController ()
+@interface OYESearchViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation OYESearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

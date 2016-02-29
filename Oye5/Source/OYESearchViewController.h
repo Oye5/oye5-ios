@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  OYECategoriesViewController.h
 //  Oye5
 //
 //  Created by Rita Kyauk on 2/21/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface OYESearchViewController : UIViewController
 
 
 @end

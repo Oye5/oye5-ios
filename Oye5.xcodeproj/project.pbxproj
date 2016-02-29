@@ -9,13 +9,48 @@
 /* Begin PBXBuildFile section */
 		664128001C7ADD850028987B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 664127FF1C7ADD850028987B /* main.m */; };
 		664128031C7ADD850028987B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128021C7ADD850028987B /* AppDelegate.m */; };
-		664128061C7ADD850028987B /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128051C7ADD850028987B /* FirstViewController.m */; };
-		664128091C7ADD850028987B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128081C7ADD850028987B /* SecondViewController.m */; };
 		6641280C1C7ADD860028987B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6641280A1C7ADD860028987B /* Main.storyboard */; };
 		6641280E1C7ADD860028987B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6641280D1C7ADD860028987B /* Assets.xcassets */; };
 		664128111C7ADD860028987B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6641280F1C7ADD860028987B /* LaunchScreen.storyboard */; };
 		6641281C1C7ADD860028987B /* Oye5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6641281B1C7ADD860028987B /* Oye5Tests.m */; };
 		664128271C7ADD860028987B /* Oye5UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128261C7ADD860028987B /* Oye5UITests.m */; };
+		664128391C8234840028987B /* OYESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128361C8234840028987B /* OYESearchViewController.m */; };
+		6641283D1C8234A70028987B /* OYESellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6641283C1C8234A70028987B /* OYESellViewController.m */; };
+		664128401C8234CF0028987B /* OYEMyItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6641283F1C8234CF0028987B /* OYEMyItemsViewController.m */; };
+		664128461C8235000028987B /* OYEProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128451C8235000028987B /* OYEProfileViewController.m */; };
+		664128491C8248050028987B /* OYEHomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128481C8248050028987B /* OYEHomeCollectionViewController.m */; };
+		664128581C824D9C0028987B /* OYEItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128571C824D9C0028987B /* OYEItem.m */; };
+		6641285C1C824EFD0028987B /* OYEItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6641285A1C824EFD0028987B /* OYEItemCollectionViewCell.m */; };
+		6641285D1C824EFD0028987B /* OYEItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6641285B1C824EFD0028987B /* OYEItemCollectionViewCell.xib */; };
+		664128621C82C1A70028987B /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128611C82C1A70028987B /* UIColor+Extensions.m */; };
+		664128651C82C1C10028987B /* UIFont+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128641C82C1C10028987B /* UIFont+Extensions.m */; };
+		664128671C82E4EC0028987B /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664128661C82E4EC0028987B /* AFNetworking.framework */; };
+		664128D51C83AC000028987B /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664128D41C83AC000028987B /* CocoaLumberjack.framework */; };
+		664128D91C83B4B90028987B /* OYELogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128D81C83B4B90028987B /* OYELogFormatter.m */; };
+		664128DD1C83B8EB0028987B /* OYEItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128DB1C83B8EB0028987B /* OYEItemViewController.m */; };
+		664128DE1C83B8EB0028987B /* OYEItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 664128DC1C83B8EB0028987B /* OYEItemViewController.xib */; };
+		664128F61C83C14C0028987B /* License Agreement for SF UI Font.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E01C83C14C0028987B /* License Agreement for SF UI Font.pdf */; };
+		664128F71C83C14C0028987B /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E11C83C14C0028987B /* SF-UI-Display-Black.otf */; };
+		664128F81C83C14C0028987B /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E21C83C14C0028987B /* SF-UI-Display-Bold.otf */; };
+		664128F91C83C14C0028987B /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E31C83C14C0028987B /* SF-UI-Display-Heavy.otf */; };
+		664128FA1C83C14C0028987B /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E41C83C14C0028987B /* SF-UI-Display-Light.otf */; };
+		664128FB1C83C14C0028987B /* SF-UI-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E51C83C14C0028987B /* SF-UI-Display-Medium.otf */; };
+		664128FC1C83C14C0028987B /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E61C83C14C0028987B /* SF-UI-Display-Regular.otf */; };
+		664128FD1C83C14C0028987B /* SF-UI-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E71C83C14C0028987B /* SF-UI-Display-Semibold.otf */; };
+		664128FE1C83C14C0028987B /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E81C83C14C0028987B /* SF-UI-Display-Thin.otf */; };
+		664128FF1C83C14C0028987B /* SF-UI-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E91C83C14C0028987B /* SF-UI-Display-Ultralight.otf */; };
+		664129001C83C14C0028987B /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128EA1C83C14C0028987B /* SF-UI-Text-Bold.otf */; };
+		664129011C83C14C0028987B /* SF-UI-Text-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128EB1C83C14C0028987B /* SF-UI-Text-BoldItalic.otf */; };
+		664129021C83C14C0028987B /* SF-UI-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128EC1C83C14C0028987B /* SF-UI-Text-Heavy.otf */; };
+		664129031C83C14C0028987B /* SF-UI-Text-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128ED1C83C14C0028987B /* SF-UI-Text-HeavyItalic.otf */; };
+		664129041C83C14C0028987B /* SF-UI-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128EE1C83C14C0028987B /* SF-UI-Text-Light.otf */; };
+		664129051C83C14C0028987B /* SF-UI-Text-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128EF1C83C14C0028987B /* SF-UI-Text-LightItalic.otf */; };
+		664129061C83C14C0028987B /* SF-UI-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128F01C83C14C0028987B /* SF-UI-Text-Medium.otf */; };
+		664129071C83C14C0028987B /* SF-UI-Text-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128F11C83C14C0028987B /* SF-UI-Text-MediumItalic.otf */; };
+		664129081C83C14C0028987B /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128F21C83C14C0028987B /* SF-UI-Text-Regular.otf */; };
+		664129091C83C14C0028987B /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128F31C83C14C0028987B /* SF-UI-Text-RegularItalic.otf */; };
+		6641290A1C83C14C0028987B /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128F41C83C14C0028987B /* SF-UI-Text-Semibold.otf */; };
+		6641290B1C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128F51C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +75,6 @@
 		664127FF1C7ADD850028987B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		664128011C7ADD850028987B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		664128021C7ADD850028987B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		664128041C7ADD850028987B /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		664128051C7ADD850028987B /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		664128071C7ADD850028987B /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		664128081C7ADD850028987B /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		6641280B1C7ADD860028987B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6641280D1C7ADD860028987B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		664128101C7ADD860028987B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +85,55 @@
 		664128221C7ADD860028987B /* Oye5UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Oye5UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		664128261C7ADD860028987B /* Oye5UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Oye5UITests.m; sourceTree = "<group>"; };
 		664128281C7ADD860028987B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		664128351C8234840028987B /* OYESearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYESearchViewController.h; path = Source/OYESearchViewController.h; sourceTree = "<group>"; };
+		664128361C8234840028987B /* OYESearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYESearchViewController.m; path = Source/OYESearchViewController.m; sourceTree = "<group>"; };
+		6641283B1C8234A70028987B /* OYESellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYESellViewController.h; path = Source/OYESellViewController.h; sourceTree = "<group>"; };
+		6641283C1C8234A70028987B /* OYESellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYESellViewController.m; path = Source/OYESellViewController.m; sourceTree = "<group>"; };
+		6641283E1C8234CF0028987B /* OYEMyItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEMyItemsViewController.h; path = Source/OYEMyItemsViewController.h; sourceTree = "<group>"; };
+		6641283F1C8234CF0028987B /* OYEMyItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEMyItemsViewController.m; path = Source/OYEMyItemsViewController.m; sourceTree = "<group>"; };
+		664128441C8235000028987B /* OYEProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEProfileViewController.h; path = Source/OYEProfileViewController.h; sourceTree = "<group>"; };
+		664128451C8235000028987B /* OYEProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEProfileViewController.m; path = Source/OYEProfileViewController.m; sourceTree = "<group>"; };
+		664128471C8248050028987B /* OYEHomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEHomeCollectionViewController.h; path = Source/OYEHomeCollectionViewController.h; sourceTree = "<group>"; };
+		664128481C8248050028987B /* OYEHomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEHomeCollectionViewController.m; path = Source/OYEHomeCollectionViewController.m; sourceTree = "<group>"; };
+		664128561C824D9C0028987B /* OYEItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItem.h; path = Source/OYEItem.h; sourceTree = "<group>"; };
+		664128571C824D9C0028987B /* OYEItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItem.m; path = Source/OYEItem.m; sourceTree = "<group>"; };
+		664128591C824EFD0028987B /* OYEItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItemCollectionViewCell.h; path = Source/OYEItemCollectionViewCell.h; sourceTree = "<group>"; };
+		6641285A1C824EFD0028987B /* OYEItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemCollectionViewCell.m; path = Source/OYEItemCollectionViewCell.m; sourceTree = "<group>"; };
+		6641285B1C824EFD0028987B /* OYEItemCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEItemCollectionViewCell.xib; path = Source/OYEItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		664128601C82C1A70028987B /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Extensions.h"; path = "Source/UIColor+Extensions.h"; sourceTree = "<group>"; };
+		664128611C82C1A70028987B /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Extensions.m"; path = "Source/UIColor+Extensions.m"; sourceTree = "<group>"; };
+		664128631C82C1C10028987B /* UIFont+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Extensions.h"; path = "Source/UIFont+Extensions.h"; sourceTree = "<group>"; };
+		664128641C82C1C10028987B /* UIFont+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Extensions.m"; path = "Source/UIFont+Extensions.m"; sourceTree = "<group>"; };
+		664128661C82E4EC0028987B /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../AFNetworking/build/Debug-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
+		664128D41C83AC000028987B /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = "../CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjack.framework"; sourceTree = "<group>"; };
+		664128D61C83AC4D0028987B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		664128D71C83B4B90028987B /* OYELogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYELogFormatter.h; path = Source/OYELogFormatter.h; sourceTree = "<group>"; };
+		664128D81C83B4B90028987B /* OYELogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYELogFormatter.m; path = Source/OYELogFormatter.m; sourceTree = "<group>"; };
+		664128DA1C83B8EB0028987B /* OYEItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItemViewController.h; path = Source/OYEItemViewController.h; sourceTree = "<group>"; };
+		664128DB1C83B8EB0028987B /* OYEItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemViewController.m; path = Source/OYEItemViewController.m; sourceTree = "<group>"; };
+		664128DC1C83B8EB0028987B /* OYEItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEItemViewController.xib; path = Source/OYEItemViewController.xib; sourceTree = "<group>"; };
+		664128E01C83C14C0028987B /* License Agreement for SF UI Font.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "License Agreement for SF UI Font.pdf"; path = "Fonts/SF-UI/License Agreement for SF UI Font.pdf"; sourceTree = "<group>"; };
+		664128E11C83C14C0028987B /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Black.otf"; path = "Fonts/SF-UI/SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
+		664128E21C83C14C0028987B /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Bold.otf"; path = "Fonts/SF-UI/SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
+		664128E31C83C14C0028987B /* SF-UI-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Heavy.otf"; path = "Fonts/SF-UI/SF-UI-Display-Heavy.otf"; sourceTree = "<group>"; };
+		664128E41C83C14C0028987B /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Light.otf"; path = "Fonts/SF-UI/SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
+		664128E51C83C14C0028987B /* SF-UI-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Medium.otf"; path = "Fonts/SF-UI/SF-UI-Display-Medium.otf"; sourceTree = "<group>"; };
+		664128E61C83C14C0028987B /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Regular.otf"; path = "Fonts/SF-UI/SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
+		664128E71C83C14C0028987B /* SF-UI-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Semibold.otf"; path = "Fonts/SF-UI/SF-UI-Display-Semibold.otf"; sourceTree = "<group>"; };
+		664128E81C83C14C0028987B /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Thin.otf"; path = "Fonts/SF-UI/SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
+		664128E91C83C14C0028987B /* SF-UI-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Ultralight.otf"; path = "Fonts/SF-UI/SF-UI-Display-Ultralight.otf"; sourceTree = "<group>"; };
+		664128EA1C83C14C0028987B /* SF-UI-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Bold.otf"; path = "Fonts/SF-UI/SF-UI-Text-Bold.otf"; sourceTree = "<group>"; };
+		664128EB1C83C14C0028987B /* SF-UI-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-BoldItalic.otf"; path = "Fonts/SF-UI/SF-UI-Text-BoldItalic.otf"; sourceTree = "<group>"; };
+		664128EC1C83C14C0028987B /* SF-UI-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Heavy.otf"; path = "Fonts/SF-UI/SF-UI-Text-Heavy.otf"; sourceTree = "<group>"; };
+		664128ED1C83C14C0028987B /* SF-UI-Text-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-HeavyItalic.otf"; path = "Fonts/SF-UI/SF-UI-Text-HeavyItalic.otf"; sourceTree = "<group>"; };
+		664128EE1C83C14C0028987B /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Light.otf"; path = "Fonts/SF-UI/SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
+		664128EF1C83C14C0028987B /* SF-UI-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-LightItalic.otf"; path = "Fonts/SF-UI/SF-UI-Text-LightItalic.otf"; sourceTree = "<group>"; };
+		664128F01C83C14C0028987B /* SF-UI-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Medium.otf"; path = "Fonts/SF-UI/SF-UI-Text-Medium.otf"; sourceTree = "<group>"; };
+		664128F11C83C14C0028987B /* SF-UI-Text-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-MediumItalic.otf"; path = "Fonts/SF-UI/SF-UI-Text-MediumItalic.otf"; sourceTree = "<group>"; };
+		664128F21C83C14C0028987B /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Regular.otf"; path = "Fonts/SF-UI/SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
+		664128F31C83C14C0028987B /* SF-UI-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-RegularItalic.otf"; path = "Fonts/SF-UI/SF-UI-Text-RegularItalic.otf"; sourceTree = "<group>"; };
+		664128F41C83C14C0028987B /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Semibold.otf"; path = "Fonts/SF-UI/SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
+		664128F51C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-SemiboldItalic.otf"; path = "Fonts/SF-UI/SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +141,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664128D51C83AC000028987B /* CocoaLumberjack.framework in Frameworks */,
+				664128671C82E4EC0028987B /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +166,8 @@
 		664127F21C7ADD850028987B = {
 			isa = PBXGroup;
 			children = (
+				664128D41C83AC000028987B /* CocoaLumberjack.framework */,
+				664128661C82E4EC0028987B /* AFNetworking.framework */,
 				664127FD1C7ADD850028987B /* Oye5 */,
 				6641281A1C7ADD860028987B /* Oye5Tests */,
 				664128251C7ADD860028987B /* Oye5UITests */,
@@ -106,14 +190,14 @@
 			children = (
 				664128011C7ADD850028987B /* AppDelegate.h */,
 				664128021C7ADD850028987B /* AppDelegate.m */,
-				664128041C7ADD850028987B /* FirstViewController.h */,
-				664128051C7ADD850028987B /* FirstViewController.m */,
-				664128071C7ADD850028987B /* SecondViewController.h */,
-				664128081C7ADD850028987B /* SecondViewController.m */,
 				6641280A1C7ADD860028987B /* Main.storyboard */,
+				664128341C8232EF0028987B /* Tabs */,
+				6641284F1C824CAA0028987B /* Shared */,
+				664128DF1C83C11E0028987B /* Fonts */,
 				6641280D1C7ADD860028987B /* Assets.xcassets */,
 				6641280F1C7ADD860028987B /* LaunchScreen.storyboard */,
 				664128121C7ADD860028987B /* Info.plist */,
+				664128D61C83AC4D0028987B /* PrefixHeader.pch */,
 				664127FE1C7ADD850028987B /* Supporting Files */,
 			);
 			path = Oye5;
@@ -143,6 +227,145 @@
 				664128281C7ADD860028987B /* Info.plist */,
 			);
 			path = Oye5UITests;
+			sourceTree = "<group>";
+		};
+		664128341C8232EF0028987B /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				6641284A1C824A620028987B /* Home */,
+				6641284B1C824A9F0028987B /* Search */,
+				6641284C1C824B340028987B /* Sell */,
+				6641284E1C824B550028987B /* My Items */,
+				6641284D1C824B410028987B /* Profile */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		6641284A1C824A620028987B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				664128471C8248050028987B /* OYEHomeCollectionViewController.h */,
+				664128481C8248050028987B /* OYEHomeCollectionViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		6641284B1C824A9F0028987B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				664128351C8234840028987B /* OYESearchViewController.h */,
+				664128361C8234840028987B /* OYESearchViewController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		6641284C1C824B340028987B /* Sell */ = {
+			isa = PBXGroup;
+			children = (
+				6641283B1C8234A70028987B /* OYESellViewController.h */,
+				6641283C1C8234A70028987B /* OYESellViewController.m */,
+			);
+			name = Sell;
+			sourceTree = "<group>";
+		};
+		6641284D1C824B410028987B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				664128441C8235000028987B /* OYEProfileViewController.h */,
+				664128451C8235000028987B /* OYEProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		6641284E1C824B550028987B /* My Items */ = {
+			isa = PBXGroup;
+			children = (
+				6641283E1C8234CF0028987B /* OYEMyItemsViewController.h */,
+				6641283F1C8234CF0028987B /* OYEMyItemsViewController.m */,
+			);
+			name = "My Items";
+			sourceTree = "<group>";
+		};
+		6641284F1C824CAA0028987B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				664128681C83804F0028987B /* View Controllers */,
+				6641285E1C82C02C0028987B /* Views */,
+				6641285F1C82C0370028987B /* Extensions */,
+				664128D71C83B4B90028987B /* OYELogFormatter.h */,
+				664128D81C83B4B90028987B /* OYELogFormatter.m */,
+				664128551C824D6E0028987B /* Models */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		664128551C824D6E0028987B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				664128561C824D9C0028987B /* OYEItem.h */,
+				664128571C824D9C0028987B /* OYEItem.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6641285E1C82C02C0028987B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				664128591C824EFD0028987B /* OYEItemCollectionViewCell.h */,
+				6641285A1C824EFD0028987B /* OYEItemCollectionViewCell.m */,
+				6641285B1C824EFD0028987B /* OYEItemCollectionViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6641285F1C82C0370028987B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				664128601C82C1A70028987B /* UIColor+Extensions.h */,
+				664128611C82C1A70028987B /* UIColor+Extensions.m */,
+				664128631C82C1C10028987B /* UIFont+Extensions.h */,
+				664128641C82C1C10028987B /* UIFont+Extensions.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		664128681C83804F0028987B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				664128DA1C83B8EB0028987B /* OYEItemViewController.h */,
+				664128DB1C83B8EB0028987B /* OYEItemViewController.m */,
+				664128DC1C83B8EB0028987B /* OYEItemViewController.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		664128DF1C83C11E0028987B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				664128E01C83C14C0028987B /* License Agreement for SF UI Font.pdf */,
+				664128E11C83C14C0028987B /* SF-UI-Display-Black.otf */,
+				664128E21C83C14C0028987B /* SF-UI-Display-Bold.otf */,
+				664128E31C83C14C0028987B /* SF-UI-Display-Heavy.otf */,
+				664128E41C83C14C0028987B /* SF-UI-Display-Light.otf */,
+				664128E51C83C14C0028987B /* SF-UI-Display-Medium.otf */,
+				664128E61C83C14C0028987B /* SF-UI-Display-Regular.otf */,
+				664128E71C83C14C0028987B /* SF-UI-Display-Semibold.otf */,
+				664128E81C83C14C0028987B /* SF-UI-Display-Thin.otf */,
+				664128E91C83C14C0028987B /* SF-UI-Display-Ultralight.otf */,
+				664128EA1C83C14C0028987B /* SF-UI-Text-Bold.otf */,
+				664128EB1C83C14C0028987B /* SF-UI-Text-BoldItalic.otf */,
+				664128EC1C83C14C0028987B /* SF-UI-Text-Heavy.otf */,
+				664128ED1C83C14C0028987B /* SF-UI-Text-HeavyItalic.otf */,
+				664128EE1C83C14C0028987B /* SF-UI-Text-Light.otf */,
+				664128EF1C83C14C0028987B /* SF-UI-Text-LightItalic.otf */,
+				664128F01C83C14C0028987B /* SF-UI-Text-Medium.otf */,
+				664128F11C83C14C0028987B /* SF-UI-Text-MediumItalic.otf */,
+				664128F21C83C14C0028987B /* SF-UI-Text-Regular.otf */,
+				664128F31C83C14C0028987B /* SF-UI-Text-RegularItalic.otf */,
+				664128F41C83C14C0028987B /* SF-UI-Text-Semibold.otf */,
+				664128F51C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,9 +471,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664128FA1C83C14C0028987B /* SF-UI-Display-Light.otf in Resources */,
+				664128F61C83C14C0028987B /* License Agreement for SF UI Font.pdf in Resources */,
+				664129081C83C14C0028987B /* SF-UI-Text-Regular.otf in Resources */,
+				664128FC1C83C14C0028987B /* SF-UI-Display-Regular.otf in Resources */,
+				6641290A1C83C14C0028987B /* SF-UI-Text-Semibold.otf in Resources */,
+				664129031C83C14C0028987B /* SF-UI-Text-HeavyItalic.otf in Resources */,
+				664129021C83C14C0028987B /* SF-UI-Text-Heavy.otf in Resources */,
+				664128FB1C83C14C0028987B /* SF-UI-Display-Medium.otf in Resources */,
 				664128111C7ADD860028987B /* LaunchScreen.storyboard in Resources */,
+				664128FD1C83C14C0028987B /* SF-UI-Display-Semibold.otf in Resources */,
+				664129071C83C14C0028987B /* SF-UI-Text-MediumItalic.otf in Resources */,
+				664128F81C83C14C0028987B /* SF-UI-Display-Bold.otf in Resources */,
+				6641290B1C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf in Resources */,
+				6641285D1C824EFD0028987B /* OYEItemCollectionViewCell.xib in Resources */,
+				664129061C83C14C0028987B /* SF-UI-Text-Medium.otf in Resources */,
+				664129041C83C14C0028987B /* SF-UI-Text-Light.otf in Resources */,
+				664128F91C83C14C0028987B /* SF-UI-Display-Heavy.otf in Resources */,
+				664129011C83C14C0028987B /* SF-UI-Text-BoldItalic.otf in Resources */,
+				664128DE1C83B8EB0028987B /* OYEItemViewController.xib in Resources */,
+				664128FE1C83C14C0028987B /* SF-UI-Display-Thin.otf in Resources */,
 				6641280E1C7ADD860028987B /* Assets.xcassets in Resources */,
 				6641280C1C7ADD860028987B /* Main.storyboard in Resources */,
+				664128FF1C83C14C0028987B /* SF-UI-Display-Ultralight.otf in Resources */,
+				664129001C83C14C0028987B /* SF-UI-Text-Bold.otf in Resources */,
+				664129091C83C14C0028987B /* SF-UI-Text-RegularItalic.otf in Resources */,
+				664129051C83C14C0028987B /* SF-UI-Text-LightItalic.otf in Resources */,
+				664128F71C83C14C0028987B /* SF-UI-Display-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,10 +522,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				664128091C7ADD850028987B /* SecondViewController.m in Sources */,
+				664128401C8234CF0028987B /* OYEMyItemsViewController.m in Sources */,
+				664128D91C83B4B90028987B /* OYELogFormatter.m in Sources */,
 				664128031C7ADD850028987B /* AppDelegate.m in Sources */,
-				664128061C7ADD850028987B /* FirstViewController.m in Sources */,
+				664128581C824D9C0028987B /* OYEItem.m in Sources */,
 				664128001C7ADD850028987B /* main.m in Sources */,
+				6641285C1C824EFD0028987B /* OYEItemCollectionViewCell.m in Sources */,
+				664128461C8235000028987B /* OYEProfileViewController.m in Sources */,
+				664128DD1C83B8EB0028987B /* OYEItemViewController.m in Sources */,
+				664128491C8248050028987B /* OYEHomeCollectionViewController.m in Sources */,
+				664128391C8234840028987B /* OYESearchViewController.m in Sources */,
+				664128651C82C1C10028987B /* UIFont+Extensions.m in Sources */,
+				6641283D1C8234A70028987B /* OYESellViewController.m in Sources */,
+				664128621C82C1A70028987B /* UIColor+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +675,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = Oye5/PrefixHeader.pch;
 				INFOPLIST_FILE = Oye5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oye5.Oye5;
@@ -430,6 +687,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = Oye5/PrefixHeader.pch;
 				INFOPLIST_FILE = Oye5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oye5.Oye5;
@@ -504,6 +762,7 @@
 				6641282D1C7ADD860028987B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6641282E1C7ADD860028987B /* Build configuration list for PBXNativeTarget "Oye5Tests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +771,7 @@
 				664128301C7ADD860028987B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		664128311C7ADD860028987B /* Build configuration list for PBXNativeTarget "Oye5UITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +780,7 @@
 				664128331C7ADD860028987B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
