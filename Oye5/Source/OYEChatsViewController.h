@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OYEMyItemsViewController : UIViewController
+@interface OYEChatsViewController : UIViewController
 
 @end

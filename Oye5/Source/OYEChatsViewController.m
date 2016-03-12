@@ -6,13 +6,13 @@
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
-#import "OYEMyItemsViewController.h"
+#import "OYEChatsViewController.h"
 
-@interface OYEMyItemsViewController ()
+@interface OYEChatsViewController ()
 
 @end
 
-@implementation OYEMyItemsViewController
+@implementation OYEChatsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -127,11 +127,11 @@
             </objects>
             <point key="canvasLocation" x="1432" y="970"/>
         </scene>
-        <!--My Items-->
+        <!--Chats-->
         <scene sceneID="ezF-rT-thz">
             <objects>
                 <navigationController id="Kcn-rZ-2Cv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Items" id="fSz-ro-Kft"/>
+                    <tabBarItem key="tabBarItem" title="Chats" id="fSz-ro-Kft" userLabel="Chats"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zBW-5y-1Bo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -147,7 +147,7 @@
         <!--My Items-->
         <scene sceneID="LvS-VR-ITA">
             <objects>
-                <viewController id="y48-Iv-yXU" userLabel="My Items" customClass="OYEMyItemsViewController" sceneMemberID="viewController">
+                <viewController id="y48-Iv-yXU" userLabel="My Items" customClass="OYEChatsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5bV-1H-mLi"/>
                         <viewControllerLayoutGuide type="bottom" id="Lhj-tJ-hfS"/>
