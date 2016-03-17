@@ -6,6 +6,8 @@
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
+@import AFNetworking;
+
 #import "OYEItemCollectionViewCell.h"
 #import "OYEItem.h"
 
@@ -48,7 +50,7 @@
 - (void)setItem:(OYEItem *)item {
     _item = item;
     
-    self.imageView.image = item.image;
+    [self.imageView setImageWithURL:[NSURL URLWithString:self.item.images.firstObject]];
     self.descriptionLabel.text = item.itemDescription;
     self.priceLabel.text = [item priceString];
 }

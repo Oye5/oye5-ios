@@ -20,6 +20,16 @@
 		6617D5521C9525A500101292 /* OYELogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5511C9525A500101292 /* OYELogFormatter.m */; };
 		6617D5551C9525CC00101292 /* OYEProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5541C9525CC00101292 /* OYEProfileViewController.m */; };
 		6617D5581C9525F300101292 /* OYEItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5571C9525F300101292 /* OYEItem.m */; };
+		6617D5631C96180800101292 /* OYEItemDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5611C96180800101292 /* OYEItemDetailTableViewCell.m */; };
+		6617D5641C96180800101292 /* OYEItemDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617D5621C96180800101292 /* OYEItemDetailTableViewCell.xib */; };
+		6617D5671C961F4100101292 /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5661C961F4100101292 /* UIButton+Extensions.m */; };
+		6617D56B1C96224700101292 /* OYEItemLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5691C96224700101292 /* OYEItemLocationTableViewCell.m */; };
+		6617D56C1C96224700101292 /* OYEItemLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617D56A1C96224700101292 /* OYEItemLocationTableViewCell.xib */; };
+		6617D5701C9626EE00101292 /* OYEItemImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D56E1C9626EE00101292 /* OYEItemImageViewController.m */; };
+		6617D5711C9626EE00101292 /* OYEItemImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617D56F1C9626EE00101292 /* OYEItemImageViewController.xib */; };
+		6617D5741C96451600101292 /* OYEBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5731C96451600101292 /* OYEBaseTableViewCell.m */; };
+		6617D5761C96502D00101292 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6617D5751C96502D00101292 /* CoreLocation.framework */; };
+		6617D57A1C9A356700101292 /* OYEItemLocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5791C9A356700101292 /* OYEItemLocationAnnotation.m */; };
 		664128001C7ADD850028987B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 664127FF1C7ADD850028987B /* main.m */; };
 		664128031C7ADD850028987B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128021C7ADD850028987B /* AppDelegate.m */; };
 		6641280C1C7ADD860028987B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6641280A1C7ADD860028987B /* Main.storyboard */; };
@@ -95,6 +105,22 @@
 		6617D5541C9525CC00101292 /* OYEProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEProfileViewController.m; path = Source/ViewControllers/OYEProfileViewController.m; sourceTree = "<group>"; };
 		6617D5561C9525F300101292 /* OYEItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItem.h; path = Source/Models/OYEItem.h; sourceTree = "<group>"; };
 		6617D5571C9525F300101292 /* OYEItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItem.m; path = Source/Models/OYEItem.m; sourceTree = "<group>"; };
+		6617D5601C96180800101292 /* OYEItemDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItemDetailTableViewCell.h; path = Source/Views/OYEItemDetailTableViewCell.h; sourceTree = "<group>"; };
+		6617D5611C96180800101292 /* OYEItemDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemDetailTableViewCell.m; path = Source/Views/OYEItemDetailTableViewCell.m; sourceTree = "<group>"; };
+		6617D5621C96180800101292 /* OYEItemDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEItemDetailTableViewCell.xib; path = Source/Views/OYEItemDetailTableViewCell.xib; sourceTree = "<group>"; };
+		6617D5651C961F4100101292 /* UIButton+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Extensions.h"; path = "Source/Categories/UIButton+Extensions.h"; sourceTree = "<group>"; };
+		6617D5661C961F4100101292 /* UIButton+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Extensions.m"; path = "Source/Categories/UIButton+Extensions.m"; sourceTree = "<group>"; };
+		6617D5681C96224700101292 /* OYEItemLocationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItemLocationTableViewCell.h; path = Source/Views/OYEItemLocationTableViewCell.h; sourceTree = "<group>"; };
+		6617D5691C96224700101292 /* OYEItemLocationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemLocationTableViewCell.m; path = Source/Views/OYEItemLocationTableViewCell.m; sourceTree = "<group>"; };
+		6617D56A1C96224700101292 /* OYEItemLocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEItemLocationTableViewCell.xib; path = Source/Views/OYEItemLocationTableViewCell.xib; sourceTree = "<group>"; };
+		6617D56D1C9626EE00101292 /* OYEItemImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItemImageViewController.h; path = Source/ViewControllers/OYEItemImageViewController.h; sourceTree = "<group>"; };
+		6617D56E1C9626EE00101292 /* OYEItemImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemImageViewController.m; path = Source/ViewControllers/OYEItemImageViewController.m; sourceTree = "<group>"; };
+		6617D56F1C9626EE00101292 /* OYEItemImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEItemImageViewController.xib; path = Source/ViewControllers/OYEItemImageViewController.xib; sourceTree = "<group>"; };
+		6617D5721C96451600101292 /* OYEBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEBaseTableViewCell.h; path = Source/Views/OYEBaseTableViewCell.h; sourceTree = "<group>"; };
+		6617D5731C96451600101292 /* OYEBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEBaseTableViewCell.m; path = Source/Views/OYEBaseTableViewCell.m; sourceTree = "<group>"; };
+		6617D5751C96502D00101292 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6617D5781C9A356700101292 /* OYEItemLocationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItemLocationAnnotation.h; path = Source/Other/OYEItemLocationAnnotation.h; sourceTree = "<group>"; };
+		6617D5791C9A356700101292 /* OYEItemLocationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemLocationAnnotation.m; path = Source/Other/OYEItemLocationAnnotation.m; sourceTree = "<group>"; };
 		664127FB1C7ADD850028987B /* Oye5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oye5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		664127FF1C7ADD850028987B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		664128011C7ADD850028987B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -141,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6617D5761C96502D00101292 /* CoreLocation.framework in Frameworks */,
 				664128D51C83AC000028987B /* CocoaLumberjack.framework in Frameworks */,
 				664128671C82E4EC0028987B /* AFNetworking.framework in Frameworks */,
 			);
@@ -163,9 +190,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6617D5771C9A352500101292 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				6617D5501C9525A500101292 /* OYELogFormatter.h */,
+				6617D5511C9525A500101292 /* OYELogFormatter.m */,
+				6617D5781C9A356700101292 /* OYEItemLocationAnnotation.h */,
+				6617D5791C9A356700101292 /* OYEItemLocationAnnotation.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		664127F21C7ADD850028987B = {
 			isa = PBXGroup;
 			children = (
+				6617D5751C96502D00101292 /* CoreLocation.framework */,
 				664128D41C83AC000028987B /* CocoaLumberjack.framework */,
 				664128661C82E4EC0028987B /* AFNetworking.framework */,
 				664127FD1C7ADD850028987B /* Oye5 */,
@@ -292,9 +331,8 @@
 				664128681C83804F0028987B /* View Controllers */,
 				6641285E1C82C02C0028987B /* Views */,
 				6641285F1C82C0370028987B /* Extensions */,
-				6617D5501C9525A500101292 /* OYELogFormatter.h */,
-				6617D5511C9525A500101292 /* OYELogFormatter.m */,
 				664128551C824D6E0028987B /* Models */,
+				6617D5771C9A352500101292 /* Other */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -311,9 +349,17 @@
 		6641285E1C82C02C0028987B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6617D5721C96451600101292 /* OYEBaseTableViewCell.h */,
+				6617D5731C96451600101292 /* OYEBaseTableViewCell.m */,
 				6617D5451C95257E00101292 /* OYEItemCollectionViewCell.h */,
 				6617D5461C95257E00101292 /* OYEItemCollectionViewCell.m */,
 				6617D5471C95257E00101292 /* OYEItemCollectionViewCell.xib */,
+				6617D5601C96180800101292 /* OYEItemDetailTableViewCell.h */,
+				6617D5611C96180800101292 /* OYEItemDetailTableViewCell.m */,
+				6617D5621C96180800101292 /* OYEItemDetailTableViewCell.xib */,
+				6617D5681C96224700101292 /* OYEItemLocationTableViewCell.h */,
+				6617D5691C96224700101292 /* OYEItemLocationTableViewCell.m */,
+				6617D56A1C96224700101292 /* OYEItemLocationTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -325,6 +371,8 @@
 				6617D54B1C95259400101292 /* UIColor+Extensions.m */,
 				6617D54C1C95259400101292 /* UIFont+Extensions.h */,
 				6617D54D1C95259400101292 /* UIFont+Extensions.m */,
+				6617D5651C961F4100101292 /* UIButton+Extensions.h */,
+				6617D5661C961F4100101292 /* UIButton+Extensions.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -335,6 +383,9 @@
 				6617D5401C95256900101292 /* OYEItemViewController.h */,
 				6617D5411C95256900101292 /* OYEItemViewController.m */,
 				6617D5421C95256900101292 /* OYEItemViewController.xib */,
+				6617D56D1C9626EE00101292 /* OYEItemImageViewController.h */,
+				6617D56E1C9626EE00101292 /* OYEItemImageViewController.m */,
+				6617D56F1C9626EE00101292 /* OYEItemImageViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -473,6 +524,7 @@
 			files = (
 				664128FA1C83C14C0028987B /* SF-UI-Display-Light.otf in Resources */,
 				6617D5441C95256900101292 /* OYEItemViewController.xib in Resources */,
+				6617D56C1C96224700101292 /* OYEItemLocationTableViewCell.xib in Resources */,
 				664128F61C83C14C0028987B /* License Agreement for SF UI Font.pdf in Resources */,
 				664129081C83C14C0028987B /* SF-UI-Text-Regular.otf in Resources */,
 				664128FC1C83C14C0028987B /* SF-UI-Display-Regular.otf in Resources */,
@@ -487,6 +539,7 @@
 				6641290B1C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				664129061C83C14C0028987B /* SF-UI-Text-Medium.otf in Resources */,
 				664129041C83C14C0028987B /* SF-UI-Text-Light.otf in Resources */,
+				6617D5711C9626EE00101292 /* OYEItemImageViewController.xib in Resources */,
 				664128F91C83C14C0028987B /* SF-UI-Display-Heavy.otf in Resources */,
 				664129011C83C14C0028987B /* SF-UI-Text-BoldItalic.otf in Resources */,
 				664128FE1C83C14C0028987B /* SF-UI-Display-Thin.otf in Resources */,
@@ -498,6 +551,7 @@
 				664129091C83C14C0028987B /* SF-UI-Text-RegularItalic.otf in Resources */,
 				664129051C83C14C0028987B /* SF-UI-Text-LightItalic.otf in Resources */,
 				664128F71C83C14C0028987B /* SF-UI-Display-Black.otf in Resources */,
+				6617D5641C96180800101292 /* OYEItemDetailTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,16 +576,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6617D5741C96451600101292 /* OYEBaseTableViewCell.m in Sources */,
 				664128031C7ADD850028987B /* AppDelegate.m in Sources */,
+				6617D56B1C96224700101292 /* OYEItemLocationTableViewCell.m in Sources */,
 				6617D5431C95256900101292 /* OYEItemViewController.m in Sources */,
 				6617D53F1C95255600101292 /* OYEChatsViewController.m in Sources */,
+				6617D5701C9626EE00101292 /* OYEItemImageViewController.m in Sources */,
 				6617D5361C95252200101292 /* OYEHomeCollectionViewController.m in Sources */,
 				6617D5551C9525CC00101292 /* OYEProfileViewController.m in Sources */,
 				6617D5581C9525F300101292 /* OYEItem.m in Sources */,
 				6617D5521C9525A500101292 /* OYELogFormatter.m in Sources */,
+				6617D57A1C9A356700101292 /* OYEItemLocationAnnotation.m in Sources */,
 				664128001C7ADD850028987B /* main.m in Sources */,
 				6617D53C1C95254100101292 /* OYESellViewController.m in Sources */,
 				6617D5391C95253400101292 /* OYESearchViewController.m in Sources */,
+				6617D5671C961F4100101292 /* UIButton+Extensions.m in Sources */,
+				6617D5631C96180800101292 /* OYEItemDetailTableViewCell.m in Sources */,
 				6617D5481C95257E00101292 /* OYEItemCollectionViewCell.m in Sources */,
 				6617D54F1C95259400101292 /* UIFont+Extensions.m in Sources */,
 				6617D54E1C95259400101292 /* UIColor+Extensions.m in Sources */,

@@ -8,20 +8,33 @@
 
 #import "OYEItemViewController.h"
 #import "OYEItem.h"
+#import "OYEItemDetailTableViewCell.h"
+#import "OYEItemLocationTableViewCell.h"
 
 #import "UIColor+Extensions.h"
 #import "UIFont+Extensions.h"
+#import "UIButton+Extensions.h"
 
-@interface OYEItemViewController ()
+typedef NS_ENUM(NSUInteger, OYEItemTableViewRowType) {
+    OYEItemTableViewRowTypeDetail,
+    OYEItemTableViewRowTypeLocation,
+    OYEItemTableViewRowTypeShare,
+    OYEItemTableViewRowTypeReport,
+    OYEItemTableViewRowTypeCount
+};
+
+static NSString * const OYEItemTableViewCellIdentfierDetail = @"OYEItemDetailTableViewCell";
+static NSString * const OYEItemTableViewCellIdentfierLocation = @"OYEItemLocationTableViewCell";
+static NSString * const OYEItemTableViewCellIdentfierShare = @"OYEItemShareTableViewCell";
+static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTableViewCell";
+
+@interface OYEItemViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) OYEItem *item;
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UIView *firstLineView;
-@property (weak, nonatomic) IBOutlet UIView *secondLineView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *questionButton;
+@property (weak, nonatomic) IBOutlet UIButton *offerButton;
 
 @end
 
@@ -42,64 +55,99 @@
 #pragma mark - Private
 
 - (void)setupUI {
-    [self setupImageView];
-    [self setupPriceLabel];
-    [self setupDescriptionTitleLabel];
-    [self setupDescriptionLabel];
-    [self setupLineView:self.firstLineView];
-    [self setupLineView:self.secondLineView];
+    self.tableView.backgroundColor = [UIColor greenColor];
     
-    if (self.item) {
-        [self setupWithItem];
+    [self setupTableView];
+    [self setupQuestionButton];
+    [self setupOfferButton];
+}
+
+- (void)setupTableView {
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemDetailTableViewCell class]) bundle:nil] forCellReuseIdentifier:OYEItemTableViewCellIdentfierDetail];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemLocationTableViewCell class]) bundle:nil] forCellReuseIdentifier:OYEItemTableViewCellIdentfierLocation];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OYEItemTableViewCellIdentfierShare];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OYEItemTableViewCellIdentfierReport];
+}
+
+- (void)setupQuestionButton {
+    [self.questionButton setTitle:NSLocalizedString(@"Ask a Question", nil) forState:UIControlStateNormal];
+    [self.questionButton setupAsSecondaryButton];
+}
+
+- (void)setupOfferButton {
+    [self.offerButton setTitle:NSLocalizedString(@"Make an Offer", nil) forState:UIControlStateNormal];
+    [self.offerButton setupAsPrimaryButton];
+}
+
+- (UITableViewCell *)detailCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+    OYEItemDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierDetail forIndexPath:indexPath];
+    
+    cell.item = self.item;
+    
+    return cell;
+}
+
+- (UITableViewCell *)locationCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+    OYEItemLocationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierLocation forIndexPath:indexPath];
+    
+    cell.item = self.item;
+    
+    return cell;
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return OYEItemTableViewRowTypeCount;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case OYEItemTableViewRowTypeDetail:
+            return [self detailCellInTableView:tableView atIndexPath:indexPath];
+        case OYEItemTableViewRowTypeLocation:
+            return [self locationCellInTableView:tableView atIndexPath:indexPath];
+        case OYEItemTableViewRowTypeShare:
+            return [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierShare forIndexPath:indexPath];
+        case OYEItemTableViewRowTypeReport:
+            return [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierReport forIndexPath:indexPath];
+    }
+    
+    // It shouldn't reach this
+    DDLogError(@"Undefined row");
+    
+    return [UITableViewCell new];
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *heightInformation = @{OYETableViewCellHeightItemKey:self.item, OYETableViewCellHeightWidthKey:@(CGRectGetWidth(self.tableView.frame))};
+    
+    switch (indexPath.row) {
+        case OYEItemTableViewRowTypeDetail:
+            return [OYEItemDetailTableViewCell cellHeight:heightInformation];
+        case OYEItemTableViewRowTypeLocation:
+            return [OYEItemLocationTableViewCell cellHeight:heightInformation];
+        default:
+            return 44;
     }
 }
 
-- (void)setupImageView {
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.imageView.backgroundColor = [UIColor oyeBackgroundColor];
+- (IBAction)didSelectQuestionButton:(id)sender {
 }
 
-- (void)setupPriceLabel {
-    self.priceLabel.font = [UIFont boldOyeFontOfSize:16];
-    self.priceLabel.textColor = [UIColor oyeLightTextColor];
-}
-
-- (void)setupDescriptionTitleLabel {
-    self.descriptionTitleLabel.font = [UIFont oyeFontOfSize:12];
-    self.descriptionTitleLabel.textColor = [UIColor oyeMediumTextColor];
-}
-
-- (void)setupDescriptionLabel {
-    self.descriptionLabel.font = [UIFont oyeFontOfSize:14];
-    self.descriptionLabel.textColor = [UIColor oyeDarkTextColor];
-}
-
-- (void)setupLineView:(UIView *)lineView {
-    lineView.backgroundColor = [UIColor oyeLineSeparatorColor];
-}
-
-- (void)setupWithItem {
-    self.imageView.image = self.item.image;
-    self.priceLabel.text = [self.item priceString];
-    self.descriptionLabel.text = self.item.itemDescription;
-}
-
-#pragma mark - Override
-
-- (void)setItem:(OYEItem *)item {
-    _item = item;
-    
-    [self setupWithItem];
+- (IBAction)didSelectOfferButton:(id)sender {
 }
 
 /*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

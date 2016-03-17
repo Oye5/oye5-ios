@@ -13,11 +13,16 @@
 
 @interface OYEItem : NSObject
 
+@property (nonatomic, strong) NSString *itemTitle;
 @property (nonatomic, strong) NSString *itemDescription;
-@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSArray<NSString *> *images;
 @property (nonatomic, strong) NSString *currencyCode;
 @property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, strong) NSString *city;
+@property (nonatomic, strong) NSString *state;
+@property (nonatomic, strong) NSString *country;
+@property (nonatomic, strong) NSString *postalCode;
 
 - (NSString *)priceString;
 

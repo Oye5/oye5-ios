@@ -6,6 +6,8 @@
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
+@import AFNetworking;
+
 #import "AppDelegate.h"
 #import "OYELogFormatter.h"
 
@@ -56,6 +58,10 @@
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     
     DDLogDebug(@"*");
+}
+
+- (void)setupAFNetworking {
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
 @end
