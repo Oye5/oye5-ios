@@ -7,7 +7,6 @@
 //
 
 #import "OYEModelManager.h"
-#import "Motis.h"
 
 @implementation OYEModelManager
 

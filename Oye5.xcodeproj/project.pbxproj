@@ -39,8 +39,6 @@
 		664128111C7ADD860028987B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6641280F1C7ADD860028987B /* LaunchScreen.storyboard */; };
 		6641281C1C7ADD860028987B /* Oye5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6641281B1C7ADD860028987B /* Oye5Tests.m */; };
 		664128271C7ADD860028987B /* Oye5UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128261C7ADD860028987B /* Oye5UITests.m */; };
-		664128671C82E4EC0028987B /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664128661C82E4EC0028987B /* AFNetworking.framework */; };
-		664128D51C83AC000028987B /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664128D41C83AC000028987B /* CocoaLumberjack.framework */; };
 		664128F61C83C14C0028987B /* License Agreement for SF UI Font.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E01C83C14C0028987B /* License Agreement for SF UI Font.pdf */; };
 		664128F71C83C14C0028987B /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E11C83C14C0028987B /* SF-UI-Display-Black.otf */; };
 		664128F81C83C14C0028987B /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128E21C83C14C0028987B /* SF-UI-Display-Bold.otf */; };
@@ -63,6 +61,8 @@
 		664129091C83C14C0028987B /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128F31C83C14C0028987B /* SF-UI-Text-RegularItalic.otf */; };
 		6641290A1C83C14C0028987B /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128F41C83C14C0028987B /* SF-UI-Text-Semibold.otf */; };
 		6641290B1C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128F51C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf */; };
+		666241421CA0FD3B003C9C06 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666241401CA0FD3B003C9C06 /* AFNetworking.framework */; };
+		666241431CA0FD3B003C9C06 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666241411CA0FD3B003C9C06 /* CocoaLumberjack.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,8 +141,6 @@
 		664128221C7ADD860028987B /* Oye5UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Oye5UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		664128261C7ADD860028987B /* Oye5UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Oye5UITests.m; sourceTree = "<group>"; };
 		664128281C7ADD860028987B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		664128661C82E4EC0028987B /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../AFNetworking/build/Debug-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
-		664128D41C83AC000028987B /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = "../CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjack.framework"; sourceTree = "<group>"; };
 		664128D61C83AC4D0028987B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		664128E01C83C14C0028987B /* License Agreement for SF UI Font.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "License Agreement for SF UI Font.pdf"; path = "Fonts/SF-UI/License Agreement for SF UI Font.pdf"; sourceTree = "<group>"; };
 		664128E11C83C14C0028987B /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Black.otf"; path = "Fonts/SF-UI/SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
@@ -166,6 +164,8 @@
 		664128F31C83C14C0028987B /* SF-UI-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-RegularItalic.otf"; path = "Fonts/SF-UI/SF-UI-Text-RegularItalic.otf"; sourceTree = "<group>"; };
 		664128F41C83C14C0028987B /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Semibold.otf"; path = "Fonts/SF-UI/SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		664128F51C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-SemiboldItalic.otf"; path = "Fonts/SF-UI/SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		666241401CA0FD3B003C9C06 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Oye5/ThirdParty/AFNetworking/build/Debug-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
+		666241411CA0FD3B003C9C06 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = "Oye5/ThirdParty/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjack.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,9 +173,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666241421CA0FD3B003C9C06 /* AFNetworking.framework in Frameworks */,
+				666241431CA0FD3B003C9C06 /* CocoaLumberjack.framework in Frameworks */,
 				6617D5761C96502D00101292 /* CoreLocation.framework in Frameworks */,
-				664128D51C83AC000028987B /* CocoaLumberjack.framework in Frameworks */,
-				664128671C82E4EC0028987B /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,9 +222,9 @@
 		6617D58D1C9DE71D00101292 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				666241401CA0FD3B003C9C06 /* AFNetworking.framework */,
+				666241411CA0FD3B003C9C06 /* CocoaLumberjack.framework */,
 				6617D5751C96502D00101292 /* CoreLocation.framework */,
-				664128D41C83AC000028987B /* CocoaLumberjack.framework */,
-				664128661C82E4EC0028987B /* AFNetworking.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -772,6 +772,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Oye5/ThirdParty/AFNetworking/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Oye5/ThirdParty/CocoaLumberjack/build/Debug-iphoneos",
+				);
 				GCC_PREFIX_HEADER = Oye5/PrefixHeader.pch;
 				INFOPLIST_FILE = Oye5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -784,6 +789,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Oye5/ThirdParty/AFNetworking/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Oye5/ThirdParty/CocoaLumberjack/build/Debug-iphoneos",
+				);
 				GCC_PREFIX_HEADER = Oye5/PrefixHeader.pch;
 				INFOPLIST_FILE = Oye5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

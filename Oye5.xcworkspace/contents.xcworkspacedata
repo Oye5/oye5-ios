@@ -5,9 +5,9 @@
       location = "group:Oye5.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../AFNetworking/AFNetworking.xcodeproj">
+      location = "group:Oye5/ThirdParty/AFNetworking/AFNetworking.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../CocoaLumberjack/Lumberjack.xcodeproj">
+      location = "group:Oye5/ThirdParty/CocoaLumberjack/Lumberjack.xcodeproj">
    </FileRef>
 </Workspace>
