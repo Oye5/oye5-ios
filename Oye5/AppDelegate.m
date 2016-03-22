@@ -62,6 +62,7 @@
 
 - (void)setupAFNetworking {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
 
 @end
