@@ -8,6 +8,10 @@
 
 #import "OYEModelManager.h"
 
+@class OYEItem;
+
 @interface OYEItemManager : OYEModelManager
+
++ (NSArray<OYEItem *> *)getItems;
 
 @end

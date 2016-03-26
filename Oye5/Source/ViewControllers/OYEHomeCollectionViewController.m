@@ -12,54 +12,19 @@
 #import "OYEItemCollectionViewCell.h"
 #import "OYEItem.h"
 #import "OYEItemViewController.h"
+#import "OYEItemManager.h"
 
 #import "UIColor+Extensions.h"
 
 @interface OYEHomeCollectionViewController ()
+
+@property (nonatomic, strong) NSArray<OYEItem *> *items;
 
 @end
 
 @implementation OYEHomeCollectionViewController
 
 static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
-
-- (NSArray<OYEItem *> *)items
-{
-    static NSArray<OYEItem *> *items;
-    
-    if (!items) {
-        NSMutableArray<OYEItem *> *mutableItems = [NSMutableArray array];
-        for (NSInteger i = 0; i < 100; i++) {
-            OYEItem *anItem = [OYEItem new];
-            anItem.itemTitle = [NSString stringWithFormat:@"Title %ld", (long)i];
-            anItem.itemDescription = [NSString stringWithFormat:@"Item %ld is new.", (long)i];
-            NSMutableArray *images = [NSMutableArray array];
-            for (NSInteger i = 0; i < 12; i++) {
-                [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"image-%ld", (long)i]]];
-            }
-            anItem.images = @[@"http://moviecitynews.com/wp-content/uploads/2015/06/inside-out-651.jpg",
-                              @"https://cdn.amctheatres.com/titles/images/Poster/Large/2472_io-superticket-1sht-comp24a_B756.jpg",
-                              @"https://cdn.amctheatres.com/Media/Default/images/Inside-Out-Meet-your-emotions-2.png",
-                              @"https://cdn.amctheatres.com/Media/Default/images/insideout.jpg",
-                              @"https://cdn.amctheatres.com/Media/Default/images/Inside%20Out.jpg",
-                              @"https://cdn.amctheatres.com/titles/images/Hero/HeroLarge/2591_movie-featured-insideout-104_D7EA.jpg"];
-            anItem.currencyCode = @"INR";
-            anItem.price = @(i);
-            
-            anItem.city = @"Mumbai";
-            anItem.state = @"Maharashtra";
-            anItem.country = @"India";
-            anItem.postalCode = @"12345";
-            anItem.location = [[CLLocation alloc] initWithLatitude:18.9750 longitude:72.8258];
-            
-            [mutableItems addObject:anItem];
-        }
-        
-        items = mutableItems;
-    }
-    
-    return items;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -72,6 +37,8 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     
     // Do any additional setup after loading the view.
     self.collectionView.backgroundColor = [UIColor oyeBackgroundColor];
+    
+    self.items = [OYEItemManager getItems];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,7 +58,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 
 - (void)configureCell:(OYEItemCollectionViewCell *)cell forIndexPath:(NSIndexPath *)indexPath
 {
-    OYEItem *item = [self items][indexPath.row];
+    OYEItem *item = self.items[indexPath.row];
     
     cell.item = item;
     
@@ -106,7 +73,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self items].count;
+    return self.items.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,7 +89,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     OYEItemViewController *viewController = [OYEItemViewController new];
-    viewController.item = [self items][indexPath.row];
+    viewController.item = self.items[indexPath.row];
     
     [self.navigationController pushViewController:viewController animated:YES];
 }

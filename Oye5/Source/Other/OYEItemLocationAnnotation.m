@@ -10,6 +10,7 @@
 
 #import "OYEItemLocationAnnotation.h"
 #import "OYEItem.h"
+#import "OYELocation.h"
 
 @interface OYEItemLocationAnnotation ()
 
@@ -38,7 +39,7 @@
 }
 
 - (NSString *)subtitle {
-    return [NSString stringWithFormat:@"%@, %@, %@, %@", self.item.city, self.item.state, self.item.country, self.item.postalCode];
+    return [NSString stringWithFormat:@"%@, %@, %@, %@", self.item.location.city, self.item.location.state, self.item.location.country, self.item.location.postalCode];
 }
 
 @end

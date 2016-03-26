@@ -8,21 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@class UIImage;
-@class CLLocation;
+#import "MTSMotisObject.h"
 
-@interface OYEItem : NSObject
+@class OYELocation;
+
+@interface OYEItem : MTSMotisObject
 
 @property (nonatomic, strong) NSString *itemTitle;
 @property (nonatomic, strong) NSString *itemDescription;
 @property (nonatomic, strong) NSArray<NSString *> *images;
 @property (nonatomic, strong) NSString *currencyCode;
 @property (nonatomic, strong) NSNumber *price;
-@property (nonatomic, strong) CLLocation *location;
-@property (nonatomic, strong) NSString *city;
-@property (nonatomic, strong) NSString *state;
-@property (nonatomic, strong) NSString *country;
-@property (nonatomic, strong) NSString *postalCode;
+@property (nonatomic, strong) OYELocation *location;
 
 - (NSString *)priceString;
 

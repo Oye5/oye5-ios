@@ -63,6 +63,9 @@
 		6641290B1C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 664128F51C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf */; };
 		666241421CA0FD3B003C9C06 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666241401CA0FD3B003C9C06 /* AFNetworking.framework */; };
 		666241431CA0FD3B003C9C06 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666241411CA0FD3B003C9C06 /* CocoaLumberjack.framework */; };
+		6662414C1CA63A61003C9C06 /* MTSMotisObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 666241491CA63A61003C9C06 /* MTSMotisObject.m */; };
+		6662414D1CA63A61003C9C06 /* NSObject+Motis.m in Sources */ = {isa = PBXBuildFile; fileRef = 6662414B1CA63A61003C9C06 /* NSObject+Motis.m */; };
+		666241531CA647F1003C9C06 /* OYELocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 666241521CA647F1003C9C06 /* OYELocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +169,13 @@
 		664128F51C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-SemiboldItalic.otf"; path = "Fonts/SF-UI/SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		666241401CA0FD3B003C9C06 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Oye5/ThirdParty/AFNetworking/build/Debug-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
 		666241411CA0FD3B003C9C06 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = "Oye5/ThirdParty/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjack.framework"; sourceTree = "<group>"; };
+		666241471CA63A61003C9C06 /* Motis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Motis.h; path = Oye5/ThirdParty/Motis/Motis.h; sourceTree = "<group>"; };
+		666241481CA63A61003C9C06 /* MTSMotisObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTSMotisObject.h; path = Oye5/ThirdParty/Motis/MTSMotisObject.h; sourceTree = "<group>"; };
+		666241491CA63A61003C9C06 /* MTSMotisObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTSMotisObject.m; path = Oye5/ThirdParty/Motis/MTSMotisObject.m; sourceTree = "<group>"; };
+		6662414A1CA63A61003C9C06 /* NSObject+Motis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Motis.h"; path = "Oye5/ThirdParty/Motis/NSObject+Motis.h"; sourceTree = "<group>"; };
+		6662414B1CA63A61003C9C06 /* NSObject+Motis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Motis.m"; path = "Oye5/ThirdParty/Motis/NSObject+Motis.m"; sourceTree = "<group>"; };
+		666241511CA647F1003C9C06 /* OYELocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYELocation.h; path = Source/Models/OYELocation.h; sourceTree = "<group>"; };
+		666241521CA647F1003C9C06 /* OYELocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYELocation.m; path = Source/Models/OYELocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +380,8 @@
 			children = (
 				6617D5561C9525F300101292 /* OYEItem.h */,
 				6617D5571C9525F300101292 /* OYEItem.m */,
+				666241511CA647F1003C9C06 /* OYELocation.h */,
+				666241521CA647F1003C9C06 /* OYELocation.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -450,8 +462,21 @@
 		666240711C9F8557003C9C06 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				666241461CA63A38003C9C06 /* Motis */,
 			);
 			name = "3rd Party";
+			sourceTree = "<group>";
+		};
+		666241461CA63A38003C9C06 /* Motis */ = {
+			isa = PBXGroup;
+			children = (
+				666241471CA63A61003C9C06 /* Motis.h */,
+				666241481CA63A61003C9C06 /* MTSMotisObject.h */,
+				666241491CA63A61003C9C06 /* MTSMotisObject.m */,
+				6662414A1CA63A61003C9C06 /* NSObject+Motis.h */,
+				6662414B1CA63A61003C9C06 /* NSObject+Motis.m */,
+			);
+			name = Motis;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -613,9 +638,11 @@
 			files = (
 				6617D5741C96451600101292 /* OYEBaseTableViewCell.m in Sources */,
 				664128031C7ADD850028987B /* AppDelegate.m in Sources */,
+				6662414C1CA63A61003C9C06 /* MTSMotisObject.m in Sources */,
 				6617D56B1C96224700101292 /* OYEItemLocationTableViewCell.m in Sources */,
 				6617D5431C95256900101292 /* OYEItemViewController.m in Sources */,
 				6617D53F1C95255600101292 /* OYEChatsViewController.m in Sources */,
+				6662414D1CA63A61003C9C06 /* NSObject+Motis.m in Sources */,
 				6617D5701C9626EE00101292 /* OYEItemImageViewController.m in Sources */,
 				6617D5891C9DD78300101292 /* OYEItemManager.m in Sources */,
 				6617D5361C95252200101292 /* OYEHomeCollectionViewController.m in Sources */,
@@ -623,6 +650,7 @@
 				6617D5581C9525F300101292 /* OYEItem.m in Sources */,
 				6617D5521C9525A500101292 /* OYELogFormatter.m in Sources */,
 				6617D57A1C9A356700101292 /* OYEItemLocationAnnotation.m in Sources */,
+				666241531CA647F1003C9C06 /* OYELocation.m in Sources */,
 				664128001C7ADD850028987B /* main.m in Sources */,
 				6617D53C1C95254100101292 /* OYESellViewController.m in Sources */,
 				6617D5391C95253400101292 /* OYESearchViewController.m in Sources */,

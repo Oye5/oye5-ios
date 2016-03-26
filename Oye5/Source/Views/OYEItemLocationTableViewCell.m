@@ -11,6 +11,7 @@
 
 #import "OYEItemLocationTableViewCell.h"
 #import "OYEItem.h"
+#import "OYELocation.h"
 #import "OYEItemLocationAnnotation.h"
 
 #import "UIFont+Extensions.h"
@@ -82,12 +83,12 @@
 }
 
 - (void)setupWithItem {
-    self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.item.city, self.item.state];
+    self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.item.location.city, self.item.location.state];
     
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotation:[OYEItemLocationAnnotation annotationWithItem:self.item]];
     
-    [self.mapView setCenterCoordinate:self.item.location.coordinate animated:YES];
+    [self.mapView setCenterCoordinate:[self.item.location coordinate]];
 }
 
 #pragma mark - Public

@@ -7,8 +7,19 @@
 //
 
 #import "OYEItem.h"
+#import "NSObject+Motis.h"
 
 @implementation OYEItem
+
++ (NSDictionary*)mts_mapping {
+    return @{@"title":mts_key(itemTitle),
+             @"description":mts_key(itemDescription),
+             @"images":mts_key(images),
+             @"currencyCode":mts_key(currencyCode),
+             @"price":mts_key(price),
+             @"location":mts_key(location)
+             };
+}
 
 - (NSString *)priceString {
     static NSNumberFormatter *numberFormatter;
@@ -23,4 +34,5 @@
     return [NSString stringWithFormat:@"%@", [numberFormatter stringFromNumber:self.price]];
 
 }
+
 @end
