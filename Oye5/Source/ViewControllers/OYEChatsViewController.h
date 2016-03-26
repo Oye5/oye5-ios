@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OYEChatsViewController : UIViewController
+#import "OYELoggedInViewController.h"
+
+@interface OYEChatsViewController : OYELoggedInViewController
 
 @end

@@ -6,9 +6,6 @@
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-
 #import "OYEChatsViewController.h"
 #import "OYELoginViewController.h"
 
@@ -20,11 +17,9 @@ typedef NS_ENUM(NSUInteger, OYEChatsSectionType) {
     OYEChatsSectionTypeCount
 };
 
-@interface OYEChatsViewController () <UITableViewDataSource, UITableViewDelegate, OYELoginViewControllerDelegate>
+@interface OYEChatsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-@property (strong, nonatomic) OYELoginViewController *loginViewController;
 
 @end
 
@@ -37,12 +32,6 @@ typedef NS_ENUM(NSUInteger, OYEChatsSectionType) {
     [self setupTableView];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self setupLoginViewController];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -50,28 +39,6 @@ typedef NS_ENUM(NSUInteger, OYEChatsSectionType) {
 
 - (void)setupTableView {
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OYEChatsCellReuseIdentifier];
-}
-
-- (void)setupLoginViewController {
-    if (![FBSDKAccessToken currentAccessToken]) {
-        if (![self.navigationController.viewControllers containsObject:self.loginViewController]) {
-            [self.navigationController pushViewController:self.loginViewController animated:NO];
-        }
-    }
-    else if ([self.navigationController.viewControllers containsObject:self.loginViewController]) {
-        [self.navigationController popToRootViewControllerAnimated:NO];
-    }
-}
-
-#pragma mark - Override getters
-
-- (OYELoginViewController *)loginViewController {
-    if (!_loginViewController) {
-        _loginViewController = [OYELoginViewController new];
-        _loginViewController.delegate = self;
-    }
-    
-    return _loginViewController;
 }
 
 #pragma mark - UITableViewDataSource
@@ -119,22 +86,8 @@ typedef NS_ENUM(NSUInteger, OYEChatsSectionType) {
 
 #pragma mark - UITableViewDelegate
 
-#pragma mark - FBSDKLoginButtonDelegate
-
-- (void)loginButton:(FBSDKLoginButton *)loginButton
-didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
-              error:(NSError *)error {
-    [self setupLoginViewController];
-}
-
-- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-    [self setupLoginViewController];
-}
-
-#pragma mark - OYELoginViewControllerDelegate
-
-- (void)didLogInWithFacebookAccount {
-    [self setupLoginViewController];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 /*

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OYEProfileViewController : UIViewController
+#import "OYELoggedInViewController.h"
+
+@interface OYEProfileViewController : OYELoggedInViewController
 
 @end

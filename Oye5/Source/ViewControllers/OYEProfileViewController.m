@@ -6,28 +6,19 @@
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-
 #import "OYEProfileViewController.h"
-#import "OYELoginViewController.h"
 
 #import "UIColor+Extensions.h"
 #import "UIFont+Extensions.h"
 
 static NSString * const cellReuseIdentifier = @"cell";
 
-@interface OYEProfileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate, FBSDKLoginButtonDelegate, OYELoginViewControllerDelegate>
+@interface OYEProfileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIView *facebookButtonContainer;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookButtonContainerWidthConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookButtonContainerHeightConstraint;
-
-@property (strong, nonatomic) OYELoginViewController *loginViewController;
 
 @end
 
@@ -41,37 +32,11 @@ static NSString * const cellReuseIdentifier = @"cell";
     [self setupImageButton];
     [self setupNameLabel];
     [self setupTableView];
-    [self setupFacebookButton];
- }
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self setupLoginViewController];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupLoginViewController) name:FBSDKAccessTokenDidChangeNotification object:nil];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Override getters
-
-- (OYELoginViewController *)loginViewController {
-    if (!_loginViewController) {
-        _loginViewController = [OYELoginViewController new];
-        _loginViewController.delegate = self;
-    }
-    
-    return _loginViewController;
 }
 
 #pragma mark - Private
@@ -94,30 +59,6 @@ static NSString * const cellReuseIdentifier = @"cell";
 - (void)setupTableView {
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellReuseIdentifier];
 }
-
-- (void)setupFacebookButton {
-    FBSDKLoginButton *facebookButton = [FBSDKLoginButton new];
-    facebookButton.delegate = self;
-    facebookButton.origin = CGPointZero;
-    
-    self.facebookButtonContainerWidthConstraint.constant = facebookButton.width;
-    self.facebookButtonContainerHeightConstraint.constant = facebookButton.height;
-    
-    [self.facebookButtonContainer addSubview:facebookButton];
-    
-    self.facebookButtonContainer.backgroundColor = [UIColor yellowColor];
-}
-
-- (void)setupLoginViewController {
-    if (![FBSDKAccessToken currentAccessToken]) {
-        if (![self.navigationController.viewControllers containsObject:self.loginViewController]) {
-            [self.navigationController pushViewController:self.loginViewController animated:NO];
-        }
-    }
-    else if ([self.navigationController.viewControllers containsObject:self.loginViewController]) {
-            [self.navigationController popToRootViewControllerAnimated:NO];
-    }
- }
 
 - (void)deleteImage {
     self.imageView.image = nil;
@@ -213,24 +154,6 @@ static NSString * const cellReuseIdentifier = @"cell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-}
-
-#pragma mark - FBSDKLoginButtonDelegate
-
-- (void)loginButton:(FBSDKLoginButton *)loginButton
-didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
-              error:(NSError *)error {
-    [self setupLoginViewController];
-}
-
-- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-    [self setupLoginViewController];
-}
-
-#pragma mark - OYELoginViewControllerDelegate
-
-- (void)didLogInWithFacebookAccount {
-    [self setupLoginViewController];
 }
 
 /*
