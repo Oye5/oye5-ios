@@ -6,19 +6,28 @@
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 #import "OYEProfileViewController.h"
+#import "OYELoginViewController.h"
 
 #import "UIColor+Extensions.h"
 #import "UIFont+Extensions.h"
 
 static NSString * const cellReuseIdentifier = @"cell";
 
-@interface OYEProfileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface OYEProfileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate, FBSDKLoginButtonDelegate, OYELoginViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *facebookButtonContainer;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookButtonContainerWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookButtonContainerHeightConstraint;
+
+@property (strong, nonatomic) OYELoginViewController *loginViewController;
 
 @end
 
@@ -32,6 +41,21 @@ static NSString * const cellReuseIdentifier = @"cell";
     [self setupImageButton];
     [self setupNameLabel];
     [self setupTableView];
+    [self setupFacebookButton];
+ }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self setupLoginViewController];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupLoginViewController) name:FBSDKAccessTokenDidChangeNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,12 +63,23 @@ static NSString * const cellReuseIdentifier = @"cell";
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Override getters
+
+- (OYELoginViewController *)loginViewController {
+    if (!_loginViewController) {
+        _loginViewController = [OYELoginViewController new];
+        _loginViewController.delegate = self;
+    }
+    
+    return _loginViewController;
+}
+
 #pragma mark - Private
 
 - (void)setupImageView {
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.backgroundColor = [UIColor oyeBackgroundColor];
-    self.imageView.layer.cornerRadius = CGRectGetWidth(self.imageView.frame) / 2;
+    self.imageView.layer.cornerRadius = self.imageView.width / 2;
     self.imageView.layer.masksToBounds = YES;
 }
 
@@ -60,6 +95,30 @@ static NSString * const cellReuseIdentifier = @"cell";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellReuseIdentifier];
 }
 
+- (void)setupFacebookButton {
+    FBSDKLoginButton *facebookButton = [FBSDKLoginButton new];
+    facebookButton.delegate = self;
+    facebookButton.origin = CGPointZero;
+    
+    self.facebookButtonContainerWidthConstraint.constant = facebookButton.width;
+    self.facebookButtonContainerHeightConstraint.constant = facebookButton.height;
+    
+    [self.facebookButtonContainer addSubview:facebookButton];
+    
+    self.facebookButtonContainer.backgroundColor = [UIColor yellowColor];
+}
+
+- (void)setupLoginViewController {
+    if (![FBSDKAccessToken currentAccessToken]) {
+        if (![self.navigationController.viewControllers containsObject:self.loginViewController]) {
+            [self.navigationController pushViewController:self.loginViewController animated:NO];
+        }
+    }
+    else if ([self.navigationController.viewControllers containsObject:self.loginViewController]) {
+            [self.navigationController popToRootViewControllerAnimated:NO];
+    }
+ }
+
 - (void)deleteImage {
     self.imageView.image = nil;
 }
@@ -73,7 +132,7 @@ static NSString * const cellReuseIdentifier = @"cell";
         && (sourceType != UIImagePickerControllerSourceTypeCamera)) {
         controller.modalPresentationStyle = UIModalPresentationPopover;
         controller.popoverPresentationController.sourceView = self.imageView;
-        controller.popoverPresentationController.sourceRect = CGRectMake(CGRectGetWidth(self.imageView.frame) / 2.0, CGRectGetHeight(self.imageView.frame), 0, 0);
+        controller.popoverPresentationController.sourceRect = CGRectMake(self.imageView.width / 2.0, self.imageView.height, 0, 0);
     }
     
     [self presentViewController:controller animated:YES completion:nil];
@@ -119,7 +178,7 @@ static NSString * const cellReuseIdentifier = @"cell";
 
         UIButton *button = sender;
         alert.popoverPresentationController.sourceView = button;
-        alert.popoverPresentationController.sourceRect = CGRectMake(CGRectGetWidth(button.frame) / 2.0, CGRectGetHeight(button.frame), 0, 0);
+        alert.popoverPresentationController.sourceRect = CGRectMake(button.width / 2.0, button.height, 0, 0);
         
         [self presentViewController:alert animated:YES completion:nil];
     }
@@ -154,6 +213,24 @@ static NSString * const cellReuseIdentifier = @"cell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+#pragma mark - FBSDKLoginButtonDelegate
+
+- (void)loginButton:(FBSDKLoginButton *)loginButton
+didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
+              error:(NSError *)error {
+    [self setupLoginViewController];
+}
+
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
+    [self setupLoginViewController];
+}
+
+#pragma mark - OYELoginViewControllerDelegate
+
+- (void)didLogInWithFacebookAccount {
+    [self setupLoginViewController];
 }
 
 /*

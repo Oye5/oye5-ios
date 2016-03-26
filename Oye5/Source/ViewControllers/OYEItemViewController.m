@@ -122,7 +122,7 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *heightInformation = @{OYETableViewCellHeightItemKey:self.item, OYETableViewCellHeightWidthKey:@(CGRectGetWidth(self.tableView.frame))};
+    NSDictionary *heightInformation = @{OYETableViewCellHeightItemKey:self.item, OYETableViewCellHeightWidthKey:@(self.tableView.width)};
     
     switch (indexPath.row) {
         case OYEItemTableViewRowTypeDetail:

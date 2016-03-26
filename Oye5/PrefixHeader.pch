@@ -16,4 +16,6 @@
 
 static DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
+#import "UIView+Extensions.h"
+
 #endif /* PrefixHeader_pch */

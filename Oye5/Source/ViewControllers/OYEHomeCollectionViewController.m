@@ -131,7 +131,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 {
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)collectionViewLayout;
     
-    CGSize cellSize = CGSizeMake((CGRectGetWidth(self.view.frame) - flowLayout.minimumInteritemSpacing) / 2, 100);
+    CGSize cellSize = CGSizeMake((self.view.width - flowLayout.minimumInteritemSpacing) / 2, 100);
     
     return cellSize;
 }

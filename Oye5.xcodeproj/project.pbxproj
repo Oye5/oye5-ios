@@ -66,6 +66,13 @@
 		6662414C1CA63A61003C9C06 /* MTSMotisObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 666241491CA63A61003C9C06 /* MTSMotisObject.m */; };
 		6662414D1CA63A61003C9C06 /* NSObject+Motis.m in Sources */ = {isa = PBXBuildFile; fileRef = 6662414B1CA63A61003C9C06 /* NSObject+Motis.m */; };
 		666241531CA647F1003C9C06 /* OYELocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 666241521CA647F1003C9C06 /* OYELocation.m */; };
+		666241551CA6FE17003C9C06 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666241541CA6FE17003C9C06 /* FBSDKLoginKit.framework */; };
+		666241571CA6FE52003C9C06 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666241561CA6FE52003C9C06 /* FBSDKCoreKit.framework */; };
+		6662415B1CA6FFDC003C9C06 /* OYELoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666241591CA6FFDC003C9C06 /* OYELoginViewController.m */; };
+		6662415C1CA6FFDC003C9C06 /* OYELoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6662415A1CA6FFDC003C9C06 /* OYELoginViewController.xib */; };
+		6662415F1CA70BEB003C9C06 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6662415E1CA70BEB003C9C06 /* UIView+Extensions.m */; };
+		666241611CA72382003C9C06 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666241601CA72382003C9C06 /* FBSDKMessengerShareKit.framework */; };
+		666241631CA7238F003C9C06 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666241621CA7238F003C9C06 /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +183,15 @@
 		6662414B1CA63A61003C9C06 /* NSObject+Motis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Motis.m"; path = "Oye5/ThirdParty/Motis/NSObject+Motis.m"; sourceTree = "<group>"; };
 		666241511CA647F1003C9C06 /* OYELocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYELocation.h; path = Source/Models/OYELocation.h; sourceTree = "<group>"; };
 		666241521CA647F1003C9C06 /* OYELocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYELocation.m; path = Source/Models/OYELocation.m; sourceTree = "<group>"; };
+		666241541CA6FE17003C9C06 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Oye5/ThirdParty/Facebook/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		666241561CA6FE52003C9C06 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Oye5/ThirdParty/Facebook/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		666241581CA6FFDC003C9C06 /* OYELoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYELoginViewController.h; path = Source/ViewControllers/OYELoginViewController.h; sourceTree = "<group>"; };
+		666241591CA6FFDC003C9C06 /* OYELoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYELoginViewController.m; path = Source/ViewControllers/OYELoginViewController.m; sourceTree = "<group>"; };
+		6662415A1CA6FFDC003C9C06 /* OYELoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYELoginViewController.xib; path = Source/ViewControllers/OYELoginViewController.xib; sourceTree = "<group>"; };
+		6662415D1CA70BEB003C9C06 /* UIView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Extensions.h"; path = "Source/Categories/UIView+Extensions.h"; sourceTree = "<group>"; };
+		6662415E1CA70BEB003C9C06 /* UIView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Extensions.m"; path = "Source/Categories/UIView+Extensions.m"; sourceTree = "<group>"; };
+		666241601CA72382003C9C06 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = Oye5/ThirdParty/Facebook/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		666241621CA7238F003C9C06 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Oye5/ThirdParty/Facebook/FBSDKShareKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,8 +199,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666241571CA6FE52003C9C06 /* FBSDKCoreKit.framework in Frameworks */,
 				666241421CA0FD3B003C9C06 /* AFNetworking.framework in Frameworks */,
 				666241431CA0FD3B003C9C06 /* CocoaLumberjack.framework in Frameworks */,
+				666241631CA7238F003C9C06 /* FBSDKShareKit.framework in Frameworks */,
+				666241551CA6FE17003C9C06 /* FBSDKLoginKit.framework in Frameworks */,
+				666241611CA72382003C9C06 /* FBSDKMessengerShareKit.framework in Frameworks */,
 				6617D5761C96502D00101292 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +254,10 @@
 			children = (
 				666241401CA0FD3B003C9C06 /* AFNetworking.framework */,
 				666241411CA0FD3B003C9C06 /* CocoaLumberjack.framework */,
+				666241561CA6FE52003C9C06 /* FBSDKCoreKit.framework */,
+				666241541CA6FE17003C9C06 /* FBSDKLoginKit.framework */,
+				666241601CA72382003C9C06 /* FBSDKMessengerShareKit.framework */,
+				666241621CA7238F003C9C06 /* FBSDKShareKit.framework */,
 				6617D5751C96502D00101292 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
@@ -413,6 +437,8 @@
 				6617D54D1C95259400101292 /* UIFont+Extensions.m */,
 				6617D5651C961F4100101292 /* UIButton+Extensions.h */,
 				6617D5661C961F4100101292 /* UIButton+Extensions.m */,
+				6662415D1CA70BEB003C9C06 /* UIView+Extensions.h */,
+				6662415E1CA70BEB003C9C06 /* UIView+Extensions.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -426,6 +452,9 @@
 				6617D56D1C9626EE00101292 /* OYEItemImageViewController.h */,
 				6617D56E1C9626EE00101292 /* OYEItemImageViewController.m */,
 				6617D56F1C9626EE00101292 /* OYEItemImageViewController.xib */,
+				666241581CA6FFDC003C9C06 /* OYELoginViewController.h */,
+				666241591CA6FFDC003C9C06 /* OYELoginViewController.m */,
+				6662415A1CA6FFDC003C9C06 /* OYELoginViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -606,6 +635,7 @@
 				6641280E1C7ADD860028987B /* Assets.xcassets in Resources */,
 				6617D5491C95257E00101292 /* OYEItemCollectionViewCell.xib in Resources */,
 				6641280C1C7ADD860028987B /* Main.storyboard in Resources */,
+				6662415C1CA6FFDC003C9C06 /* OYELoginViewController.xib in Resources */,
 				664128FF1C83C14C0028987B /* SF-UI-Display-Ultralight.otf in Resources */,
 				664129001C83C14C0028987B /* SF-UI-Text-Bold.otf in Resources */,
 				664129091C83C14C0028987B /* SF-UI-Text-RegularItalic.otf in Resources */,
@@ -654,7 +684,9 @@
 				664128001C7ADD850028987B /* main.m in Sources */,
 				6617D53C1C95254100101292 /* OYESellViewController.m in Sources */,
 				6617D5391C95253400101292 /* OYESearchViewController.m in Sources */,
+				6662415B1CA6FFDC003C9C06 /* OYELoginViewController.m in Sources */,
 				6617D5671C961F4100101292 /* UIButton+Extensions.m in Sources */,
+				6662415F1CA70BEB003C9C06 /* UIView+Extensions.m in Sources */,
 				6617D58C1C9DD81700101292 /* OYEModelManager.m in Sources */,
 				6617D5631C96180800101292 /* OYEItemDetailTableViewCell.m in Sources */,
 				6617D5481C95257E00101292 /* OYEItemCollectionViewCell.m in Sources */,
@@ -804,6 +836,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Oye5/ThirdParty/AFNetworking/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Oye5/ThirdParty/CocoaLumberjack/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Oye5/ThirdParty/Facebook",
 				);
 				GCC_PREFIX_HEADER = Oye5/PrefixHeader.pch;
 				INFOPLIST_FILE = Oye5/Info.plist;
@@ -821,6 +854,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Oye5/ThirdParty/AFNetworking/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Oye5/ThirdParty/CocoaLumberjack/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Oye5/ThirdParty/Facebook",
 				);
 				GCC_PREFIX_HEADER = Oye5/PrefixHeader.pch;
 				INFOPLIST_FILE = Oye5/Info.plist;

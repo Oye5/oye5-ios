@@ -155,10 +155,29 @@
                     <view key="view" contentMode="scaleToFill" id="Z4p-Tl-J0R">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vUO-5v-GIw">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="y48-Iv-yXU" id="AbA-rm-zlE"/>
+                                    <outlet property="delegate" destination="y48-Iv-yXU" id="tZl-1N-AWH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vUO-5v-GIw" firstAttribute="top" secondItem="Z4p-Tl-J0R" secondAttribute="topMargin" id="9zy-Br-Aa2"/>
+                            <constraint firstItem="vUO-5v-GIw" firstAttribute="leading" secondItem="Z4p-Tl-J0R" secondAttribute="leadingMargin" constant="-20" id="I8R-GU-uVO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vUO-5v-GIw" secondAttribute="trailing" constant="-20" id="RGj-mt-J5S"/>
+                            <constraint firstItem="Lhj-tJ-hfS" firstAttribute="top" secondItem="vUO-5v-GIw" secondAttribute="bottom" id="Tp4-Zb-1IJ"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Items" id="frx-Yp-Ef6" userLabel="My Items"/>
+                    <tabBarItem key="tabBarItem" title="Chats" id="frx-Yp-Ef6" userLabel="My Items"/>
                     <navigationItem key="navigationItem" id="yAZ-nD-dyt"/>
+                    <connections>
+                        <outlet property="tableView" destination="vUO-5v-GIw" id="JFL-u4-TIU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnZ-ZZ-Hly" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -223,12 +242,23 @@
                                     <action selector="changeProfilePhoto:" destination="eYw-QH-ZgJ" eventType="touchUpInside" id="i6J-i7-Ev2"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56j-dq-DgW">
+                                <rect key="frame" x="0.0" y="496" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="GM9-9T-QhV"/>
+                                    <constraint firstAttribute="height" constant="44" id="tnt-xh-wbM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="56j-dq-DgW" secondAttribute="bottom" constant="60" id="9Qt-el-PK1"/>
                             <constraint firstItem="bUr-9O-JGa" firstAttribute="top" secondItem="XLf-22-iiW" secondAttribute="bottom" constant="20" id="F6n-2P-oDe"/>
+                            <constraint firstItem="56j-dq-DgW" firstAttribute="centerX" secondItem="YdD-he-txo" secondAttribute="centerX" id="GTW-nG-fpB"/>
                             <constraint firstItem="YOK-7H-cmR" firstAttribute="width" secondItem="BXc-gB-UPr" secondAttribute="width" id="IHf-oG-73e"/>
                             <constraint firstItem="BXc-gB-UPr" firstAttribute="centerX" secondItem="YdD-he-txo" secondAttribute="centerX" id="KYg-f3-a6q"/>
+                            <constraint firstItem="TUm-tn-am6" firstAttribute="top" secondItem="56j-dq-DgW" secondAttribute="bottom" constant="10" id="PsP-F7-hSy"/>
                             <constraint firstItem="YOK-7H-cmR" firstAttribute="centerY" secondItem="BXc-gB-UPr" secondAttribute="centerY" id="Rwd-mo-QEZ"/>
                             <constraint firstItem="XLf-22-iiW" firstAttribute="leading" secondItem="YdD-he-txo" secondAttribute="leadingMargin" id="T6e-pX-g5m"/>
                             <constraint firstItem="bUr-9O-JGa" firstAttribute="bottom" secondItem="YdD-he-txo" secondAttribute="bottomMargin" id="X1o-m7-tv3"/>
@@ -240,10 +270,18 @@
                             <constraint firstItem="XLf-22-iiW" firstAttribute="top" secondItem="BXc-gB-UPr" secondAttribute="bottom" constant="8" id="uJG-Bw-FNd"/>
                             <constraint firstItem="YOK-7H-cmR" firstAttribute="centerX" secondItem="BXc-gB-UPr" secondAttribute="centerX" id="wog-Fr-qSb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="PsP-F7-hSy"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="3cG-E9-Ylx" userLabel="Profile"/>
                     <navigationItem key="navigationItem" id="EQs-YL-zuu"/>
                     <connections>
+                        <outlet property="facebookButtonContainer" destination="56j-dq-DgW" id="13t-je-Uyq"/>
+                        <outlet property="facebookButtonContainerHeightConstraint" destination="tnt-xh-wbM" id="5vD-y7-mER"/>
+                        <outlet property="facebookButtonContainerWidthConstraint" destination="GM9-9T-QhV" id="m7q-ev-1qa"/>
                         <outlet property="imageButton" destination="YOK-7H-cmR" id="CO6-2y-FWp"/>
                         <outlet property="imageView" destination="BXc-gB-UPr" id="Sju-gK-hgB"/>
                         <outlet property="nameLabel" destination="XLf-22-iiW" id="qJS-gw-B3M"/>
