@@ -76,6 +76,15 @@
 //        
 //        items = mutableItems;
 //    }
+ 
+    
+    // Testing request
+//    [[self manager] GET:@"https://api.github.com/users/mralexgray/repos" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+//        DDLogDebug(@"JSON: %@", responseObject);
+//    } failure:^(NSURLSessionTask *operation, NSError *error) {
+//        DDLogDebug(@"Error: %@", error);
+//    }];
+    
     
     NSArray *itemsJson = [self itemsJson];
     NSMutableArray<OYEItem *> *items = [NSMutableArray<OYEItem *> array];
@@ -90,7 +99,6 @@
     }
     
     return items;
-   
 }
 
 @end

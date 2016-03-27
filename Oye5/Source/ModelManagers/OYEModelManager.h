@@ -10,6 +10,6 @@
 
 @interface OYEModelManager : AFHTTPSessionManager
 
-+ (instancetype)sharedManager;
++ (Class)modelClass;
 
 @end
