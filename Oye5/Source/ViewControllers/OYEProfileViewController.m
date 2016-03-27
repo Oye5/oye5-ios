@@ -6,8 +6,8 @@
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <AFNetworking/UIImageView+AFNetworking.h>
+@import FBSDKCoreKit;
+@import AFNetworking.UIImageView_AFNetworking;
 
 #import "OYEProfileViewController.h"
 

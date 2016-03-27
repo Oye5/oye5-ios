@@ -6,8 +6,8 @@
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+@import FBSDKCoreKit;
+@import FBSDKLoginKit;
 
 #import "OYELoggedInViewController.h"
 #import "OYELoginViewController.h"
