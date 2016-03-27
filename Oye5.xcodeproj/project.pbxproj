@@ -77,6 +77,8 @@
 		6662416C1CA7A215003C9C06 /* OYEItemShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6662416B1CA7A215003C9C06 /* OYEItemShareTableViewCell.m */; };
 		6662416E1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6662416D1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib */; };
 		666241701CA7C598003C9C06 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6662416F1CA7C598003C9C06 /* MessageUI.framework */; };
+		666241731CA84749003C9C06 /* OYEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 666241721CA84749003C9C06 /* OYEUser.m */; };
+		666241761CA84A1E003C9C06 /* OYEFacebookUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 666241751CA84A1E003C9C06 /* OYEFacebookUserManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +204,10 @@
 		6662416B1CA7A215003C9C06 /* OYEItemShareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemShareTableViewCell.m; path = Source/Views/OYEItemShareTableViewCell.m; sourceTree = "<group>"; };
 		6662416D1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEItemShareTableViewCell.xib; path = Source/Views/OYEItemShareTableViewCell.xib; sourceTree = "<group>"; };
 		6662416F1CA7C598003C9C06 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		666241711CA84749003C9C06 /* OYEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEUser.h; path = Source/Models/OYEUser.h; sourceTree = "<group>"; };
+		666241721CA84749003C9C06 /* OYEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEUser.m; path = Source/Models/OYEUser.m; sourceTree = "<group>"; };
+		666241741CA84A1E003C9C06 /* OYEFacebookUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEFacebookUserManager.h; path = Oye5/Source/ModelManagers/OYEFacebookUserManager.h; sourceTree = "<group>"; };
+		666241751CA84A1E003C9C06 /* OYEFacebookUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEFacebookUserManager.m; path = Oye5/Source/ModelManagers/OYEFacebookUserManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +261,8 @@
 				6617D58B1C9DD81700101292 /* OYEModelManager.m */,
 				6617D5871C9DD78300101292 /* OYEItemManager.h */,
 				6617D5881C9DD78300101292 /* OYEItemManager.m */,
+				666241741CA84A1E003C9C06 /* OYEFacebookUserManager.h */,
+				666241751CA84A1E003C9C06 /* OYEFacebookUserManager.m */,
 			);
 			name = "Model Managers";
 			path = ..;
@@ -418,6 +426,8 @@
 				6617D5571C9525F300101292 /* OYEItem.m */,
 				666241511CA647F1003C9C06 /* OYELocation.h */,
 				666241521CA647F1003C9C06 /* OYELocation.m */,
+				666241711CA84749003C9C06 /* OYEUser.h */,
+				666241721CA84749003C9C06 /* OYEUser.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -708,9 +718,11 @@
 				6617D5671C961F4100101292 /* UIButton+Extensions.m in Sources */,
 				6662415F1CA70BEB003C9C06 /* UIView+Extensions.m in Sources */,
 				6617D58C1C9DD81700101292 /* OYEModelManager.m in Sources */,
+				666241731CA84749003C9C06 /* OYEUser.m in Sources */,
 				6617D5631C96180800101292 /* OYEItemDetailTableViewCell.m in Sources */,
 				6617D5481C95257E00101292 /* OYEItemCollectionViewCell.m in Sources */,
 				6617D54F1C95259400101292 /* UIFont+Extensions.m in Sources */,
+				666241761CA84A1E003C9C06 /* OYEFacebookUserManager.m in Sources */,
 				6617D54E1C95259400101292 /* UIColor+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
