@@ -31,7 +31,7 @@ static NSString * const OYEItemTableViewCellIdentfierLocation = @"OYEItemLocatio
 static NSString * const OYEItemTableViewCellIdentfierShare = @"OYEItemShareTableViewCell";
 static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTableViewCell";
 
-@interface OYEItemViewController () <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, OYEItemShareTableViewCellDelegate>
+@interface OYEItemViewController () <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, OYEItemShareTableViewCellDelegate>
 
 @property (strong, nonatomic) OYEItem *item;
 
@@ -58,9 +58,15 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 #pragma mark - Private
 
 - (void)setupUI {
+    [self setupNavigationBar];
     [self setupTableView];
     [self setupQuestionButton];
     [self setupOfferButton];
+}
+
+- (void)setupNavigationBar {
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Share", nil) style:UIBarButtonItemStylePlain target:self action:@selector(didSelectShareButton:)];
+    self.navigationItem.rightBarButtonItem = shareButton;
 }
 
 - (void)setupTableView {
@@ -84,12 +90,6 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 - (void)setupOfferButton {
     [self.offerButton setTitle:NSLocalizedString(@"Make an Offer", nil) forState:UIControlStateNormal];
     [self.offerButton setupAsPrimaryButton];
-}
-
-- (void)shareItem {
-    UIActivityViewController *viewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.item] applicationActivities:nil];
-    
-    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 - (UITableViewCell *)detailCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
@@ -165,27 +165,26 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == OYEItemTableViewRowTypeShare) {
-        // Use buttons for now instead of UIActivityViewController
-        return nil;
-        return indexPath;
-    }
+//    if (indexPath.row == OYEItemTableViewRowTypeShare) {
+//        // Use buttons for now instead of UIActivityViewController
+//        return indexPath;
+//    }
     
     return nil;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case OYEItemTableViewRowTypeShare:
-            [self shareItem];
-            break;
-            
-        default:
-            break;
-    }
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    switch (indexPath.row) {
+//        case OYEItemTableViewRowTypeShare:
+//            [self shareItem];
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//}
 
-#pragma mark - IBAction
+#pragma mark - Action
 
 - (IBAction)didSelectQuestionButton:(id)sender {
 }
@@ -193,7 +192,49 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 - (IBAction)didSelectOfferButton:(id)sender {
 }
 
+- (void)didSelectShareButton:(id)sender {
+    UIActivityViewController *viewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.item] applicationActivities:nil];
+    
+    viewController.excludedActivityTypes = @[UIActivityTypePostToTwitter,
+                                             UIActivityTypePostToWeibo,
+                                             UIActivityTypeAssignToContact,
+                                             UIActivityTypeSaveToCameraRoll,
+                                             UIActivityTypeAddToReadingList,
+                                             UIActivityTypePostToFlickr,
+                                             UIActivityTypePostToVimeo,
+                                             UIActivityTypePostToTencentWeibo,
+                                             UIActivityTypeAirDrop];
+    
+    viewController.completionWithItemsHandler = ^(NSString * __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError) {
+        if (completed) {
+            if ([activityType isEqualToString:UIActivityTypeMessage]) {
+                
+            } else if ([activityType isEqualToString:UIActivityTypeMail]) {
+                
+            } else if ([activityType isEqualToString:UIActivityTypePostToFacebook]) {
+                
+            }
+        }
+    };
+    
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
 #pragma mark - OYEItemShareTableViewCellDelegate
+
+- (void)didSelectMessageButton {
+    if ([MFMessageComposeViewController canSendText]) {
+        MFMessageComposeViewController *viewController = [MFMessageComposeViewController new];
+        viewController.messageComposeDelegate = self;
+        
+        NSString *message = [NSString stringWithFormat:@"%@\n\n%@", NSLocalizedString(@"Check out this item on OYE5!", nil), self.item.itemTitle];
+        viewController.body = message;
+        
+        [self presentViewController:viewController animated:YES completion:nil];
+    } else {
+        DDLogError(@"Message services are not available.");
+    }
+}
 
 - (void)didSelectEMailButton {
     
@@ -214,13 +255,16 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
     }
 }
 
+#pragma mark - MFMessageComposeViewControllerDelegate
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - MFMailComposeViewControllerDelegate
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller
           didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    // Check the result or perform other tasks.
-    
-    // Dismiss the mail compose view controller.
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

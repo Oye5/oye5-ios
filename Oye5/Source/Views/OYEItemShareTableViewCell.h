@@ -12,6 +12,7 @@
 
 @protocol OYEItemShareTableViewCellDelegate <NSObject>
 
+- (void)didSelectMessageButton;
 - (void)didSelectEMailButton;
 
 @end

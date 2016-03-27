@@ -31,9 +31,19 @@
                         </constraints>
                         <items>
                             <barButtonItem style="plain" systemItem="flexibleSpace" id="KS7-bk-Akv"/>
+                            <barButtonItem style="plain" id="Fbh-mi-mqq">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rpJ-sa-HOx">
+                                    <rect key="frame" x="105" y="7" width="62" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="message"/>
+                                    <connections>
+                                        <action selector="didSeleMessageButton:" destination="43H-oa-rTG" eventType="touchUpInside" id="xgJ-Vo-bQx"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
                             <barButtonItem style="plain" id="WIe-Ov-lVb">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Py1-Q2-Djo">
-                                    <rect key="frame" x="141" y="7" width="37" height="30"/>
+                                    <rect key="frame" x="177" y="7" width="37" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="email"/>
                                     <connections>
@@ -57,6 +67,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="eMailButton" destination="Py1-Q2-Djo" id="j7E-v2-fdH"/>
+                <outlet property="messageButton" destination="rpJ-sa-HOx" id="dVl-fd-BMp"/>
                 <outlet property="titleLabel" destination="b0b-MS-9v4" id="wxH-e1-vO0"/>
                 <outlet property="toolBar" destination="QEC-Qw-cK0" id="C5D-bX-SrH"/>
             </connections>

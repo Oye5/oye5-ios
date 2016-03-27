@@ -6,7 +6,8 @@
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
-#import <FBSDKShareKit/FBSDKShareKit.h>
+@import MessageUI;
+@import FBSDKShareKit;
 
 #import "OYEItemShareTableViewCell.h"
 #import "OYEItem.h"
@@ -17,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
 @property (weak, nonatomic) IBOutlet UIButton *eMailButton;
 
 @property (weak, nonatomic) id<OYEItemShareTableViewCellDelegate> delegate;
@@ -36,6 +38,8 @@
  
     [self setupTitleLabel];
     [self setupFacebookButton];
+    [self setupMessageButton];
+    [self setupEMailButton];
 }
 
 - (void)setupTitleLabel {
@@ -43,6 +47,18 @@
     self.titleLabel.font = [UIFont mediumOyeFontOfSize:16];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.textColor = [UIColor oyeMediumTextColor];
+}
+
+- (void)setupMessageButton {
+    if (![MFMessageComposeViewController canSendText]) {
+        self.messageButton.enabled = NO;
+    }
+}
+
+- (void)setupEMailButton {
+    if (![MFMailComposeViewController canSendMail]) {
+        self.eMailButton.enabled = NO;
+    }
 }
 
 - (void)setupFacebookButton {
@@ -64,6 +80,12 @@
 }
 
 #pragma mark - IBAction
+
+- (IBAction)didSeleMessageButton:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(didSelectMessageButton)]) {
+        [self.delegate didSelectMessageButton];
+    }
+}
 
 - (IBAction)didSelectEMailButton:(id)sender {
     if ([self.delegate respondsToSelector:@selector(didSelectEMailButton)]) {
