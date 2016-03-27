@@ -11,11 +11,11 @@
 @implementation UIView (Extensions)
 
 - (CGFloat)top {
-    return CGRectGetMaxY(self.frame);
+    return CGRectGetMinY(self.frame);
 }
 
 - (CGFloat)bottom {
-    return CGRectGetMinY(self.frame);
+    return CGRectGetMaxY(self.frame);
 }
 
 - (CGFloat)left {

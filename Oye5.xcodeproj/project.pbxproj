@@ -74,6 +74,9 @@
 		666241611CA72382003C9C06 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666241601CA72382003C9C06 /* FBSDKMessengerShareKit.framework */; };
 		666241631CA7238F003C9C06 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666241621CA7238F003C9C06 /* FBSDKShareKit.framework */; };
 		666241691CA73CE4003C9C06 /* OYELoggedInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666241681CA73CE4003C9C06 /* OYELoggedInViewController.m */; };
+		6662416C1CA7A215003C9C06 /* OYEItemShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6662416B1CA7A215003C9C06 /* OYEItemShareTableViewCell.m */; };
+		6662416E1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6662416D1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib */; };
+		666241701CA7C598003C9C06 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6662416F1CA7C598003C9C06 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +198,10 @@
 		666241621CA7238F003C9C06 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Oye5/ThirdParty/Facebook/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		666241671CA73CE4003C9C06 /* OYELoggedInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYELoggedInViewController.h; path = Source/ViewControllers/OYELoggedInViewController.h; sourceTree = "<group>"; };
 		666241681CA73CE4003C9C06 /* OYELoggedInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYELoggedInViewController.m; path = Source/ViewControllers/OYELoggedInViewController.m; sourceTree = "<group>"; };
+		6662416A1CA7A215003C9C06 /* OYEItemShareTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItemShareTableViewCell.h; path = Source/Views/OYEItemShareTableViewCell.h; sourceTree = "<group>"; };
+		6662416B1CA7A215003C9C06 /* OYEItemShareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemShareTableViewCell.m; path = Source/Views/OYEItemShareTableViewCell.m; sourceTree = "<group>"; };
+		6662416D1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEItemShareTableViewCell.xib; path = Source/Views/OYEItemShareTableViewCell.xib; sourceTree = "<group>"; };
+		6662416F1CA7C598003C9C06 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666241701CA7C598003C9C06 /* MessageUI.framework in Frameworks */,
 				666241571CA6FE52003C9C06 /* FBSDKCoreKit.framework in Frameworks */,
 				666241421CA0FD3B003C9C06 /* AFNetworking.framework in Frameworks */,
 				666241431CA0FD3B003C9C06 /* CocoaLumberjack.framework in Frameworks */,
@@ -255,6 +263,7 @@
 		6617D58D1C9DE71D00101292 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6662416F1CA7C598003C9C06 /* MessageUI.framework */,
 				666241401CA0FD3B003C9C06 /* AFNetworking.framework */,
 				666241411CA0FD3B003C9C06 /* CocoaLumberjack.framework */,
 				666241561CA6FE52003C9C06 /* FBSDKCoreKit.framework */,
@@ -427,6 +436,9 @@
 				6617D5681C96224700101292 /* OYEItemLocationTableViewCell.h */,
 				6617D5691C96224700101292 /* OYEItemLocationTableViewCell.m */,
 				6617D56A1C96224700101292 /* OYEItemLocationTableViewCell.xib */,
+				6662416A1CA7A215003C9C06 /* OYEItemShareTableViewCell.h */,
+				6662416B1CA7A215003C9C06 /* OYEItemShareTableViewCell.m */,
+				6662416D1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -616,6 +628,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6662416E1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib in Resources */,
 				664128FA1C83C14C0028987B /* SF-UI-Display-Light.otf in Resources */,
 				6617D5441C95256900101292 /* OYEItemViewController.xib in Resources */,
 				6617D56C1C96224700101292 /* OYEItemLocationTableViewCell.xib in Resources */,
@@ -671,6 +684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6662416C1CA7A215003C9C06 /* OYEItemShareTableViewCell.m in Sources */,
 				6617D5741C96451600101292 /* OYEBaseTableViewCell.m in Sources */,
 				664128031C7ADD850028987B /* AppDelegate.m in Sources */,
 				6662414C1CA63A61003C9C06 /* MTSMotisObject.m in Sources */,

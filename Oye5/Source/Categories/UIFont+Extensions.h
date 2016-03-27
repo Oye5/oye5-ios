@@ -11,6 +11,7 @@
 @interface UIFont (Extensions)
 
 + (UIFont *)oyeFontOfSize:(CGFloat)size;
++ (UIFont *)mediumOyeFontOfSize:(CGFloat)size;
 + (UIFont *)boldOyeFontOfSize:(CGFloat)size;
 
 @end

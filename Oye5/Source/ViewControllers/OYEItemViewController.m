@@ -6,10 +6,13 @@
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
+@import MessageUI;
+
 #import "OYEItemViewController.h"
 #import "OYEItem.h"
 #import "OYEItemDetailTableViewCell.h"
 #import "OYEItemLocationTableViewCell.h"
+#import "OYEItemShareTableViewCell.h"
 
 #import "UIColor+Extensions.h"
 #import "UIFont+Extensions.h"
@@ -28,7 +31,7 @@ static NSString * const OYEItemTableViewCellIdentfierLocation = @"OYEItemLocatio
 static NSString * const OYEItemTableViewCellIdentfierShare = @"OYEItemShareTableViewCell";
 static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTableViewCell";
 
-@interface OYEItemViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface OYEItemViewController () <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, OYEItemShareTableViewCellDelegate>
 
 @property (strong, nonatomic) OYEItem *item;
 
@@ -55,17 +58,21 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 #pragma mark - Private
 
 - (void)setupUI {
-    self.tableView.backgroundColor = [UIColor greenColor];
-    
     [self setupTableView];
     [self setupQuestionButton];
     [self setupOfferButton];
 }
 
 - (void)setupTableView {
+    
+    UIEdgeInsets insets = self.tableView.contentInset;
+    insets.bottom = self.view.height - self.questionButton.top;
+
+    self.tableView.contentInset = insets;
+
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemDetailTableViewCell class]) bundle:nil] forCellReuseIdentifier:OYEItemTableViewCellIdentfierDetail];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemLocationTableViewCell class]) bundle:nil] forCellReuseIdentifier:OYEItemTableViewCellIdentfierLocation];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OYEItemTableViewCellIdentfierShare];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemShareTableViewCell class]) bundle:nil] forCellReuseIdentifier:OYEItemTableViewCellIdentfierShare];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OYEItemTableViewCellIdentfierReport];
 }
 
@@ -77,6 +84,12 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 - (void)setupOfferButton {
     [self.offerButton setTitle:NSLocalizedString(@"Make an Offer", nil) forState:UIControlStateNormal];
     [self.offerButton setupAsPrimaryButton];
+}
+
+- (void)shareItem {
+    UIActivityViewController *viewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.item] applicationActivities:nil];
+    
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 - (UITableViewCell *)detailCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
@@ -95,6 +108,21 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
     return cell;
 }
 
+- (UITableViewCell *)shareCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierShare forIndexPath:indexPath];
+//    
+//    cell.textLabel.text = NSLocalizedString(@"SHARE THIS PRODUCT", nil);
+//    cell.textLabel.font = [UIFont mediumOyeFontOfSize:16];
+//    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+//    cell.textLabel.textColor = [UIColor oyeMediumTextColor];
+    
+    OYEItemShareTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierShare forIndexPath:indexPath];
+    cell.delegate = self;
+    cell.item = self.item;
+    
+    return cell;
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -108,7 +136,7 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
         case OYEItemTableViewRowTypeLocation:
             return [self locationCellInTableView:tableView atIndexPath:indexPath];
         case OYEItemTableViewRowTypeShare:
-            return [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierShare forIndexPath:indexPath];
+            return [self shareCellInTableView:tableView atIndexPath:indexPath];
         case OYEItemTableViewRowTypeReport:
             return [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierReport forIndexPath:indexPath];
     }
@@ -129,15 +157,71 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
             return [OYEItemDetailTableViewCell cellHeight:heightInformation];
         case OYEItemTableViewRowTypeLocation:
             return [OYEItemLocationTableViewCell cellHeight:heightInformation];
+        case OYEItemTableViewRowTypeShare:
+            return [OYEItemShareTableViewCell cellHeight:heightInformation];
         default:
             return 44;
     }
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == OYEItemTableViewRowTypeShare) {
+        // Use buttons for now instead of UIActivityViewController
+        return nil;
+        return indexPath;
+    }
+    
+    return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case OYEItemTableViewRowTypeShare:
+            [self shareItem];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - IBAction
+
 - (IBAction)didSelectQuestionButton:(id)sender {
 }
 
 - (IBAction)didSelectOfferButton:(id)sender {
+}
+
+#pragma mark - OYEItemShareTableViewCellDelegate
+
+- (void)didSelectEMailButton {
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *viewController = [MFMailComposeViewController new];
+        viewController.mailComposeDelegate = self;
+        
+        // Configure the fields of the interface.
+        [viewController setSubject:self.item.itemTitle];
+        NSString *message = [NSString stringWithFormat:@"%@\n\n%@", NSLocalizedString(@"Check out this item on OYE5!", nil), self.item.itemTitle];
+        [viewController setMessageBody:message isHTML:NO];
+        
+        // Present the view controller modally.
+        [self presentViewController:viewController animated:YES completion:nil];
+        
+    } else {
+        DDLogError(@"Mail services are not available.");
+    }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    // Check the result or perform other tasks.
+    
+    // Dismiss the mail compose view controller.
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

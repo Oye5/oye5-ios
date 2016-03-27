@@ -58,9 +58,7 @@
 
 #pragma mark - FBSDKLoginButtonDelegate
 
-- (void)loginButton:(FBSDKLoginButton *)loginButton
-didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
-                error:(NSError *)error {
+- (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {

@@ -144,10 +144,10 @@
             </objects>
             <point key="canvasLocation" x="742" y="1622"/>
         </scene>
-        <!--My Items-->
+        <!--Chats-->
         <scene sceneID="LvS-VR-ITA">
             <objects>
-                <viewController id="y48-Iv-yXU" userLabel="My Items" customClass="OYEChatsViewController" sceneMemberID="viewController">
+                <viewController id="y48-Iv-yXU" userLabel="Chats" customClass="OYEChatsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5bV-1H-mLi"/>
                         <viewControllerLayoutGuide type="bottom" id="Lhj-tJ-hfS"/>

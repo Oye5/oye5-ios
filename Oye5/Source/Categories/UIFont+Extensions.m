@@ -11,11 +11,44 @@
 static NSString * const SFUITextPrefix = @"SFUIText-";
 static NSString * const SFUIDisplayPrefix = @"SFUIDisplay-";
 
+/**
+ *  SF UI Text font names
+ *
+ *  SFUIText-LightItalic,
+ *  SFUIText-HeavyItalic,
+ *  SFUIText-Bold,
+ *  SFUIText-Regular,
+ *  SFUIText-Italic,
+ *  SFUIText-Light,
+ *  SFUIText-MediumItalic,
+ *  SFUIText-Semibold,
+ *  SFUIText-BoldItalic,
+ *  SFUIText-SemiboldItalic,
+ *  SFUIText-Medium,
+ *  SFUIText-Heavy
+ *
+ *  SF UI Display font names
+ *
+ *  SFUIDisplay-Light,
+ *  SFUIDisplay-Heavy,
+ *  SFUIDisplay-Regular,
+ *  SFUIDisplay-Medium,
+ *  SFUIDisplay-Bold,
+ *  SFUIDisplay-Black,
+ *  SFUIDisplay-Ultralight,
+ *  SFUIDisplay-Thin,
+ *  SFUIDisplay-Semibold
+ */
+
 @implementation UIFont (Extensions)
 
 + (UIFont *)oyeFontOfSize:(CGFloat)size {
     // SF font family names:  SF UI Text (SFUIText-*), SF UI Display (SFUIDisplay-*)
     return [UIFont fontWithName:[self oyeFontNameForStyle:@"Regular"] size:size];
+}
+
++ (UIFont *)mediumOyeFontOfSize:(CGFloat)size {
+    return [UIFont fontWithName:[self oyeFontNameForStyle:@"Medium"] size:size];
 }
 
 + (UIFont *)boldOyeFontOfSize:(CGFloat)size {
