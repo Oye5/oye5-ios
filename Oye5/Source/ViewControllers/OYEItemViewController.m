@@ -236,7 +236,7 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
     }
 }
 
-- (void)didSelectEMailButton {
+- (void)didSelectEmailButton {
     
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *viewController = [MFMailComposeViewController new];

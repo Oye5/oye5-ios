@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
-@property (weak, nonatomic) IBOutlet UIButton *eMailButton;
+@property (weak, nonatomic) IBOutlet UIButton *emailButton;
 
 @property (weak, nonatomic) id<OYEItemShareTableViewCellDelegate> delegate;
 @property (strong, nonatomic) FBSDKShareButton *facebookButton;
@@ -39,7 +39,7 @@
     [self setupTitleLabel];
     [self setupFacebookButton];
     [self setupMessageButton];
-    [self setupEMailButton];
+    [self setupEmailButton];
 }
 
 - (void)setupTitleLabel {
@@ -55,9 +55,9 @@
     }
 }
 
-- (void)setupEMailButton {
+- (void)setupEmailButton {
     if (![MFMailComposeViewController canSendMail]) {
-        self.eMailButton.enabled = NO;
+        self.emailButton.enabled = NO;
     }
 }
 
@@ -87,9 +87,9 @@
     }
 }
 
-- (IBAction)didSelectEMailButton:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(didSelectEMailButton)]) {
-        [self.delegate didSelectEMailButton];
+- (IBAction)didSelectEmailButton:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(didSelectEmailButton)]) {
+        [self.delegate didSelectEmailButton];
     }
 }
 
