@@ -10,6 +10,8 @@
 @import AFNetworking.UIImageView_AFNetworking;
 
 #import "OYEProfileViewController.h"
+#import "OYEFacebookUserManager.h"
+#import "OYEUser.h"
 
 #import "UIColor+Extensions.h"
 #import "UIFont+Extensions.h"
@@ -72,48 +74,16 @@ static NSString * const cellReuseIdentifier = @"cell";
 }
 
 - (void)setupUIWithFacebookProfile {
-    //    if ([FBSDKAccessToken currentAccessToken]) {
-    //        [self setupProfilePictureFromFacebookWithUserID:[FBSDKAccessToken currentAccessToken].userID];
-    //    }
-    
     [self resetUI];
     
-    if ([FBSDKAccessToken currentAccessToken]) {
-        if ([FBSDKProfile currentProfile]) {
-            [self setupProfilePictureFromFacebookWithUserID:[FBSDKProfile currentProfile].userID];
+    __weak __typeof(self) weakSelf = self;
+    [[OYEFacebookUserManager manager] getUserWithImageSize:self.imageView.frame.size completionBlock:^(OYEUser *user, NSError *error) {
+        if (user) {
+            weakSelf.nameLabel.text = user.name;
             
-            self.nameLabel.text = [FBSDKProfile currentProfile].name;
-        } else {
-            // Fields can be found at:  https://developers.facebook.com/docs/graph-api/reference/user
-            NSString *parameterValue = [NSString stringWithFormat:@"id,name,picture.width(%@).height(%@)", @(self.imageView.width), @(self.imageView.height)];
-
-            __weak __typeof(self) weakSelf = self;
-            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{ @"fields" : parameterValue}]startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                if (!error) {
-                    NSString *nameOfLoginUser = [result valueForKey:@"name"];
-                    
-                    weakSelf.nameLabel.text = nameOfLoginUser;
-                    
-                    NSString *imageStringOfLoginUser = [[[result valueForKey:@"picture"] valueForKey:@"data"] valueForKey:@"url"];
-                    NSURL *url = [[NSURL alloc] initWithString:imageStringOfLoginUser];
-                    
-                    [weakSelf.imageView setImageWithURL:url placeholderImage: nil];
-                 }
-            }];
+            [weakSelf.imageView setImageWithURL:user.imageURL placeholderImage:nil];
         }
-    }
-}
-
-- (void)setupProfilePictureFromFacebookWithUserID:(NSString *)userID {
-    FBSDKProfilePictureView *fbPictureView = [FBSDKProfilePictureView new];
-    fbPictureView.pictureMode = FBSDKProfilePictureModeSquare;
-    fbPictureView.profileID = userID;
-    fbPictureView.frame = self.imageView.bounds;
-    
-    [fbPictureView setNeedsImageUpdate];
-    
-    [self.imageView addSubview:fbPictureView];
-    
+    }];
 }
 
 - (void)setupNotifications {
@@ -121,12 +91,6 @@ static NSString * const cellReuseIdentifier = @"cell";
 }
 
 - (void)resetUI {
-    for (UIView *aSubview in self.imageView.subviews) {
-        if ([aSubview isKindOfClass:[FBSDKProfilePictureView class]]) {
-            [aSubview removeFromSuperview];
-        }
-    }
-    
     self.imageView.image = nil;
     self.nameLabel.text = nil;
 }
