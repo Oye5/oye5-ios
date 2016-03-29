@@ -6,11 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OYEItemShareTableViewCell">
-            <connections>
-                <outlet property="emailButton" destination="Py1-Q2-Djo" id="SNc-vM-rqz"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OYEItemShareTableViewCell"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="43H-oa-rTG" customClass="OYEItemShareTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
@@ -51,7 +47,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="email"/>
                                     <connections>
-                                        <action selector="didSelectEMailButton:" destination="43H-oa-rTG" eventType="touchUpInside" id="7et-6c-t2T"/>
+                                        <action selector="didSelectEmailButton:" destination="43H-oa-rTG" eventType="touchUpInside" id="R9F-Sz-2xH"/>
                                     </connections>
                                 </button>
                             </barButtonItem>
@@ -70,6 +66,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="emailButton" destination="Py1-Q2-Djo" id="dn9-j1-tk5"/>
                 <outlet property="messageButton" destination="rpJ-sa-HOx" id="dVl-fd-BMp"/>
                 <outlet property="titleLabel" destination="b0b-MS-9v4" id="wxH-e1-vO0"/>
                 <outlet property="toolBar" destination="QEC-Qw-cK0" id="C5D-bX-SrH"/>
