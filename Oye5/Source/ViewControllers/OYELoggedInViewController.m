@@ -65,6 +65,7 @@
 - (void)setupLoginViewController {
     if (![FBSDKAccessToken currentAccessToken]) {
         if (![self.navigationController.viewControllers containsObject:self.loginViewController]) {
+            self.loginViewController.navigationItem.hidesBackButton = YES;
             [self.navigationController pushViewController:self.loginViewController animated:NO];
         }
     }
