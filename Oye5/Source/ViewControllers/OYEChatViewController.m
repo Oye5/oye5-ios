@@ -32,6 +32,7 @@ static NSString * const OYEChatOutgoingMessageResuseCellIdentifier = @"OYEChatOu
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
     [self setupTableView];
     [self setupEditView];
@@ -138,9 +139,6 @@ static NSString * const OYEChatOutgoingMessageResuseCellIdentifier = @"OYEChatOu
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     OYEChatMessage *message = self.messages[indexPath.row];
     
-    DDLogDebug(@"message: %@", message.message);
-    DDLogDebug(@"height: %f", [OYEChatMessageTableViewCell cellHeightWithMessage:message.message width:self.view.width]);
-    
     return [OYEChatMessageTableViewCell cellHeightWithMessage:message.message width:self.view.width];
 }
 
@@ -155,9 +153,6 @@ static NSString * const OYEChatOutgoingMessageResuseCellIdentifier = @"OYEChatOu
     [changedString replaceCharactersInRange:range withString:string];
     
     [self setupSendButtonWithString:changedString];
-    
-    
-    DDLogDebug(@"new text: %@ (%@)", changedString, self.sendButton.hidden ? @"HIDE" : @"SHOW");
     
     return YES;
 }
@@ -174,14 +169,12 @@ static NSString * const OYEChatOutgoingMessageResuseCellIdentifier = @"OYEChatOu
 #pragma mark - NSNotifications
 
 - (void)keyboardWillShow:(NSNotification *)notification {
-    DDLogDebug(@"*");
     
     // Get the size of the keyboard.
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     //Given size may not account for screen rotation
     int height = MIN(keyboardSize.height,keyboardSize.width);
-//    int width = MAX(keyboardSize.height,keyboardSize.width);
     
     [UIView animateWithDuration:1.0 animations:^{
         self.editViewBottomSpace.constant = height;

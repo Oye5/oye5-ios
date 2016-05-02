@@ -14,7 +14,7 @@
 #define OYE_CHAT_MESSAGE_FONT               [UIFont mediumOyeFontOfSize:16]
 #define OYE_CHAT_MESSAGE_VERTICAL_INSET             5
 #define OYE_CHAT_MESSAGE_HORIZONTAL_INSET           5
-#define OYE_CHAT_MESSAGE_HORIZONTAL_OFFSET          5
+#define OYE_CHAT_MESSAGE_HORIZONTAL_OFFSET          6
 #define OYE_CHAT_MESSAGE_HORIZONTAL_ADDED_OFFSET    50
 #define OYE_CHAT_MESSAGE_VERTICAL_OFFSET            2
 #define OYE_CHAT_CONTENT_VERTICAL_MARGIN            8
@@ -46,10 +46,6 @@
                                         options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
                                      attributes:@{NSFontAttributeName:OYE_CHAT_MESSAGE_FONT}
                                         context:nil];
-    
-    DDLogDebug(@"widthWithoutMargins: %f", widthWithoutMargins);
-    DDLogDebug(@"font line height: %f", OYE_CHAT_MESSAGE_FONT.lineHeight);
-    DDLogDebug(@"rect: %@", NSStringFromCGRect(rect));
     
     return rect;
 }
@@ -91,9 +87,6 @@
         self.messageTextViewLeadingMargin.constant = messageOffset;
         self.messageTextViewTrailingMargin.constant = 0;
     }
-    
-    DDLogDebug(@"rect: %@", NSStringFromCGRect(messageRect));
-    DDLogDebug(@"self.width: %@", NSStringFromCGSize(self.frame.size));
 }
 
 #pragma mark - Private

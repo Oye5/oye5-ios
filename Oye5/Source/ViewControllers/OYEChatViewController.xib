@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QRO-Ma-71o">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="593"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="AAX-JQ-41f"/>
@@ -75,7 +75,7 @@
                 <constraint firstAttribute="trailing" secondItem="QRO-Ma-71o" secondAttribute="trailing" id="Oxj-e3-7GZ"/>
                 <constraint firstItem="QRO-Ma-71o" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hrk-Ph-kau"/>
                 <constraint firstItem="QRO-Ma-71o" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mrp-ZO-o7X"/>
-                <constraint firstItem="dhi-bT-VbW" firstAttribute="top" secondItem="QRO-Ma-71o" secondAttribute="bottom" constant="8" id="nzL-ac-xhm"/>
+                <constraint firstItem="dhi-bT-VbW" firstAttribute="top" secondItem="QRO-Ma-71o" secondAttribute="bottom" id="nzL-ac-xhm"/>
                 <constraint firstAttribute="bottom" secondItem="dhi-bT-VbW" secondAttribute="bottom" constant="50" id="zew-dt-jJI"/>
             </constraints>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
