@@ -9,21 +9,25 @@
 @import AFNetworking;
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <GoogleSignIn/GoogleSignIn.h>
 
 #import "AppDelegate.h"
 #import "OYELogFormatter.h"
 
-@interface AppDelegate ()
+static NSString * const OYEGoogleSignInClientID = @"73170800702-mmarknahfbs4kfjpu8u1tu6pbhb3ils4.apps.googleusercontent.com";
+
+@interface AppDelegate () <GIDSignInDelegate>
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     [self setupLogger];
+    [self setupAFNetworking];
+    [self setupGoogleSignIn];
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
@@ -55,19 +59,31 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-//- (BOOL)application:(UIApplication *)application
-//            openURL:(NSURL *)url
-//            options:(NSDictionary<NSString *,
-//                     id> *)options {
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation];
+            options:(NSDictionary<NSString *, id> *)options {
+
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                      annotation:options[UIApplicationOpenURLOptionsAnnotationKey]]
+            || [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                              openURL:url
+                                                    sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                           annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
 }
+
+//- (BOOL)application:(UIApplication *)application
+//            openURL:(NSURL *)url
+//  sourceApplication:(NSString *)sourceApplication
+//         annotation:(id)annotation {
+//    return [[GIDSignIn sharedInstance] handleURL:url
+//                               sourceApplication:sourceApplication
+//                                      annotation:annotation]
+//            || [[FBSDKApplicationDelegate sharedInstance] application:application
+//                                                              openURL:url
+//                                                    sourceApplication:sourceApplication
+//                                                           annotation:annotation];
+//}
 
 #pragma mark - Private
 
@@ -84,6 +100,29 @@
 - (void)setupAFNetworking {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
+- (void)setupGoogleSignIn {
+    [GIDSignIn sharedInstance].clientID = OYEGoogleSignInClientID;
+    [GIDSignIn sharedInstance].delegate = self;
+}
+
+#pragma mark - GIDSignInDelegate
+
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    // Perform any operations on signed in user here.
+//    NSString *userId = user.userID;                  // For client-side use only!
+//    NSString *idToken = user.authentication.idToken; // Safe to send to the server
+//    NSString *fullName = user.profile.name;
+//    NSString *givenName = user.profile.givenName;
+//    NSString *familyName = user.profile.familyName;
+//    NSString *email = user.profile.email;
+    // ...
+}
+
+- (void)signIn:(GIDSignIn *)signIn didDisconnectWithUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    // Perform any operations when the user disconnects from app here.
+    // ...
 }
 
 @end

@@ -59,6 +59,13 @@
 		66218A841CCD92A4003BD0B3 /* OYEChatMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66218A821CCD92A4003BD0B3 /* OYEChatMessageTableViewCell.m */; };
 		66218A851CCD92A4003BD0B3 /* OYEChatMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66218A831CCD92A4003BD0B3 /* OYEChatMessageTableViewCell.xib */; };
 		66218A881CCD9861003BD0B3 /* OYEChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 66218A871CCD9861003BD0B3 /* OYEChatMessage.m */; };
+		66218A941CD7136E003BD0B3 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66218A931CD7136E003BD0B3 /* GoogleSignIn.framework */; };
+		66218A961CD71399003BD0B3 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66218A951CD71399003BD0B3 /* GoogleSignIn.bundle */; };
+		66218A981CD714EB003BD0B3 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66218A971CD714EB003BD0B3 /* AddressBook.framework */; };
+		66218A9A1CD714FC003BD0B3 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66218A991CD714FC003BD0B3 /* SafariServices.framework */; };
+		66218A9C1CD71511003BD0B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66218A9B1CD71511003BD0B3 /* SystemConfiguration.framework */; };
+		66218A9E1CD71A14003BD0B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66218A9D1CD71A14003BD0B3 /* GoogleService-Info.plist */; };
+		66218AA01CD727A2003BD0B3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 66218A9F1CD727A2003BD0B3 /* libz.tbd */; };
 		664128001C7ADD850028987B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 664127FF1C7ADD850028987B /* main.m */; };
 		664128031C7ADD850028987B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128021C7ADD850028987B /* AppDelegate.m */; };
 		6641280C1C7ADD860028987B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6641280A1C7ADD860028987B /* Main.storyboard */; };
@@ -201,6 +208,13 @@
 		66218A831CCD92A4003BD0B3 /* OYEChatMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEChatMessageTableViewCell.xib; path = Source/Views/OYEChatMessageTableViewCell.xib; sourceTree = "<group>"; };
 		66218A861CCD9861003BD0B3 /* OYEChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEChatMessage.h; path = Source/Models/OYEChatMessage.h; sourceTree = "<group>"; };
 		66218A871CCD9861003BD0B3 /* OYEChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEChatMessage.m; path = Source/Models/OYEChatMessage.m; sourceTree = "<group>"; };
+		66218A931CD7136E003BD0B3 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Oye5/ThirdParty/GoogleSignIn/GoogleSignIn.framework; sourceTree = "<group>"; };
+		66218A951CD71399003BD0B3 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = Oye5/ThirdParty/GoogleSignIn/GoogleSignIn.bundle; sourceTree = "<group>"; };
+		66218A971CD714EB003BD0B3 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		66218A991CD714FC003BD0B3 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		66218A9B1CD71511003BD0B3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		66218A9D1CD71A14003BD0B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		66218A9F1CD727A2003BD0B3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		664127FB1C7ADD850028987B /* Oye5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oye5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		664127FF1C7ADD850028987B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		664128011C7ADD850028987B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -273,6 +287,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66218AA01CD727A2003BD0B3 /* libz.tbd in Frameworks */,
+				66218A9C1CD71511003BD0B3 /* SystemConfiguration.framework in Frameworks */,
+				66218A9A1CD714FC003BD0B3 /* SafariServices.framework in Frameworks */,
+				66218A981CD714EB003BD0B3 /* AddressBook.framework in Frameworks */,
 				666241701CA7C598003C9C06 /* MessageUI.framework in Frameworks */,
 				666241571CA6FE52003C9C06 /* FBSDKCoreKit.framework in Frameworks */,
 				666241421CA0FD3B003C9C06 /* AFNetworking.framework in Frameworks */,
@@ -280,6 +298,7 @@
 				666241631CA7238F003C9C06 /* FBSDKShareKit.framework in Frameworks */,
 				666241551CA6FE17003C9C06 /* FBSDKLoginKit.framework in Frameworks */,
 				666241611CA72382003C9C06 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				66218A941CD7136E003BD0B3 /* GoogleSignIn.framework in Frameworks */,
 				6617D5761C96502D00101292 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +348,12 @@
 		6617D58D1C9DE71D00101292 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66218A9F1CD727A2003BD0B3 /* libz.tbd */,
+				66218A9B1CD71511003BD0B3 /* SystemConfiguration.framework */,
+				66218A991CD714FC003BD0B3 /* SafariServices.framework */,
+				66218A971CD714EB003BD0B3 /* AddressBook.framework */,
+				66218A951CD71399003BD0B3 /* GoogleSignIn.bundle */,
+				66218A931CD7136E003BD0B3 /* GoogleSignIn.framework */,
 				6662416F1CA7C598003C9C06 /* MessageUI.framework */,
 				666241401CA0FD3B003C9C06 /* AFNetworking.framework */,
 				666241411CA0FD3B003C9C06 /* CocoaLumberjack.framework */,
@@ -407,6 +432,7 @@
 				6641280D1C7ADD860028987B /* Assets.xcassets */,
 				6641280F1C7ADD860028987B /* LaunchScreen.storyboard */,
 				664128121C7ADD860028987B /* Info.plist */,
+				66218A9D1CD71A14003BD0B3 /* GoogleService-Info.plist */,
 				664128D61C83AC4D0028987B /* PrefixHeader.pch */,
 				664127FE1C7ADD850028987B /* Supporting Files */,
 			);
@@ -761,8 +787,10 @@
 				664128FE1C83C14C0028987B /* SF-UI-Display-Thin.otf in Resources */,
 				6641280E1C7ADD860028987B /* Assets.xcassets in Resources */,
 				6617D5491C95257E00101292 /* OYEItemCollectionViewCell.xib in Resources */,
+				66218A961CD71399003BD0B3 /* GoogleSignIn.bundle in Resources */,
 				6641280C1C7ADD860028987B /* Main.storyboard in Resources */,
 				6662415C1CA6FFDC003C9C06 /* OYELoginViewController.xib in Resources */,
+				66218A9E1CD71A14003BD0B3 /* GoogleService-Info.plist in Resources */,
 				664128FF1C83C14C0028987B /* SF-UI-Display-Ultralight.otf in Resources */,
 				664129001C83C14C0028987B /* SF-UI-Text-Bold.otf in Resources */,
 				664129091C83C14C0028987B /* SF-UI-Text-RegularItalic.otf in Resources */,
@@ -994,10 +1022,12 @@
 					"$(PROJECT_DIR)/Oye5/ThirdParty/AFNetworking/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Oye5/ThirdParty/CocoaLumberjack/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Oye5/ThirdParty/Facebook",
+					"$(PROJECT_DIR)/Oye5/ThirdParty/GoogleSignIn",
 				);
 				GCC_PREFIX_HEADER = Oye5/PrefixHeader.pch;
 				INFOPLIST_FILE = Oye5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = oye5.Oye5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Oye5-Bridging-Header.h";
@@ -1015,10 +1045,12 @@
 					"$(PROJECT_DIR)/Oye5/ThirdParty/AFNetworking/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Oye5/ThirdParty/CocoaLumberjack/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Oye5/ThirdParty/Facebook",
+					"$(PROJECT_DIR)/Oye5/ThirdParty/GoogleSignIn",
 				);
 				GCC_PREFIX_HEADER = Oye5/PrefixHeader.pch;
 				INFOPLIST_FILE = Oye5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = oye5.Oye5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Oye5-Bridging-Header.h";
