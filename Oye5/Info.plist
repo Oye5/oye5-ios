@@ -24,7 +24,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb1106197746068350</string>
-                <string>fbauth2</string>
+				<string>fbauth2</string>
 			</array>
 		</dict>
 	</array>
@@ -48,6 +48,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
 			<key>moviecitynews.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>

@@ -25,7 +25,7 @@
     NSInteger seconds = [tz secondsFromGMTForDate:utcDate];
     NSDate *date = [NSDate dateWithTimeInterval: seconds sinceDate:utcDate];
 
-    return [NSString stringWithFormat:@"%@ | %@ | %s Line %d | %@\n", logLevel, date, __PRETTY_FUNCTION__, __LINE__, logMessage->_message];
+    return [NSString stringWithFormat:@"%@ | %@ | %@ Line %lu | %@\n", logLevel, date, logMessage.function, (unsigned long)logMessage.line, logMessage->_message];
 }
 
 @end

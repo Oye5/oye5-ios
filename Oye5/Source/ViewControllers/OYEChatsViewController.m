@@ -8,6 +8,7 @@
 
 #import "OYEChatsViewController.h"
 #import "OYELoginViewController.h"
+#import "OYEChatViewController.h"
 
 static NSString * const OYEChatsCellReuseIdentifier = @"OYEChatsCell";
 
@@ -36,6 +37,8 @@ typedef NS_ENUM(NSUInteger, OYEChatsSectionType) {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Private
 
 - (void)setupTableView {
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OYEChatsCellReuseIdentifier];
@@ -87,7 +90,9 @@ typedef NS_ENUM(NSUInteger, OYEChatsSectionType) {
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    OYEChatViewController *viewController = [OYEChatViewController new];
     
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 /*
