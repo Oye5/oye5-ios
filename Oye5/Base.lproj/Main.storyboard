@@ -279,11 +279,11 @@
                     <tabBarItem key="tabBarItem" title="Profile" id="3cG-E9-Ylx" userLabel="Profile"/>
                     <navigationItem key="navigationItem" id="EQs-YL-zuu"/>
                     <connections>
-                        <outlet property="facebookButtonContainer" destination="56j-dq-DgW" id="13t-je-Uyq"/>
-                        <outlet property="facebookButtonContainerHeightConstraint" destination="tnt-xh-wbM" id="5vD-y7-mER"/>
-                        <outlet property="facebookButtonContainerWidthConstraint" destination="GM9-9T-QhV" id="m7q-ev-1qa"/>
                         <outlet property="imageButton" destination="YOK-7H-cmR" id="CO6-2y-FWp"/>
                         <outlet property="imageView" destination="BXc-gB-UPr" id="Sju-gK-hgB"/>
+                        <outlet property="logOutButtonContainer" destination="56j-dq-DgW" id="HxK-jp-zqI"/>
+                        <outlet property="logOutButtonContainerHeightConstraint" destination="tnt-xh-wbM" id="Enj-6C-kOR"/>
+                        <outlet property="logOutButtonContainerWidthConstraint" destination="GM9-9T-QhV" id="Fjb-xx-zdZ"/>
                         <outlet property="nameLabel" destination="XLf-22-iiW" id="qJS-gw-B3M"/>
                         <outlet property="tableView" destination="bUr-9O-JGa" id="1oC-z7-dOP"/>
                     </connections>

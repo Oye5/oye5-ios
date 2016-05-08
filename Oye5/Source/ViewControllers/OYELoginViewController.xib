@@ -10,6 +10,9 @@
                 <outlet property="facebookButtonContainer" destination="ywd-W0-NIn" id="w27-GP-9u4"/>
                 <outlet property="facebookButtonContainerHeightConstraint" destination="qr3-Lk-MXg" id="Vyv-rQ-Fr2"/>
                 <outlet property="facebookButtonContainerWidthConstraint" destination="fFZ-7h-0L2" id="ayf-GI-TRI"/>
+                <outlet property="googleButtonContainer" destination="lUY-Yg-Ujo" id="9AM-Ve-k9g"/>
+                <outlet property="googleButtonContainerHeightConstraint" destination="zVb-AX-4Wj" id="gIC-q5-eBw"/>
+                <outlet property="googleButtonContainerWidthConstraint" destination="peq-dF-9ij" id="Dkl-2f-qHq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,11 +29,21 @@
                         <constraint firstAttribute="height" constant="128" id="qr3-Lk-MXg"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUY-Yg-Ujo">
+                    <rect key="frame" x="180" y="372" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="peq-dF-9ij"/>
+                        <constraint firstAttribute="height" constant="128" id="zVb-AX-4Wj"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="ywd-W0-NIn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3f6-SG-hpQ"/>
                 <constraint firstItem="ywd-W0-NIn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="JFC-YD-9nM"/>
+                <constraint firstItem="lUY-Yg-Ujo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eL2-Ku-hEz"/>
+                <constraint firstItem="lUY-Yg-Ujo" firstAttribute="top" secondItem="ywd-W0-NIn" secondAttribute="bottom" constant="8" id="sSm-ra-UtO"/>
             </constraints>
         </view>
     </objects>

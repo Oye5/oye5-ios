@@ -13,10 +13,9 @@
 
 #import "AppDelegate.h"
 #import "OYELogFormatter.h"
+#import "OYEUserManager.h"
 
-static NSString * const OYEGoogleSignInClientID = @"73170800702-mmarknahfbs4kfjpu8u1tu6pbhb3ils4.apps.googleusercontent.com";
-
-@interface AppDelegate () <GIDSignInDelegate>
+@interface AppDelegate ()
 
 @end
 
@@ -27,7 +26,7 @@ static NSString * const OYEGoogleSignInClientID = @"73170800702-mmarknahfbs4kfjp
     
     [self setupLogger];
     [self setupAFNetworking];
-    [self setupGoogleSignIn];
+    [self setupUser];
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
@@ -102,27 +101,8 @@ static NSString * const OYEGoogleSignInClientID = @"73170800702-mmarknahfbs4kfjp
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
 
-- (void)setupGoogleSignIn {
-    [GIDSignIn sharedInstance].clientID = OYEGoogleSignInClientID;
-    [GIDSignIn sharedInstance].delegate = self;
-}
-
-#pragma mark - GIDSignInDelegate
-
-- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
-    // Perform any operations on signed in user here.
-//    NSString *userId = user.userID;                  // For client-side use only!
-//    NSString *idToken = user.authentication.idToken; // Safe to send to the server
-//    NSString *fullName = user.profile.name;
-//    NSString *givenName = user.profile.givenName;
-//    NSString *familyName = user.profile.familyName;
-//    NSString *email = user.profile.email;
-    // ...
-}
-
-- (void)signIn:(GIDSignIn *)signIn didDisconnectWithUser:(GIDGoogleUser *)user withError:(NSError *)error {
-    // Perform any operations when the user disconnects from app here.
-    // ...
+- (void)setupUser {
+    [[OYEUserManager sharedManager] setup];
 }
 
 @end

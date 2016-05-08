@@ -8,7 +8,7 @@
 
 @import FBSDKCoreKit;
 
-#import "OYEFacebookUserManager.h"
+#import "OYEUserManager+Facebook.h"
 #import "OYEUser.h"
 
 #import "NSObject+Motis.h"
@@ -16,21 +16,9 @@
 static NSString * const OYEFacebookUserManagerErrorDomain = @"OYEFacebookUserManagerErrorDomain";
 static NSInteger const OYEFacebookUserManagerErrorNotLoggedIn = -1000;
 
-@implementation OYEFacebookUserManager
+@implementation OYEUserManager (Facebook)
 
-+ (instancetype)manager {
-    __strong static OYEFacebookUserManager *_sharedManager;
-    static dispatch_once_t predicate = 0;
-    
-    dispatch_once(&predicate, ^{
-        _sharedManager = [self new];
-    });
-    
-    return _sharedManager;
-}
-
-
-- (void)getUserWithImageSize:(CGSize)imageSize completionBlock:(void(^)(OYEUser *user, NSError *error))completionBlock {
+- (void)getFacebookUserWithImageSize:(CGSize)imageSize completionBlock:(void(^)(OYEUser *user, NSError *error))completionBlock {
     if (completionBlock && [FBSDKAccessToken currentAccessToken]) {
         if ([FBSDKProfile currentProfile]) {
             OYEUser *user = [self userFromFBSDKProfile:[FBSDKProfile currentProfile] withImageSize:imageSize];
@@ -75,6 +63,7 @@ static NSInteger const OYEFacebookUserManagerErrorNotLoggedIn = -1000;
     user.middleName = fbProfile.middleName;
     user.lastname = fbProfile.lastName;
     user.imageURL = [fbProfile imageURLForPictureMode:FBSDKProfilePictureModeSquare size:imageSize];
+    user.type = OYEUserTypeFacebook;
     
     return user;
 }

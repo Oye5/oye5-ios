@@ -20,9 +20,16 @@ extern NSString * const OYEUserFacebookKeyBirthday;
 extern NSString * const OYEUserFacebookKeyEmail;
 extern NSString * const OYEUserFacebookKeyGender;
 
+typedef NS_ENUM(NSInteger, OYEUserType) {
+    OYEUserTypeNone,
+    OYEUserTypeFacebook,
+    OYEUserTypeGoogle
+};
+
 @interface OYEUser : MTSMotisObject
 
 @property (strong, nonatomic) NSString *userID;
+@property (strong, nonatomic) NSString *token;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *firstName;
 @property (strong, nonatomic) NSString *middleName;
@@ -33,5 +40,6 @@ extern NSString * const OYEUserFacebookKeyGender;
 @property (strong, nonatomic) NSString *birthday;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *gender;
+@property (assign, nonatomic) OYEUserType type;
 
 @end

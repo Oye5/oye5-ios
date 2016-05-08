@@ -10,4 +10,6 @@
 
 @interface OYELoggedInViewController : UIViewController
 
+- (void)userSignedIn:(NSNotification *)notification;
+
 @end

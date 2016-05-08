@@ -66,6 +66,11 @@
 		66218A9C1CD71511003BD0B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66218A9B1CD71511003BD0B3 /* SystemConfiguration.framework */; };
 		66218A9E1CD71A14003BD0B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66218A9D1CD71A14003BD0B3 /* GoogleService-Info.plist */; };
 		66218AA01CD727A2003BD0B3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 66218A9F1CD727A2003BD0B3 /* libz.tbd */; };
+		66218AA31CDC5783003BD0B3 /* OYEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66218AA21CDC5783003BD0B3 /* OYEUserManager.m */; };
+		66218AA61CDEA725003BD0B3 /* OYEGoogleSignOutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 66218AA51CDEA725003BD0B3 /* OYEGoogleSignOutButton.m */; };
+		66218AA81CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66218AA71CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib */; };
+		66218AAB1CDEFD1B003BD0B3 /* OYEUserManager+Google.m in Sources */ = {isa = PBXBuildFile; fileRef = 66218AAA1CDEFD1B003BD0B3 /* OYEUserManager+Google.m */; };
+		66218AAE1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 66218AAD1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m */; };
 		664128001C7ADD850028987B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 664127FF1C7ADD850028987B /* main.m */; };
 		664128031C7ADD850028987B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128021C7ADD850028987B /* AppDelegate.m */; };
 		6641280C1C7ADD860028987B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6641280A1C7ADD860028987B /* Main.storyboard */; };
@@ -112,7 +117,6 @@
 		6662416E1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6662416D1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib */; };
 		666241701CA7C598003C9C06 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6662416F1CA7C598003C9C06 /* MessageUI.framework */; };
 		666241731CA84749003C9C06 /* OYEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 666241721CA84749003C9C06 /* OYEUser.m */; };
-		666241761CA84A1E003C9C06 /* OYEFacebookUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 666241751CA84A1E003C9C06 /* OYEFacebookUserManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +219,15 @@
 		66218A9B1CD71511003BD0B3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		66218A9D1CD71A14003BD0B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		66218A9F1CD727A2003BD0B3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		66218AA11CDC5783003BD0B3 /* OYEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEUserManager.h; path = Oye5/Source/ModelManagers/OYEUserManager.h; sourceTree = "<group>"; };
+		66218AA21CDC5783003BD0B3 /* OYEUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEUserManager.m; path = Oye5/Source/ModelManagers/OYEUserManager.m; sourceTree = "<group>"; };
+		66218AA41CDEA725003BD0B3 /* OYEGoogleSignOutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEGoogleSignOutButton.h; path = Source/Views/OYEGoogleSignOutButton.h; sourceTree = "<group>"; };
+		66218AA51CDEA725003BD0B3 /* OYEGoogleSignOutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEGoogleSignOutButton.m; path = Source/Views/OYEGoogleSignOutButton.m; sourceTree = "<group>"; };
+		66218AA71CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEGoogleSignOutButton.xib; path = Source/Views/OYEGoogleSignOutButton.xib; sourceTree = "<group>"; };
+		66218AA91CDEFD1B003BD0B3 /* OYEUserManager+Google.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OYEUserManager+Google.h"; path = "Oye5/Source/Categories/OYEUserManager+Google.h"; sourceTree = "<group>"; };
+		66218AAA1CDEFD1B003BD0B3 /* OYEUserManager+Google.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OYEUserManager+Google.m"; path = "Oye5/Source/Categories/OYEUserManager+Google.m"; sourceTree = "<group>"; };
+		66218AAC1CDEFD64003BD0B3 /* OYEUserManager+Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OYEUserManager+Facebook.h"; path = "Oye5/Source/Categories/OYEUserManager+Facebook.h"; sourceTree = "<group>"; };
+		66218AAD1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OYEUserManager+Facebook.m"; path = "Oye5/Source/Categories/OYEUserManager+Facebook.m"; sourceTree = "<group>"; };
 		664127FB1C7ADD850028987B /* Oye5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oye5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		664127FF1C7ADD850028987B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		664128011C7ADD850028987B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -278,8 +291,6 @@
 		6662416F1CA7C598003C9C06 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		666241711CA84749003C9C06 /* OYEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEUser.h; path = Source/Models/OYEUser.h; sourceTree = "<group>"; };
 		666241721CA84749003C9C06 /* OYEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEUser.m; path = Source/Models/OYEUser.m; sourceTree = "<group>"; };
-		666241741CA84A1E003C9C06 /* OYEFacebookUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEFacebookUserManager.h; path = Oye5/Source/ModelManagers/OYEFacebookUserManager.h; sourceTree = "<group>"; };
-		666241751CA84A1E003C9C06 /* OYEFacebookUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEFacebookUserManager.m; path = Oye5/Source/ModelManagers/OYEFacebookUserManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,8 +349,12 @@
 				6617D58B1C9DD81700101292 /* OYEModelManager.m */,
 				6617D5871C9DD78300101292 /* OYEItemManager.h */,
 				6617D5881C9DD78300101292 /* OYEItemManager.m */,
-				666241741CA84A1E003C9C06 /* OYEFacebookUserManager.h */,
-				666241751CA84A1E003C9C06 /* OYEFacebookUserManager.m */,
+				66218AAC1CDEFD64003BD0B3 /* OYEUserManager+Facebook.h */,
+				66218AAD1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m */,
+				66218AA91CDEFD1B003BD0B3 /* OYEUserManager+Google.h */,
+				66218AAA1CDEFD1B003BD0B3 /* OYEUserManager+Google.m */,
+				66218AA11CDC5783003BD0B3 /* OYEUserManager.h */,
+				66218AA21CDC5783003BD0B3 /* OYEUserManager.m */,
 			);
 			name = "Model Managers";
 			path = ..;
@@ -571,6 +586,9 @@
 				6662416A1CA7A215003C9C06 /* OYEItemShareTableViewCell.h */,
 				6662416B1CA7A215003C9C06 /* OYEItemShareTableViewCell.m */,
 				6662416D1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib */,
+				66218AA41CDEA725003BD0B3 /* OYEGoogleSignOutButton.h */,
+				66218AA51CDEA725003BD0B3 /* OYEGoogleSignOutButton.m */,
+				66218AA71CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -780,6 +798,7 @@
 				6641290B1C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				664129061C83C14C0028987B /* SF-UI-Text-Medium.otf in Resources */,
 				664129041C83C14C0028987B /* SF-UI-Text-Light.otf in Resources */,
+				66218AA81CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib in Resources */,
 				6617D5711C9626EE00101292 /* OYEItemImageViewController.xib in Resources */,
 				66218A801CCD641D003BD0B3 /* OYEChatViewController.xib in Resources */,
 				664128F91C83C14C0028987B /* SF-UI-Display-Heavy.otf in Resources */,
@@ -821,7 +840,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66218AAE1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m in Sources */,
 				66218A761CCD37C3003BD0B3 /* SocketPacket.swift in Sources */,
+				66218AA61CDEA725003BD0B3 /* OYEGoogleSignOutButton.m in Sources */,
 				6662416C1CA7A215003C9C06 /* OYEItemShareTableViewCell.m in Sources */,
 				66218A771CCD37C3003BD0B3 /* SocketParsable.swift in Sources */,
 				66218A841CCD92A4003BD0B3 /* OYEChatMessageTableViewCell.m in Sources */,
@@ -849,6 +870,7 @@
 				66218A6E1CCD37C3003BD0B3 /* SocketEngineSpec.swift in Sources */,
 				66218A701CCD37C3003BD0B3 /* SocketEventHandler.swift in Sources */,
 				6617D5551C9525CC00101292 /* OYEProfileViewController.m in Sources */,
+				66218AAB1CDEFD1B003BD0B3 /* OYEUserManager+Google.m in Sources */,
 				6617D5581C9525F300101292 /* OYEItem.m in Sources */,
 				6617D5521C9525A500101292 /* OYELogFormatter.m in Sources */,
 				66218A711CCD37C3003BD0B3 /* SocketFixUTF8.swift in Sources */,
@@ -863,6 +885,7 @@
 				66218A881CCD9861003BD0B3 /* OYEChatMessage.m in Sources */,
 				6617D5671C961F4100101292 /* UIButton+Extensions.m in Sources */,
 				6662415F1CA70BEB003C9C06 /* UIView+Extensions.m in Sources */,
+				66218AA31CDC5783003BD0B3 /* OYEUserManager.m in Sources */,
 				66218A661CCD37C3003BD0B3 /* SocketAckEmitter.swift in Sources */,
 				66218A6C1CCD37C3003BD0B3 /* SocketEnginePacketType.swift in Sources */,
 				6617D58C1C9DD81700101292 /* OYEModelManager.m in Sources */,
@@ -874,7 +897,6 @@
 				6617D5481C95257E00101292 /* OYEItemCollectionViewCell.m in Sources */,
 				66218A6A1CCD37C3003BD0B3 /* SocketEngine.swift in Sources */,
 				6617D54F1C95259400101292 /* UIFont+Extensions.m in Sources */,
-				666241761CA84A1E003C9C06 /* OYEFacebookUserManager.m in Sources */,
 				6617D54E1C95259400101292 /* UIColor+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

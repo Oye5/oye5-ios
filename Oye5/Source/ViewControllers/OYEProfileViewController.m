@@ -10,7 +10,7 @@
 @import AFNetworking.UIImageView_AFNetworking;
 
 #import "OYEProfileViewController.h"
-#import "OYEFacebookUserManager.h"
+#import "OYEUserManager.h"
 #import "OYEUser.h"
 
 #import "UIColor+Extensions.h"
@@ -37,8 +37,7 @@ static NSString * const cellReuseIdentifier = @"cell";
     [self setupImageButton];
     [self setupNameLabel];
     [self setupTableView];
-    [self setupFacebook];
-    [self setupNotifications];
+    [self setupUIWithUser];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,27 +66,13 @@ static NSString * const cellReuseIdentifier = @"cell";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellReuseIdentifier];
 }
 
-- (void)setupFacebook {
-    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
-    
-    [self setupUIWithFacebookProfile];
-}
-
-- (void)setupUIWithFacebookProfile {
+- (void)setupUIWithUser {
     [self resetUI];
     
-    __weak __typeof(self) weakSelf = self;
-    [[OYEFacebookUserManager manager] getUserWithImageSize:self.imageView.frame.size completionBlock:^(OYEUser *user, NSError *error) {
-        if (user) {
-            weakSelf.nameLabel.text = user.name;
-            
-            [weakSelf.imageView setImageWithURL:user.imageURL placeholderImage:nil];
-        }
-    }];
-}
-
-- (void)setupNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDidChangeNotification:) name:FBSDKProfileDidChangeNotification object:nil];
+    OYEUser *user = [OYEUserManager sharedManager].user;
+    
+    self.nameLabel.text = user.name;
+    [self.imageView setImageWithURL:user.imageURL placeholderImage:nil];
 }
 
 - (void)resetUI {
@@ -193,9 +178,11 @@ static NSString * const cellReuseIdentifier = @"cell";
 
 #pragma mark - Notifications
 
-- (void)profileDidChangeNotification:(NSNotification *)notification {
+- (void)userSignedIn:(NSNotification *)notification {
     
-    [self setupUIWithFacebookProfile];
+    [super userSignedIn:notification];
+    
+    [self setupUIWithUser];
 }
 
 /*

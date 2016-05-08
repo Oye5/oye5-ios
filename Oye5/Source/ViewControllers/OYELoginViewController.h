@@ -8,14 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol OYELoginViewControllerDelegate <NSObject>
-
-- (void)didLogInWithFacebookAccount;
-
-@end
-
 @interface OYELoginViewController : UIViewController
-
-- (void)setDelegate:(id<OYELoginViewControllerDelegate>)delegate;
 
 @end

@@ -11,14 +11,18 @@
 
 #import "OYELoggedInViewController.h"
 #import "OYELoginViewController.h"
+#import "OYEUserManager.h"
+#import "OYEUser.h"
+#import "OYEGoogleSignOutButton.h"
 
-@interface OYELoggedInViewController () <FBSDKLoginButtonDelegate, OYELoginViewControllerDelegate>
+@interface OYELoggedInViewController () <FBSDKLoginButtonDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *facebookButtonContainer;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookButtonContainerWidthConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookButtonContainerHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *logOutButtonContainer;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logOutButtonContainerWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logOutButtonContainerHeightConstraint;
 
 @property (strong, nonatomic) OYELoginViewController *loginViewController;
+@property (strong, nonatomic) OYEGoogleSignOutButton *googleButton;
 
 @end
 
@@ -27,21 +31,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupFacebookButton];
+    [self setupLoginViewController];
+    [self setupLogOutButton];
+    [self setupNotifications];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self setupLoginViewController];
-}
 
 #pragma mark - Override getters
 
 - (OYELoginViewController *)loginViewController {
     if (!_loginViewController) {
         _loginViewController = [OYELoginViewController new];
-        _loginViewController.delegate = self;
     }
     
     return _loginViewController;
@@ -49,46 +49,82 @@
 
 #pragma mark - Private
 
+- (void)setupLogOutButton {
+    switch ([OYEUserManager sharedManager].user.type) {
+        case OYEUserTypeFacebook:
+            [self setupFacebookButton];
+            break;
+            
+        case OYEUserTypeGoogle:
+            [self setupGoogleButton];
+            break;
+            
+        default:
+            DDLogWarn(@"Unable to setup log out button");
+    }
+}
+
 - (void)setupFacebookButton {
     FBSDKLoginButton *facebookButton = [FBSDKLoginButton new];
     facebookButton.delegate = self;
-    facebookButton.origin = CGPointZero;
     
-    self.facebookButtonContainerWidthConstraint.constant = facebookButton.width;
-    self.facebookButtonContainerHeightConstraint.constant = facebookButton.height;
+    [self addButton:facebookButton];
+}
+
+- (void)setupGoogleButton {
+    OYEGoogleSignOutButton *googleButton = [OYEGoogleSignOutButton new];
     
-    [self.facebookButtonContainer addSubview:facebookButton];
+    self.googleButton = googleButton;
     
-    self.facebookButtonContainer.backgroundColor = [UIColor yellowColor];
+    [self addButton:googleButton];
+}
+
+- (void)setupNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userSignedIn:) name:OYEUserNotificationSignedIn object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userSignedOut:) name:OYEUserNotificationSignedOut object:nil];
+}
+
+- (void)addButton:(UIButton *)button {
+    button.origin = CGPointZero;
+    
+    self.logOutButtonContainerWidthConstraint.constant = button.width;
+    self.logOutButtonContainerHeightConstraint.constant = button.height;
+    
+    [self.logOutButtonContainer.subviews.lastObject removeFromSuperview];
+    [self.logOutButtonContainer addSubview:button];
+    
+    self.logOutButtonContainer.backgroundColor = [UIColor orangeColor];
 }
 
 - (void)setupLoginViewController {
-    if (![FBSDKAccessToken currentAccessToken]) {
+    if (![OYEUserManager sharedManager].user) {
         if (![self.navigationController.viewControllers containsObject:self.loginViewController]) {
             self.loginViewController.navigationItem.hidesBackButton = YES;
             [self.navigationController pushViewController:self.loginViewController animated:NO];
         }
-    }
-    else if ([self.navigationController.viewControllers containsObject:self.loginViewController]) {
+    } else if ([self.navigationController.viewControllers containsObject:self.loginViewController]) {
         [self.navigationController popToRootViewControllerAnimated:NO];
     }
 }
 
 #pragma mark - FBSDKLoginButtonDelegate
 
-- (void)loginButton:(FBSDKLoginButton *)loginButton
-didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
-              error:(NSError *)error {
-    [self setupLoginViewController];
+- (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+    DDLogDebug(@"*");
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-    [self setupLoginViewController];
+    DDLogDebug(@"*");
 }
 
-#pragma mark - OYELoginViewControllerDelegate
+#pragma mark - Notifications
 
-- (void)didLogInWithFacebookAccount {
+- (void)userSignedIn:(NSNotification *)notification {
+    [self setupLoginViewController];
+    [self setupLogOutButton];
+}
+
+- (void)userSignedOut:(NSNotification *)notification {
     [self setupLoginViewController];
 }
 

@@ -9,14 +9,19 @@
 @import FBSDKCoreKit;
 @import FBSDKLoginKit;
 
-#import "OYELoginViewController.h"
+#import <GoogleSignIn/GoogleSignIn.h>
 
-@interface OYELoginViewController () <FBSDKLoginButtonDelegate>
+#import "OYELoginViewController.h"
+#import "OYEUser.h"
+
+@interface OYELoginViewController () <FBSDKLoginButtonDelegate, GIDSignInUIDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *facebookButtonContainer;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookButtonContainerWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookButtonContainerHeightConstraint;
-@property (weak, nonatomic) id<OYELoginViewControllerDelegate>delegate;
+@property (weak, nonatomic) IBOutlet UIView *googleButtonContainer;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *googleButtonContainerWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *googleButtonContainerHeightConstraint;
 
 @end
 
@@ -27,15 +32,8 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setupFacebookButton];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    if ([FBSDKAccessToken currentAccessToken]
-        && [self.delegate respondsToSelector:@selector(didLogInWithFacebookAccount)]) {
-        [self.delegate didLogInWithFacebookAccount];
-    }
+    [self setupGoogleButton];
+    [self setupBackground];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +54,25 @@
     self.facebookButtonContainer.backgroundColor = [UIColor clearColor];
 }
 
+- (void)setupGoogleButton {
+    [GIDSignIn sharedInstance].uiDelegate = self;
+
+    GIDSignInButton *googleButton = [GIDSignInButton new];
+    googleButton.origin = CGPointZero;
+//    googleButton.colorScheme = kGIDSignInButtonColorSchemeDark;
+    
+    self.googleButtonContainerWidthConstraint.constant = googleButton.width;
+    self.googleButtonContainerHeightConstraint.constant = googleButton.height;
+    
+    [self.googleButtonContainer addSubview:googleButton];
+    
+    self.googleButtonContainer.backgroundColor = [UIColor clearColor];
+}
+
+- (void)setupBackground {
+    self.view.backgroundColor = [UIColor lightGrayColor];
+}
+
 #pragma mark - FBSDKLoginButtonDelegate
 
 - (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
@@ -74,5 +91,23 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - GIDSignInUIDelegate
+
+// The sign-in flow has finished selecting how to proceed, and the UI should no longer display
+// a spinner or other "please wait" element.
+- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
+    DDLogDebug(@"*");
+}
+
+- (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController {
+    [self presentViewController:viewController animated:YES completion:^{
+        ;
+    }];
+}
+
+- (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
