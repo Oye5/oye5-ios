@@ -13,5 +13,6 @@
 + (UIFont *)oyeFontOfSize:(CGFloat)size;
 + (UIFont *)mediumOyeFontOfSize:(CGFloat)size;
 + (UIFont *)boldOyeFontOfSize:(CGFloat)size;
++ (UIFont *)googleFontOfSize:(CGFloat)size;
 
 @end

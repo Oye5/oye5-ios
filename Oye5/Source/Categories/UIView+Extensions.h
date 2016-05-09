@@ -16,6 +16,7 @@
 - (CGFloat)right;
 - (CGFloat)height;
 - (CGFloat)width;
+- (CGSize)size;
 
 - (void)setTop:(CGFloat)top;
 - (void)setBottom:(CGFloat)bottom;
@@ -24,5 +25,6 @@
 - (void)setHeight:(CGFloat)height;
 - (void)setWidth:(CGFloat)width;
 - (void)setOrigin:(CGPoint)origin;
+- (void)setSize:(CGSize)size;
 
 @end

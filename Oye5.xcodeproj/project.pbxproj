@@ -72,6 +72,7 @@
 		66218AAB1CDEFD1B003BD0B3 /* OYEUserManager+Google.m in Sources */ = {isa = PBXBuildFile; fileRef = 66218AAA1CDEFD1B003BD0B3 /* OYEUserManager+Google.m */; };
 		66218AAE1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 66218AAD1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m */; };
 		66218AB01CE025C0003BD0B3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66218AAF1CE025C0003BD0B3 /* Bolts.framework */; };
+		66218AB21CE04395003BD0B3 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66218AB11CE04395003BD0B3 /* Roboto-Medium.ttf */; };
 		664128001C7ADD850028987B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 664127FF1C7ADD850028987B /* main.m */; };
 		664128031C7ADD850028987B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128021C7ADD850028987B /* AppDelegate.m */; };
 		6641280C1C7ADD860028987B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6641280A1C7ADD860028987B /* Main.storyboard */; };
@@ -230,6 +231,7 @@
 		66218AAC1CDEFD64003BD0B3 /* OYEUserManager+Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OYEUserManager+Facebook.h"; path = "Oye5/Source/Categories/OYEUserManager+Facebook.h"; sourceTree = "<group>"; };
 		66218AAD1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OYEUserManager+Facebook.m"; path = "Oye5/Source/Categories/OYEUserManager+Facebook.m"; sourceTree = "<group>"; };
 		66218AAF1CE025C0003BD0B3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Oye5/ThirdParty/Facebook/Bolts.framework; sourceTree = "<group>"; };
+		66218AB11CE04395003BD0B3 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "Fonts/Roboto/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		664127FB1C7ADD850028987B /* Oye5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oye5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		664127FF1C7ADD850028987B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		664128011C7ADD850028987B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 		664128DF1C83C11E0028987B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				66218AB11CE04395003BD0B3 /* Roboto-Medium.ttf */,
 				664128E01C83C14C0028987B /* License Agreement for SF UI Font.pdf */,
 				664128E11C83C14C0028987B /* SF-UI-Display-Black.otf */,
 				664128E21C83C14C0028987B /* SF-UI-Display-Bold.otf */,
@@ -811,6 +814,7 @@
 				6641280E1C7ADD860028987B /* Assets.xcassets in Resources */,
 				6617D5491C95257E00101292 /* OYEItemCollectionViewCell.xib in Resources */,
 				66218A961CD71399003BD0B3 /* GoogleSignIn.bundle in Resources */,
+				66218AB21CE04395003BD0B3 /* Roboto-Medium.ttf in Resources */,
 				6641280C1C7ADD860028987B /* Main.storyboard in Resources */,
 				6662415C1CA6FFDC003C9C06 /* OYELoginViewController.xib in Resources */,
 				66218A9E1CD71A14003BD0B3 /* GoogleService-Info.plist in Resources */,

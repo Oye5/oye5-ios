@@ -10,4 +10,6 @@
 
 @interface OYEGoogleSignOutButton : UIButton
 
++ (instancetype)button;
+
 @end

@@ -84,6 +84,7 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Roboto-Medium.ttf</string>
 		<string>SF-UI-Display-Black.otf</string>
 		<string>SF-UI-Display-Bold.otf</string>
 		<string>SF-UI-Display-Heavy.otf</string>

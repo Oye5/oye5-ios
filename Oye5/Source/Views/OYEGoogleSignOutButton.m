@@ -9,23 +9,30 @@
 #import <GoogleSignIn/GoogleSignIn.h>
 
 #import "OYEGoogleSignOutButton.h"
+#import "UIFont+Extensions.h"
+#import "UIColor+Extensions.h"
+
+static CGFloat const OYEGoogleLogoSize = 18.0;
 
 @implementation OYEGoogleSignOutButton
 
-- (void)dealloc {
-    DDLogDebug(@"*");
++ (instancetype)button {
+    return [[NSBundle bundleForClass:[self class]] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil].firstObject;
 }
 
-- (instancetype)init {
-    self = [[NSBundle bundleForClass:[OYEGoogleSignOutButton class]] loadNibNamed:NSStringFromClass([OYEGoogleSignOutButton class]) owner:nil options:nil].firstObject;
-    if (self) {
-        [self setTitle:NSLocalizedString(@"Log Out Google", nil) forState:UIControlStateNormal];
-        [self addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
-        
-        self.backgroundColor = [UIColor redColor];
-    }
+- (void)awakeFromNib {
+    [super awakeFromNib];
     
-    return self;
+    [self setTitle:NSLocalizedString(@"Log out", nil) forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor oyeLightTextColor] forState:UIControlStateNormal];
+    [self addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.titleLabel.font = [UIFont googleFontOfSize:14];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.size = CGSizeMake(OYEGoogleLogoSize, OYEGoogleLogoSize);
+    self.backgroundColor = [UIColor colorWithRed:(66.0 / 255.0) green:(133.0 / 255.0) blue:(244.0 / 255.0) alpha:1.0];
+    self.layer.cornerRadius = 3.0;
+    self.layer.masksToBounds = YES;
 }
 
 /*

@@ -72,7 +72,7 @@
 }
 
 - (void)setupGoogleButton {
-    OYEGoogleSignOutButton *googleButton = [OYEGoogleSignOutButton new];
+    OYEGoogleSignOutButton *googleButton = [OYEGoogleSignOutButton button];
     
     self.googleButton = googleButton;
     
@@ -85,15 +85,17 @@
 }
 
 - (void)addButton:(UIButton *)button {
-    button.origin = CGPointZero;
-    
+    // Set container size to button size
     self.logOutButtonContainerWidthConstraint.constant = button.width;
     self.logOutButtonContainerHeightConstraint.constant = button.height;
+
+    // Add button to container
+    button.origin = CGPointZero;
+    button.size = self.logOutButtonContainer.size;
+    button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     [self.logOutButtonContainer.subviews.lastObject removeFromSuperview];
     [self.logOutButtonContainer addSubview:button];
-    
-    self.logOutButtonContainer.backgroundColor = [UIColor orangeColor];
 }
 
 - (void)setupLoginViewController {

@@ -59,7 +59,7 @@
 
     GIDSignInButton *googleButton = [GIDSignInButton new];
     googleButton.origin = CGPointZero;
-//    googleButton.colorScheme = kGIDSignInButtonColorSchemeDark;
+    googleButton.colorScheme = kGIDSignInButtonColorSchemeDark;
     
     self.googleButtonContainerWidthConstraint.constant = googleButton.width;
     self.googleButtonContainerHeightConstraint.constant = googleButton.height;

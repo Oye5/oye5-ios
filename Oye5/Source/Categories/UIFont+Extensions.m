@@ -55,6 +55,10 @@ static NSString * const SFUIDisplayPrefix = @"SFUIDisplay-";
     return [UIFont fontWithName:[self oyeFontNameForStyle:@"Bold"] size:size];
 }
 
++ (UIFont *)googleFontOfSize:(CGFloat)size {
+    return [UIFont fontWithName:@"Roboto-Medium" size:size];
+}
+
 + (NSString *)oyeFontNameForStyle:(NSString *)style {
     return [NSString stringWithFormat:@"%@%@", SFUITextPrefix, style];
 }

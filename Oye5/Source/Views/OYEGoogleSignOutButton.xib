@@ -5,15 +5,26 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OYEGoogleSignOutButton"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OYEGoogleSignOutButton">
-            <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <nil key="simulatedStatusBarMetrics"/>
-            <nil key="simulatedTopBarMetrics"/>
-            <nil key="simulatedBottomBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-        </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sRo-oA-jsJ" customClass="OYEGoogleSignOutButton">
+            <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+            <inset key="contentEdgeInsets" minX="-3" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <inset key="titleEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <state key="normal" title="Sign out" image="btn_google_dark_normal_ios">
+                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+            <state key="disabled" image="btn_google_dark_disabled_ios"/>
+            <state key="selected" image="btn_google_dark_pressed_ios"/>
+            <state key="focused" image="btn_google_dark_focus_ios"/>
+        </button>
     </objects>
+    <resources>
+        <image name="btn_google_dark_disabled_ios" width="48" height="48"/>
+        <image name="btn_google_dark_focus_ios" width="48" height="48"/>
+        <image name="btn_google_dark_normal_ios" width="48" height="48"/>
+        <image name="btn_google_dark_pressed_ios" width="48" height="48"/>
+    </resources>
 </document>
