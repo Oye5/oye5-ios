@@ -71,6 +71,7 @@
 		66218AA81CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66218AA71CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib */; };
 		66218AAB1CDEFD1B003BD0B3 /* OYEUserManager+Google.m in Sources */ = {isa = PBXBuildFile; fileRef = 66218AAA1CDEFD1B003BD0B3 /* OYEUserManager+Google.m */; };
 		66218AAE1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 66218AAD1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m */; };
+		66218AB01CE025C0003BD0B3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66218AAF1CE025C0003BD0B3 /* Bolts.framework */; };
 		664128001C7ADD850028987B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 664127FF1C7ADD850028987B /* main.m */; };
 		664128031C7ADD850028987B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664128021C7ADD850028987B /* AppDelegate.m */; };
 		6641280C1C7ADD860028987B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6641280A1C7ADD860028987B /* Main.storyboard */; };
@@ -228,6 +229,7 @@
 		66218AAA1CDEFD1B003BD0B3 /* OYEUserManager+Google.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OYEUserManager+Google.m"; path = "Oye5/Source/Categories/OYEUserManager+Google.m"; sourceTree = "<group>"; };
 		66218AAC1CDEFD64003BD0B3 /* OYEUserManager+Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OYEUserManager+Facebook.h"; path = "Oye5/Source/Categories/OYEUserManager+Facebook.h"; sourceTree = "<group>"; };
 		66218AAD1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OYEUserManager+Facebook.m"; path = "Oye5/Source/Categories/OYEUserManager+Facebook.m"; sourceTree = "<group>"; };
+		66218AAF1CE025C0003BD0B3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Oye5/ThirdParty/Facebook/Bolts.framework; sourceTree = "<group>"; };
 		664127FB1C7ADD850028987B /* Oye5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oye5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		664127FF1C7ADD850028987B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		664128011C7ADD850028987B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66218AB01CE025C0003BD0B3 /* Bolts.framework in Frameworks */,
 				66218AA01CD727A2003BD0B3 /* libz.tbd in Frameworks */,
 				66218A9C1CD71511003BD0B3 /* SystemConfiguration.framework in Frameworks */,
 				66218A9A1CD714FC003BD0B3 /* SafariServices.framework in Frameworks */,
@@ -363,6 +366,7 @@
 		6617D58D1C9DE71D00101292 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66218AAF1CE025C0003BD0B3 /* Bolts.framework */,
 				66218A9F1CD727A2003BD0B3 /* libz.tbd */,
 				66218A9B1CD71511003BD0B3 /* SystemConfiguration.framework */,
 				66218A991CD714FC003BD0B3 /* SafariServices.framework */,
