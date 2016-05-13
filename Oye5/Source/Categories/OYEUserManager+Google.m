@@ -20,26 +20,11 @@
     user.token = googleUser.authentication.idToken;
     user.name = googleUser.profile.name;
     user.firstName = googleUser.profile.givenName;
-    //    oyeUser.middleName = fbProfile.middleName;
     user.lastname = googleUser.profile.familyName;
-    //    oyeUser.imageURL = [fbProfile imageURLForPictureMode:FBSDKProfilePictureModeSquare size:imageSize];
-    // Perform any operations on signed in user here.
-    //    NSString *userId = user.userID;                  // For client-side use only!
-    //    NSString *idToken = user.authentication.idToken; // Safe to send to the server
-    //    NSString *fullName = user.profile.name;
-    //    NSString *givenName = user.profile.givenName;
-    //    NSString *familyName = user.profile.familyName;
-    //    NSString *email = user.profile.email;
-    // ...
+    user.email = googleUser.profile.email;
     
     if (googleUser.profile.hasImage) {
-        NSString *urlString = [NSString stringWithFormat:@"https://plus.google.com/s2/photos/profile/%@?sz=%f", googleUser.userID, imageSize];
-        //        [[self manager] GET:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        //            DDLogDebug(@"JSON: %@", responseObject);
-        //        } failure:^(NSURLSessionTask *operation, NSError *error) {
-        //            DDLogDebug(@"Error: %@", error);
-        //        }];
-        user.imageURL = [NSURL URLWithString:urlString];
+        user.imageURL = [googleUser.profile imageURLWithDimension:(NSInteger)imageSize];
     }
     
     user.type = OYEUserTypeGoogle;

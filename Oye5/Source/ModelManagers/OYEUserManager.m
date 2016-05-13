@@ -63,10 +63,6 @@ __strong static OYEUserManager *_sharedManager;
     [GIDSignIn sharedInstance].delegate = self;
     
     [[GIDSignIn sharedInstance] signInSilently];
-//    
-//    if ([[GIDSignIn sharedInstance] currentUser]) {
-//        [self signInUser:[self userFromGIDGoogleUser:[[GIDSignIn sharedInstance] currentUser] withImageSize:OYEUserImageSize]];
-//    }
 }
 
 - (void)getFacebookUser {

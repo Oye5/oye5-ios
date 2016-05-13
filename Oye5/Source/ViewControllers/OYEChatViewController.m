@@ -69,11 +69,16 @@ static NSString * const OYEChatOutgoingMessageResuseCellIdentifier = @"OYEChatOu
 
 - (void)setupSendButtonWithString:(NSString *)string {
     self.sendButton.hidden = (string.length == 0);
-    if (self.sendButton.hidden) {
-        self.sendButtonWidth.constant = 0;
-    } else {
-        self.sendButtonWidth.constant = 46;
-    }
+    [UIView animateWithDuration:0.3 animations:^{
+        if (self.sendButton.hidden) {
+            self.sendButtonWidth.constant = 0;
+        } else {
+            self.sendButtonWidth.constant = 46;
+        }
+        
+        [self.sendButton layoutIfNeeded];
+        [self.textField layoutIfNeeded];
+    }];
 }
 
 - (void)setupMessages {
@@ -164,6 +169,8 @@ static NSString * const OYEChatOutgoingMessageResuseCellIdentifier = @"OYEChatOu
     
     [self.socket emit:@"chat message" withItems:@[self.textField.text]];
     self.textField.text = nil;
+
+    [self setupSendButtonWithString:nil];
 }
 
 #pragma mark - NSNotifications
