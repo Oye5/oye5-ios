@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6617D5361C95252200101292 /* OYEExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5351C95252200101292 /* OYEExploreViewController.m */; };
+		6617D5361C95252200101292 /* OYEShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5351C95252200101292 /* OYEShopViewController.m */; };
 		6617D5391C95253400101292 /* OYESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5381C95253400101292 /* OYESearchViewController.m */; };
 		6617D53C1C95254100101292 /* OYESellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D53B1C95254100101292 /* OYESellViewController.m */; };
 		6617D53F1C95255600101292 /* OYEChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D53E1C95255600101292 /* OYEChatsViewController.m */; };
@@ -142,8 +142,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6617D5341C95252200101292 /* OYEExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEExploreViewController.h; path = Source/ViewControllers/OYEExploreViewController.h; sourceTree = "<group>"; };
-		6617D5351C95252200101292 /* OYEExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEExploreViewController.m; path = Source/ViewControllers/OYEExploreViewController.m; sourceTree = "<group>"; };
+		6617D5341C95252200101292 /* OYEShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEShopViewController.h; path = Source/ViewControllers/OYEShopViewController.h; sourceTree = "<group>"; };
+		6617D5351C95252200101292 /* OYEShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEShopViewController.m; path = Source/ViewControllers/OYEShopViewController.m; sourceTree = "<group>"; };
 		6617D5371C95253400101292 /* OYESearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYESearchViewController.h; path = Source/ViewControllers/OYESearchViewController.h; sourceTree = "<group>"; };
 		6617D5381C95253400101292 /* OYESearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYESearchViewController.m; path = Source/ViewControllers/OYESearchViewController.m; sourceTree = "<group>"; };
 		6617D53A1C95254100101292 /* OYESellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYESellViewController.h; path = Source/ViewControllers/OYESellViewController.h; sourceTree = "<group>"; };
@@ -509,8 +509,8 @@
 		6641284A1C824A620028987B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				6617D5341C95252200101292 /* OYEExploreViewController.h */,
-				6617D5351C95252200101292 /* OYEExploreViewController.m */,
+				6617D5341C95252200101292 /* OYEShopViewController.h */,
+				6617D5351C95252200101292 /* OYEShopViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -887,7 +887,7 @@
 				66218A6D1CCD37C3003BD0B3 /* SocketEnginePollable.swift in Sources */,
 				6617D5891C9DD78300101292 /* OYEItemManager.m in Sources */,
 				66218A7F1CCD641D003BD0B3 /* OYEChatViewController.m in Sources */,
-				6617D5361C95252200101292 /* OYEExploreViewController.m in Sources */,
+				6617D5361C95252200101292 /* OYEShopViewController.m in Sources */,
 				66218A6B1CCD37C3003BD0B3 /* SocketEngineClient.swift in Sources */,
 				66218A6E1CCD37C3003BD0B3 /* SocketEngineSpec.swift in Sources */,
 				66218A701CCD37C3003BD0B3 /* SocketEventHandler.swift in Sources */,

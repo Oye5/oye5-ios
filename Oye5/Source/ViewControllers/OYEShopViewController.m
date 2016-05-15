@@ -1,5 +1,5 @@
 //
-//  OYEHomeCollectionViewController.m
+//  OYEShopViewController.m
 //  Oye5
 //
 //  Created by Rita Kyauk on 2/27/16.
@@ -8,7 +8,7 @@
 
 @import CoreLocation.CLLocation;
 
-#import "OYEExploreViewController.h"
+#import "OYEShopViewController.h"
 #import "OYEItemCollectionViewCell.h"
 #import "OYEItem.h"
 #import "OYEItemViewController.h"
@@ -21,7 +21,7 @@
 static CGFloat const OYEExploreCollectionViewVerticalInset = 5.0;
 static CGFloat const OYEExploreCollectionViewHorizontalInset = 5.0;
 
-@interface OYEExploreViewController () <OYESegmentedControlDelegate>
+@interface OYEShopViewController () <OYESegmentedControlDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *segmentedControlContainer;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -30,7 +30,7 @@ static CGFloat const OYEExploreCollectionViewHorizontalInset = 5.0;
 
 @end
 
-@implementation OYEExploreViewController
+@implementation OYEShopViewController
 
 static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 

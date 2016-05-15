@@ -1,5 +1,5 @@
 //
-//  OYEHomeCollectionViewController.h
+//  OYEShopViewController.h
 //  Oye5
 //
 //  Created by Rita Kyauk on 2/27/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OYEExploreViewController : UIViewController
+@interface OYEShopViewController : UIViewController
 
 @end
