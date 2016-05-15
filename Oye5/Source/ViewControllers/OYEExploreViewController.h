@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OYEHomeCollectionViewController : UICollectionViewController
+@interface OYEExploreViewController : UIViewController
 
 @end

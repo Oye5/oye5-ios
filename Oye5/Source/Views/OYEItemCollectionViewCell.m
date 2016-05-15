@@ -16,8 +16,11 @@
 
 @interface OYEItemCollectionViewCell ()
 
+@property (weak, nonatomic) IBOutlet UIView *shawdowView;
+@property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 @property (strong, nonatomic) OYEItem *item;
@@ -28,21 +31,51 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.backgroundColor = [UIColor clearColor];
+    
+    [self setupShawdowView];
+    [self setupCardView];
     [self setupImageView];
-    [self setupLabel:self.priceLabel];
-    [self setupLabel:self.descriptionLabel];
+    [self setupDescriptionLabel];
+    [self setupDistanceLabel];
+    [self setupPriceLabel];
 }
 
 #pragma mark - Private
+
+- (void)setupShawdowView {
+    self.shawdowView.layer.shadowOpacity = 0.1;
+    self.shawdowView.layer.shadowRadius = 1;
+    self.shawdowView.layer.shadowOffset = CGSizeMake(1, 1);
+    self.shawdowView.backgroundColor = [UIColor clearColor];
+}
+
+- (void)setupCardView {
+    self.cardView.layer.cornerRadius = 2.0;
+    self.cardView.layer.masksToBounds = YES;
+}
 
 - (void)setupImageView
 {
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
-- (void)setupLabel:(UILabel *)label {
-    label.font = [UIFont oyeFontOfSize:12];
-    label.textColor = [UIColor oyeLightTextColor];
+- (void)setupDescriptionLabel {
+    self.descriptionLabel.font = [UIFont oyeFontOfSize:14];
+    self.descriptionLabel.textColor = [UIColor oyeDarkTextColor];
+    self.descriptionLabel.backgroundColor = [UIColor oyeWhiteBackGroundColor];
+}
+
+- (void)setupDistanceLabel {
+    self.distanceLabel.font = [UIFont oyeFontOfSize:14];
+    self.distanceLabel.textColor = [UIColor oyeMediumTextColor];
+    self.distanceLabel.backgroundColor = [UIColor oyeWhiteBackGroundColor];
+}
+
+- (void)setupPriceLabel {
+    self.priceLabel.font = [UIFont boldOyeFontOfSize:14];
+    self.priceLabel.textColor = [UIColor oyeDarkTextColor];
+    self.priceLabel.backgroundColor = [UIColor oyeWhiteBackGroundColor];
 }
 
 #pragma mark - Override
@@ -52,6 +85,8 @@
     
     [self.imageView setImageWithURL:[NSURL URLWithString:self.item.images.firstObject]];
     self.descriptionLabel.text = item.itemDescription;
+#warning Need to link to distance from user
+    self.distanceLabel.text = [NSString stringWithFormat:@"%.1f km", (rand() % 100) / 100.0];
     self.priceLabel.text = [item priceString];
 }
 

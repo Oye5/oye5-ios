@@ -49,7 +49,7 @@ static NSString * const cellReuseIdentifier = @"cell";
 
 - (void)setupImageView {
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.imageView.backgroundColor = [UIColor oyeBackgroundColor];
+    self.imageView.backgroundColor = [UIColor oyeLightGrayBackgroundColor];
     self.imageView.layer.cornerRadius = self.imageView.width / 2;
     self.imageView.layer.masksToBounds = YES;
 }

@@ -30,7 +30,7 @@ static CGFloat const OYEGoogleLogoSize = 18.0;
     self.titleLabel.font = [UIFont googleFontOfSize:14];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.size = CGSizeMake(OYEGoogleLogoSize, OYEGoogleLogoSize);
-    self.backgroundColor = [UIColor colorWithRed:(66.0 / 255.0) green:(133.0 / 255.0) blue:(244.0 / 255.0) alpha:1.0];
+    self.backgroundColor = [UIColor colorWithRed:[UIColor colorComponentWithValue:66.0] green:[UIColor colorComponentWithValue:133.0] blue:[UIColor colorComponentWithValue:244.0] alpha:1.0];
     self.layer.cornerRadius = 3.0;
     self.layer.masksToBounds = YES;
 }

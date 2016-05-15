@@ -27,4 +27,6 @@
 - (void)setOrigin:(CGPoint)origin;
 - (void)setSize:(CGSize)size;
 
+- (void)addContraintsToAddView:(UIView *)view;
+
 @end

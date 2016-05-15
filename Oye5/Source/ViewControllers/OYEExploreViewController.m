@@ -8,21 +8,29 @@
 
 @import CoreLocation.CLLocation;
 
-#import "OYEHomeCollectionViewController.h"
+#import "OYEExploreViewController.h"
 #import "OYEItemCollectionViewCell.h"
 #import "OYEItem.h"
 #import "OYEItemViewController.h"
 #import "OYEItemManager.h"
+#import "OYESegmentedControl.h"
 
 #import "UIColor+Extensions.h"
+#import "UIView+Extensions.h"
 
-@interface OYEHomeCollectionViewController ()
+static CGFloat const OYEExploreCollectionViewVerticalInset = 5.0;
+static CGFloat const OYEExploreCollectionViewHorizontalInset = 5.0;
 
-@property (nonatomic, strong) NSArray<OYEItem *> *items;
+@interface OYEExploreViewController () <OYESegmentedControlDelegate>
+
+@property (weak, nonatomic) IBOutlet UIView *segmentedControlContainer;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (strong, nonatomic) NSArray<OYEItem *> *items;
 
 @end
 
-@implementation OYEHomeCollectionViewController
+@implementation OYEExploreViewController
 
 static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 
@@ -32,11 +40,11 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Register cell classes
-    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+    self.view.backgroundColor = [UIColor oyeLightGrayBackgroundColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    // Do any additional setup after loading the view.
-    self.collectionView.backgroundColor = [UIColor oyeBackgroundColor];
+    [self setupSegmentedControlContainer];
+    [self setupCollectionView];
     
     self.items = [OYEItemManager getItems];
 }
@@ -44,6 +52,27 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupSegmentedControlContainer {
+    OYESegmentedControl *segmentedControl = [[OYESegmentedControl alloc] initWithFrame:CGRectMake(0, 0, self.segmentedControlContainer.width, self.segmentedControlContainer.height) titles:@[NSLocalizedString(@"FEATURED", nil), NSLocalizedString(@"BROWSE", nil)] delegate:self];
+    [segmentedControl selectSegment:0];
+    
+    [self.segmentedControlContainer addSubview:segmentedControl];
+    
+    [self.segmentedControlContainer addContraintsToAddView:segmentedControl];
+    
+    self.segmentedControlContainer.backgroundColor = [UIColor clearColor];
+}
+
+- (void)setupCollectionView {
+    
+    // Do any additional setup after loading the view.
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    
+    self.collectionView.contentInset = UIEdgeInsetsMake(OYEExploreCollectionViewVerticalInset, OYEExploreCollectionViewHorizontalInset, OYEExploreCollectionViewVerticalInset, OYEExploreCollectionViewHorizontalInset);
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
 /*
@@ -61,8 +90,6 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     OYEItem *item = self.items[indexPath.row];
     
     cell.item = item;
-    
-    cell.backgroundColor = [UIColor darkGrayColor];
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -131,10 +158,15 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 {
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)collectionViewLayout;
     
-    CGSize cellSize = CGSizeMake((self.view.width - flowLayout.minimumInteritemSpacing) / 2, 100);
+    CGSize cellSize = CGSizeMake((self.collectionView.width  - flowLayout.minimumLineSpacing - 2 * OYEExploreCollectionViewHorizontalInset) / 2, 250);
     
     return cellSize;
 }
 
+#pragma mark - OYESegmentedControlDelegate
+
+- (void)didSelectSegment:(NSUInteger)segment {
+    DDLogDebug(@"*");
+}
 
 @end
