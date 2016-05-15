@@ -10,7 +10,7 @@
         <scene sceneID="lC4-0z-MIh">
             <objects>
                 <navigationController id="ZQk-I7-5jq" userLabel="Shop" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="D32-U3-7AM"/>
+                    <tabBarItem key="tabBarItem" title="Shop" id="D32-U3-7AM" userLabel="Shop"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V5F-QM-blO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="742" y="-329"/>
         </scene>
-        <!--Explore View Controller-->
+        <!--Shop-->
         <scene sceneID="dvL-tP-g2e">
             <objects>
-                <viewController id="vYu-Aw-96C" customClass="OYEExploreViewController" sceneMemberID="viewController">
+                <viewController id="vYu-Aw-96C" userLabel="Shop" customClass="OYEExploreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v6p-7p-Qnv"/>
                         <viewControllerLayoutGuide type="bottom" id="fiv-Y0-W5a"/>
@@ -36,9 +36,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3o-kI-lkq">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <rect key="frame" x="20" y="64" width="230" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="0Ui-7c-N6I"/>
                                     <constraint firstAttribute="height" constant="44" id="1bb-PG-bhm"/>
                                 </constraints>
                             </view>
@@ -69,8 +70,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="q3o-kI-lkq" firstAttribute="leading" secondItem="agW-yf-Aj1" secondAttribute="leadingMargin" constant="-20" id="Dn8-53-eWt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q3o-kI-lkq" secondAttribute="trailing" constant="-20" id="QCl-zC-VDH"/>
+                            <constraint firstItem="q3o-kI-lkq" firstAttribute="leading" secondItem="agW-yf-Aj1" secondAttribute="leadingMargin" id="Dn8-53-eWt"/>
                             <constraint firstItem="vkl-Ba-Xk7" firstAttribute="leading" secondItem="agW-yf-Aj1" secondAttribute="leadingMargin" constant="-20" id="TrM-4D-4pd"/>
                             <constraint firstItem="q3o-kI-lkq" firstAttribute="top" secondItem="v6p-7p-Qnv" secondAttribute="bottom" id="W2V-72-5rK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vkl-Ba-Xk7" secondAttribute="trailing" constant="-20" id="c4g-6B-ygx"/>

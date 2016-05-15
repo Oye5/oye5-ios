@@ -26,7 +26,7 @@
     [self setTitleColor:[UIColor oyeMediumTextColor] forState:UIControlStateHighlighted];
     [self setTitleColor:[UIColor oyeMediumTextColor] forState:UIControlStateDisabled];
     
-    self.titleLabel.font = [UIFont boldOyeFontOfSize:16];
+    self.titleLabel.font = [UIFont mediumOyeFontOfSize:15];
     
     self.backgroundColor = [UIColor clearColor];
     

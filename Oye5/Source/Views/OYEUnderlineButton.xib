@@ -13,16 +13,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNG-lL-NQO">
-                    <rect key="frame" x="37" y="39" width="75" height="5"/>
+                    <rect key="frame" x="45" y="41" width="60" height="3"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="5" id="iYn-09-F4h"/>
+                        <constraint firstAttribute="height" constant="3" id="iYn-09-F4h"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="XNG-lL-NQO" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="Yb8-bx-T5H"/>
+                <constraint firstItem="XNG-lL-NQO" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" id="Yb8-bx-T5H"/>
                 <constraint firstAttribute="bottom" secondItem="XNG-lL-NQO" secondAttribute="bottom" id="jd4-hn-Xd3"/>
                 <constraint firstItem="XNG-lL-NQO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jn1-tv-dUw"/>
             </constraints>

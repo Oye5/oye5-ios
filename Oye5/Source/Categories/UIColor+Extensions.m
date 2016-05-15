@@ -15,7 +15,7 @@
 }
 
 + (UIColor *)oyeMediumTextColor {
-    return [UIColor colorWithRed:[self colorComponentWithValue:180.0] green:[self colorComponentWithValue:181.0] blue:[self colorComponentWithValue:182.0] alpha:1.0];
+    return [UIColor colorWithRed:[self colorComponentWithValue:170.0] green:[self colorComponentWithValue:171.0] blue:[self colorComponentWithValue:172.0] alpha:1.0];
 }
 
 + (UIColor *)oyeLightTextColor {
