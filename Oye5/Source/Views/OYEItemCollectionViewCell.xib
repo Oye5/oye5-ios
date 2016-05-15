@@ -26,22 +26,23 @@
                                             <constraint firstAttribute="height" constant="175" id="cIe-R1-W3g"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1s-No-nIk">
-                                        <rect key="frame" x="8" y="175" width="124" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TDR-Lc-GiY">
+                                        <rect key="frame" x="3" y="175" width="134" height="39"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEg-EJ-OvW">
-                                        <rect key="frame" x="70" y="211" width="62" height="21"/>
+                                        <rect key="frame" x="70" y="214" width="62" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUF-36-u24">
-                                        <rect key="frame" x="8" y="211" width="62" height="21"/>
+                                        <rect key="frame" x="8" y="214" width="62" height="18"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="NUb-IR-RNF"/>
+                                            <constraint firstAttribute="height" constant="18" id="NUb-IR-RNF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,21 +51,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="TDR-Lc-GiY" secondAttribute="trailing" constant="3" id="3Bl-j0-d09"/>
                                     <constraint firstItem="oEg-EJ-OvW" firstAttribute="leading" secondItem="kUF-36-u24" secondAttribute="trailing" id="3op-XU-Idu"/>
+                                    <constraint firstItem="kUF-36-u24" firstAttribute="top" secondItem="TDR-Lc-GiY" secondAttribute="bottom" id="4Ni-57-h7m"/>
                                     <constraint firstItem="oEg-EJ-OvW" firstAttribute="height" secondItem="kUF-36-u24" secondAttribute="height" id="CpT-qY-Wh9"/>
                                     <constraint firstItem="eZj-ou-E7f" firstAttribute="top" secondItem="Ewr-Rt-OpE" secondAttribute="top" id="DGG-F6-wAM"/>
                                     <constraint firstItem="eZj-ou-E7f" firstAttribute="leading" secondItem="Ewr-Rt-OpE" secondAttribute="leading" id="FN1-tj-FCp"/>
                                     <constraint firstAttribute="trailing" secondItem="eZj-ou-E7f" secondAttribute="trailing" id="Gck-RZ-l17"/>
                                     <constraint firstItem="oEg-EJ-OvW" firstAttribute="width" secondItem="eZj-ou-E7f" secondAttribute="width" multiplier="0.5" constant="-8" id="Gw5-1E-SGi"/>
+                                    <constraint firstItem="TDR-Lc-GiY" firstAttribute="leading" secondItem="Ewr-Rt-OpE" secondAttribute="leading" constant="3" id="J8A-iC-4Kh"/>
                                     <constraint firstItem="kUF-36-u24" firstAttribute="width" secondItem="eZj-ou-E7f" secondAttribute="width" multiplier="0.5" constant="-8" id="NF1-SF-P5w"/>
                                     <constraint firstAttribute="trailing" secondItem="oEg-EJ-OvW" secondAttribute="trailing" constant="8" id="NLe-ha-l6K"/>
-                                    <constraint firstItem="r1s-No-nIk" firstAttribute="top" secondItem="eZj-ou-E7f" secondAttribute="bottom" id="QDn-6b-lFY"/>
                                     <constraint firstAttribute="bottom" secondItem="kUF-36-u24" secondAttribute="bottom" constant="8" id="RGf-Hl-8SN"/>
-                                    <constraint firstAttribute="trailing" secondItem="r1s-No-nIk" secondAttribute="trailing" constant="8" id="SLc-FG-qrb"/>
                                     <constraint firstItem="oEg-EJ-OvW" firstAttribute="top" secondItem="kUF-36-u24" secondAttribute="top" id="WyD-Gg-Eht"/>
-                                    <constraint firstItem="kUF-36-u24" firstAttribute="top" secondItem="r1s-No-nIk" secondAttribute="bottom" id="hye-Lx-kTg"/>
                                     <constraint firstItem="kUF-36-u24" firstAttribute="leading" secondItem="Ewr-Rt-OpE" secondAttribute="leading" constant="8" id="jtK-V2-jN8"/>
-                                    <constraint firstItem="r1s-No-nIk" firstAttribute="leading" secondItem="Ewr-Rt-OpE" secondAttribute="leading" constant="8" id="lOI-dP-GRe"/>
+                                    <constraint firstItem="TDR-Lc-GiY" firstAttribute="top" secondItem="eZj-ou-E7f" secondAttribute="bottom" id="xzL-hb-8Z9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -87,7 +88,7 @@
             </constraints>
             <connections>
                 <outlet property="cardView" destination="Ewr-Rt-OpE" id="8Kb-6D-0sc"/>
-                <outlet property="descriptionLabel" destination="r1s-No-nIk" id="0A7-Xg-i94"/>
+                <outlet property="descriptionTextView" destination="TDR-Lc-GiY" id="Ccm-iy-pxi"/>
                 <outlet property="distanceLabel" destination="kUF-36-u24" id="Ock-5B-tLo"/>
                 <outlet property="imageView" destination="eZj-ou-E7f" id="Qom-KV-Bj4"/>
                 <outlet property="priceLabel" destination="oEg-EJ-OvW" id="OC3-Em-P4D"/>

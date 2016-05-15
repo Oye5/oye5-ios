@@ -15,6 +15,30 @@
 #import "OYELogFormatter.h"
 #import "OYEUserManager.h"
 
+#import "UIColor+Extensions.h"
+
+@interface UITextField (Appearances)
+
+- (void)setLayerCornerRadius:(CGFloat)cornerRadiu;
+
+@end
+
+@implementation UITextField (Appearances)
+
+- (void)setLayerCornerRadius:(CGFloat)cornerRadius {
+    self.layer.cornerRadius = cornerRadius;
+}
+
+- (void)setLayerBorderColor:(UIColor *)borderColor {
+    self.layer.borderColor = borderColor.CGColor;
+}
+
+- (void)setLayerBorderWidth:(CGFloat)borderWidth {
+    self.layer.borderWidth = 1;
+}
+
+@end
+
 @interface AppDelegate ()
 
 @end
@@ -27,6 +51,7 @@
     [self setupLogger];
     [self setupAFNetworking];
     [self setupUser];
+    [self setupAppearances];
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
@@ -103,6 +128,13 @@
 
 - (void)setupUser {
     [[OYEUserManager sharedManager] setup];
+}
+
+- (void)setupAppearances {
+    [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setBorderStyle:UITextBorderStyleNone];
+    [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setLayerCornerRadius:1.0];
+    [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setLayerBorderColor:[UIColor oyeLightGrayBackgroundColor]];
+    [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setLayerBorderWidth:1.0];
 }
 
 @end

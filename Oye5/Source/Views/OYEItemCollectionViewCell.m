@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *shawdowView;
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
@@ -36,7 +36,7 @@
     [self setupShawdowView];
     [self setupCardView];
     [self setupImageView];
-    [self setupDescriptionLabel];
+    [self setupDescriptionTextView];
     [self setupDistanceLabel];
     [self setupPriceLabel];
 }
@@ -60,10 +60,10 @@
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
-- (void)setupDescriptionLabel {
-    self.descriptionLabel.font = [UIFont oyeFontOfSize:14];
-    self.descriptionLabel.textColor = [UIColor oyeDarkTextColor];
-    self.descriptionLabel.backgroundColor = [UIColor oyeWhiteBackGroundColor];
+- (void)setupDescriptionTextView {
+    self.descriptionTextView.font = [UIFont oyeFontOfSize:14];
+    self.descriptionTextView.textColor = [UIColor oyeDarkTextColor];
+    self.descriptionTextView.backgroundColor = [UIColor oyeWhiteBackGroundColor];
 }
 
 - (void)setupDistanceLabel {
@@ -84,7 +84,7 @@
     _item = item;
     
     [self.imageView setImageWithURL:[NSURL URLWithString:self.item.images.firstObject]];
-    self.descriptionLabel.text = item.itemDescription;
+    self.descriptionTextView.text = item.itemDescription;
 #warning Need to link to distance from user
     self.distanceLabel.text = [NSString stringWithFormat:@"%.1f km", (rand() % 100) / 100.0];
     self.priceLabel.text = [item priceString];

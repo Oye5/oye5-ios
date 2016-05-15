@@ -21,7 +21,7 @@
 static CGFloat const OYEExploreCollectionViewVerticalInset = 5.0;
 static CGFloat const OYEExploreCollectionViewHorizontalInset = 5.0;
 
-@interface OYEShopViewController () <OYESegmentedControlDelegate>
+@interface OYEShopViewController () <UISearchBarDelegate, OYESegmentedControlDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *segmentedControlContainer;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -43,6 +43,8 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     self.view.backgroundColor = [UIColor oyeLightGrayBackgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    [self setupSearchBar];
+    [self setupFilterButton];
     [self setupSegmentedControlContainer];
     [self setupCollectionView];
     
@@ -52,6 +54,24 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupSearchBar {
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.navigationController.navigationBar.width, self.navigationController.navigationBar.height)];
+    searchBar.delegate = self;
+    
+    self.navigationItem.titleView = searchBar;
+}
+
+- (void)setupFilterButton {
+    UIImage *image = [UIImage imageNamed:@"filterButton"];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+    [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(filterItems:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    self.navigationItem.rightBarButtonItem = buttonItem;
 }
 
 - (void)setupSegmentedControlContainer {
@@ -166,6 +186,22 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 #pragma mark - OYESegmentedControlDelegate
 
 - (void)didSelectSegment:(NSUInteger)segment {
+    DDLogDebug(@"*");
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    DDLogDebug(@"*");
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    DDLogDebug(@"*");
+}
+
+#pragma mark - Actions
+
+- (void)filterItems:(id)sender {
     DDLogDebug(@"*");
 }
 
