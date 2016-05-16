@@ -24,8 +24,6 @@
     
     dispatch_once(&predicate, ^{
         _sharedInstance = [self new];
-        
-        [_sharedInstance setupLocationManager];
     });
     
     return _sharedInstance;
@@ -33,6 +31,10 @@
 
 + (CLLocation *)currentLocation {
     return [self sharedInstance].locationManager.location;
+}
+
+- (void)setup {
+    [[OYEUserLocationManager sharedInstance] setupLocationManager];
 }
 
 #pragma mark - Private

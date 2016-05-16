@@ -12,6 +12,9 @@
 
 @interface OYEUserLocationManager : NSObject
 
++ (OYEUserLocationManager *)sharedInstance;
 + (CLLocation *)currentLocation;
+
+- (void)setup;
 
 @end

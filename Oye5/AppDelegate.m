@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "OYELogFormatter.h"
 #import "OYEUserManager.h"
+#import "OYEUserLocationManager.h"
 
 #import "UIColor+Extensions.h"
 
@@ -51,6 +52,7 @@
     [self setupLogger];
     [self setupAFNetworking];
     [self setupUser];
+    [self setupUserLocationManager];
     [self setupAppearances];
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
@@ -128,6 +130,10 @@
 
 - (void)setupUser {
     [[OYEUserManager sharedInstance] setup];
+}
+
+- (void)setupUserLocationManager {
+    [[OYEUserLocationManager sharedInstance] setup];
 }
 
 - (void)setupAppearances {
