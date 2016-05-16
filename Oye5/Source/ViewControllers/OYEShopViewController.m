@@ -186,7 +186,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 #pragma mark - OYESegmentedControlDelegate
 
 - (void)didSelectSegment:(NSUInteger)segment {
-    DDLogDebug(@"*");
+    DDLogDebug(@"Segment: %lu", (unsigned long)segment);
 }
 
 #pragma mark - UISearchBarDelegate

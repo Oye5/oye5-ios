@@ -137,6 +137,14 @@
 }
 
 - (void)setupAppearances {
+    // UINavigationBar
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage new]
+                                      forBarPosition:UIBarPositionAny
+                                          barMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    
+    // UISearchBar
     [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setBorderStyle:UITextBorderStyleNone];
     [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setLayerCornerRadius:1.0];
     [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setLayerBorderColor:[UIColor oyeLightGrayBackgroundColor]];
