@@ -15,7 +15,7 @@ extern NSString * const OYEUserNotificationSignedOut;
 
 @interface OYEUserManager : NSObject
 
-+ (instancetype)sharedManager;
++ (instancetype)sharedInstance;
 
 - (OYEUser *)user;
 - (void)setup;

@@ -50,7 +50,7 @@
 #pragma mark - Private
 
 - (void)setupLogOutButton {
-    switch ([OYEUserManager sharedManager].user.type) {
+    switch ([OYEUserManager sharedInstance].user.type) {
         case OYEUserTypeFacebook:
             [self setupFacebookButton];
             break;
@@ -99,7 +99,7 @@
 }
 
 - (void)setupLoginViewController {
-    if (![OYEUserManager sharedManager].user) {
+    if (![OYEUserManager sharedInstance].user) {
         if (![self.navigationController.viewControllers containsObject:self.loginViewController]) {
             self.loginViewController.navigationItem.hidesBackButton = YES;
             [self.navigationController pushViewController:self.loginViewController animated:NO];

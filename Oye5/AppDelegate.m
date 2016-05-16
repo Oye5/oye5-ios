@@ -127,7 +127,7 @@
 }
 
 - (void)setupUser {
-    [[OYEUserManager sharedManager] setup];
+    [[OYEUserManager sharedInstance] setup];
 }
 
 - (void)setupAppearances {

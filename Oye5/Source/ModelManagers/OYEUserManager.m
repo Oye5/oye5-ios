@@ -29,16 +29,15 @@ static CGFloat const OYEUserImageSize = 100;
 
 @implementation OYEUserManager
 
-__strong static OYEUserManager *_sharedManager;
-
-+ (instancetype)sharedManager {
++ (instancetype)sharedInstance {
+    __strong static OYEUserManager *_sharedInstance;
     static dispatch_once_t predicate = 0;
     
     dispatch_once(&predicate, ^{
-        _sharedManager = [self new];
+        _sharedInstance = [self new];
     });
     
-    return _sharedManager;
+    return _sharedInstance;
 }
 
 - (void)setup {
@@ -54,7 +53,7 @@ __strong static OYEUserManager *_sharedManager;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookProfileDidChangeNotification:) name:FBSDKProfileDidChangeNotification object:nil];
 
     if ([FBSDKAccessToken currentAccessToken]) {
-        [_sharedManager getFacebookUser];
+        [self getFacebookUser];
     }
 }
 
@@ -76,7 +75,7 @@ __strong static OYEUserManager *_sharedManager;
 - (void)signInUser:(OYEUser *)user {
     DDLogDebug(@"*");
     
-    [OYEUserManager sharedManager].user = user;
+    [OYEUserManager sharedInstance].user = user;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:OYEUserNotificationSignedIn object:self];
 }
@@ -84,7 +83,7 @@ __strong static OYEUserManager *_sharedManager;
 - (void)signOut {
     DDLogDebug(@"*");
 
-    [OYEUserManager sharedManager].user = nil;
+    [OYEUserManager sharedInstance].user = nil;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:OYEUserNotificationSignedOut object:self];
 }

@@ -69,7 +69,7 @@ static NSString * const cellReuseIdentifier = @"cell";
 - (void)setupUIWithUser {
     [self resetUI];
     
-    OYEUser *user = [OYEUserManager sharedManager].user;
+    OYEUser *user = [OYEUserManager sharedInstance].user;
     
     self.nameLabel.text = user.name;
     [self.imageView setImageWithURL:user.imageURL placeholderImage:nil];
