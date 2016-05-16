@@ -58,6 +58,8 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 #pragma mark - Private
 
 - (void)setupUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     [self setupNavigationBar];
     [self setupTableView];
     [self setupQuestionButton];

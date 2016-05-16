@@ -143,6 +143,7 @@
                                           barMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    [[UINavigationBar appearance] setTintColor:[UIColor oyeWhiteBackGroundColor]];
     
     // UISearchBar
     [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setBorderStyle:UITextBorderStyleNone];
