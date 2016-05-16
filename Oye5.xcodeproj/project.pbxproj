@@ -123,6 +123,7 @@
 		66A390971CE81BBE0042173C /* OYEUnderlineButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A390961CE81BBE0042173C /* OYEUnderlineButton.xib */; };
 		66A3909F1CE82AD40042173C /* OYESegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A3909E1CE82AD40042173C /* OYESegmentedControl.m */; };
 		66E3032B1CE945F400B4EC12 /* OYEUserLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E3032A1CE945F400B4EC12 /* OYEUserLocationManager.m */; };
+		66E3032E1CE9766E00B4EC12 /* OYEBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E3032D1CE9766E00B4EC12 /* OYEBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +307,8 @@
 		66A3909E1CE82AD40042173C /* OYESegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYESegmentedControl.m; path = Source/Views/OYESegmentedControl.m; sourceTree = "<group>"; };
 		66E303291CE945F400B4EC12 /* OYEUserLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEUserLocationManager.h; path = Source/Managers/OYEUserLocationManager.h; sourceTree = "<group>"; };
 		66E3032A1CE945F400B4EC12 /* OYEUserLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEUserLocationManager.m; path = Source/Managers/OYEUserLocationManager.m; sourceTree = "<group>"; };
+		66E3032C1CE9766E00B4EC12 /* OYEBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEBaseViewController.h; path = Source/ViewControllers/OYEBaseViewController.h; sourceTree = "<group>"; };
+		66E3032D1CE9766E00B4EC12 /* OYEBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEBaseViewController.m; path = Source/ViewControllers/OYEBaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -646,6 +649,8 @@
 				6662415A1CA6FFDC003C9C06 /* OYELoginViewController.xib */,
 				666241671CA73CE4003C9C06 /* OYELoggedInViewController.h */,
 				666241681CA73CE4003C9C06 /* OYELoggedInViewController.m */,
+				66E3032C1CE9766E00B4EC12 /* OYEBaseViewController.h */,
+				66E3032D1CE9766E00B4EC12 /* OYEBaseViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -916,6 +921,7 @@
 				6662415F1CA70BEB003C9C06 /* UIView+Extensions.m in Sources */,
 				66218AA31CDC5783003BD0B3 /* OYEUserManager.m in Sources */,
 				66218A661CCD37C3003BD0B3 /* SocketAckEmitter.swift in Sources */,
+				66E3032E1CE9766E00B4EC12 /* OYEBaseViewController.m in Sources */,
 				66218A6C1CCD37C3003BD0B3 /* SocketEnginePacketType.swift in Sources */,
 				6617D58C1C9DD81700101292 /* OYEModelManager.m in Sources */,
 				66218A681CCD37C3003BD0B3 /* SocketAnyEvent.swift in Sources */,

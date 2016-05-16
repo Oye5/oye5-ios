@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "OYEBaseViewController.h"
+
 @class OYEItem;
 
-@interface OYEItemViewController : UIViewController
+@interface OYEItemViewController : OYEBaseViewController
 
 - (void)setItem:(OYEItem *)item;
 
