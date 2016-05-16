@@ -7,12 +7,17 @@
 //
 
 @import AFNetworking;
+@import CoreLocation;
 
 #import "OYEItemCollectionViewCell.h"
 #import "OYEItem.h"
+#import "OYEUserLocationManager.h"
+#import "OYELocation.h"
 
 #import "UIColor+Extensions.h"
 #import "UIFont+Extensions.h"
+
+static CGFloat const OYEIMaxDistance = 100000.0;
 
 @interface OYEItemCollectionViewCell ()
 
@@ -85,8 +90,19 @@
     
     [self.imageView setImageWithURL:[NSURL URLWithString:self.item.images.firstObject]];
     self.descriptionTextView.text = item.itemDescription;
-#warning Need to link to distance from user
-    self.distanceLabel.text = [NSString stringWithFormat:@"%.1f km", (rand() % 100) / 100.0];
+    CLLocation *currentLocation = [OYEUserLocationManager currentLocation];
+    if (currentLocation) {
+        CLLocationCoordinate2D itemCoordinate = [item.location coordinate];
+        CLLocation *itemLocation = [[CLLocation alloc] initWithLatitude:itemCoordinate.latitude longitude:itemCoordinate.longitude];
+        CLLocationDistance distance = [currentLocation distanceFromLocation:itemLocation];
+        if (distance > OYEIMaxDistance) {
+            self.distanceLabel.text = NSLocalizedString(@"100+ km", nil);
+        } else {
+            self.distanceLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%.1f km", nil), distance];
+        }
+    } else {
+        self.distanceLabel.text = NSLocalizedString(@"TBD", nil);
+    }
     self.priceLabel.text = [item priceString];
 }
 
