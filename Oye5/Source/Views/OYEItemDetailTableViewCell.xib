@@ -23,6 +23,9 @@
                             <constraint firstAttribute="width" secondItem="h29-DK-YGk" secondAttribute="height" multiplier="1:1" id="wor-Gf-LuM"/>
                         </constraints>
                     </view>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="iYf-9w-85O">
+                        <rect key="frame" x="141" y="283" width="39" height="37"/>
+                    </pageControl>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87V-1j-t2H">
                         <rect key="frame" x="8" y="291" width="312" height="21"/>
                         <constraints>
@@ -53,12 +56,14 @@
                     <constraint firstItem="h29-DK-YGk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="3NY-cs-95F"/>
                     <constraint firstItem="87V-1j-t2H" firstAttribute="trailing" secondItem="h29-DK-YGk" secondAttribute="trailing" id="4TU-uW-Np1"/>
                     <constraint firstItem="87V-1j-t2H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Da3-p7-C6D"/>
+                    <constraint firstItem="iYf-9w-85O" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ELV-BK-wSy"/>
                     <constraint firstItem="bOc-kB-KtH" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="OPH-2f-5iD"/>
                     <constraint firstItem="bOc-kB-KtH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ZRD-AG-tfk"/>
                     <constraint firstItem="NIQ-7H-HdK" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="aGg-Pu-mte"/>
                     <constraint firstItem="NIQ-7H-HdK" firstAttribute="top" secondItem="h29-DK-YGk" secondAttribute="bottom" constant="8" id="eos-wX-FZa"/>
                     <constraint firstItem="bOc-kB-KtH" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="hoV-gc-BvG"/>
                     <constraint firstItem="h29-DK-YGk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="t83-dz-kyI"/>
+                    <constraint firstItem="iYf-9w-85O" firstAttribute="bottom" secondItem="h29-DK-YGk" secondAttribute="bottom" id="tn7-as-xtz"/>
                     <constraint firstAttribute="trailingMargin" secondItem="h29-DK-YGk" secondAttribute="trailing" constant="-8" id="txC-9Q-syC"/>
                     <constraint firstItem="NIQ-7H-HdK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="uSK-uh-qd1"/>
                     <constraint firstItem="bOc-kB-KtH" firstAttribute="top" secondItem="NIQ-7H-HdK" secondAttribute="bottom" id="v2f-79-CIB"/>
@@ -68,6 +73,7 @@
             <connections>
                 <outlet property="descriptionTextView" destination="bOc-kB-KtH" id="y80-Mi-MVb"/>
                 <outlet property="imagesContainer" destination="h29-DK-YGk" id="wmV-N1-Xcs"/>
+                <outlet property="pageControl" destination="iYf-9w-85O" id="pJb-l5-06z"/>
                 <outlet property="priceLabel" destination="87V-1j-t2H" id="AbV-Pv-9Zg"/>
                 <outlet property="titleLabel" destination="NIQ-7H-HdK" id="DQZ-ps-aaD"/>
             </connections>

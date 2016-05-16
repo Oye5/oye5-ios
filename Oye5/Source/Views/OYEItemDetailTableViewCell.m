@@ -13,9 +13,10 @@
 #import "UIColor+Extensions.h"
 #import "UIFont+Extensions.h"
 
-@interface OYEItemDetailTableViewCell () <UIPageViewControllerDataSource>
+@interface OYEItemDetailTableViewCell () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *imagesContainer;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
@@ -69,6 +70,7 @@
 
 - (void)setupUI {
     [self setupImagesContainer];
+    [self setupPageControl];
     [self setupPriceLabel];
     [self setupTitleLabel];
     [self setupDescriptionTextView];
@@ -81,6 +83,7 @@
 - (void)setupImagesContainer {
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageViewController.dataSource = self;
+    self.pageViewController.delegate = self;
     
     self.pageViewController.view.frame = self.imagesContainer.bounds;
     self.pageViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -90,6 +93,10 @@
     if (self.item) {
         [self.pageViewController setViewControllers:@[self.imageViewControllers.firstObject] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     }
+}
+
+- (void)setupPageControl {
+    self.pageControl.hidesForSinglePage = YES;
 }
 
 - (void)setupPriceLabel {
@@ -121,6 +128,9 @@
     if (self.pageViewController) {
         [self.pageViewController setViewControllers:@[self.imageViewControllers.firstObject] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     }
+    
+    self.pageControl.numberOfPages = self.item.images.count;
+    self.pageControl.currentPage = 0;
 
     self.priceLabel.text = [self.item priceString];
     self.titleLabel.text = self.item.itemTitle;
@@ -157,6 +167,27 @@
     }
     
     return self.imageViewControllers[index];
+}
+
+//- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+//    return self.item.images.count;
+//}
+//
+//- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+//    OYEItemImageViewController *currentViewController = pageViewController.viewControllers.firstObject;
+//    return [self.imageViewControllers indexOfObject:currentViewController];
+//}
+
+#pragma mark - UIPageViewControllerDelegate
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
+        didFinishAnimating:(BOOL)finished
+   previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers
+       transitionCompleted:(BOOL)completed {
+    if (finished) {
+        OYEItemImageViewController *currentViewController = pageViewController.viewControllers.firstObject;
+        self.pageControl.currentPage = [self.imageViewControllers indexOfObject:currentViewController];
+    }
 }
 
 @end
