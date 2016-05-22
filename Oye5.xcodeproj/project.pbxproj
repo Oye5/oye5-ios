@@ -503,7 +503,7 @@
 		664128341C8232EF0028987B /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				6641284A1C824A620028987B /* Home */,
+				6641284A1C824A620028987B /* Shop */,
 				6641284B1C824A9F0028987B /* Search */,
 				6641284C1C824B340028987B /* Sell */,
 				6641284E1C824B550028987B /* Chats */,
@@ -512,13 +512,13 @@
 			name = Tabs;
 			sourceTree = "<group>";
 		};
-		6641284A1C824A620028987B /* Home */ = {
+		6641284A1C824A620028987B /* Shop */ = {
 			isa = PBXGroup;
 			children = (
 				6617D5341C95252200101292 /* OYEShopViewController.h */,
 				6617D5351C95252200101292 /* OYEShopViewController.m */,
 			);
-			name = Home;
+			name = Shop;
 			sourceTree = "<group>";
 		};
 		6641284B1C824A9F0028987B /* Search */ = {
