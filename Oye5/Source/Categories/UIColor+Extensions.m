@@ -11,8 +11,13 @@
 @implementation UIColor (Extensions)
 
 + (UIColor *)oyePrimaryColor {
-    return [UIColor colorWithRed:[self colorComponentWithValue:249.0] green:0.0 blue:[self colorComponentWithValue:93.0] alpha:1.0];
+    return [self oyePrimaryColorWithAlpha:1.0];
 }
+
++ (UIColor *)oyePrimaryColorWithAlpha:(CGFloat)alpha {
+    return [UIColor colorWithRed:[self colorComponentWithValue:249.0] green:0.0 blue:[self colorComponentWithValue:93.0] alpha:alpha];
+}
+
 + (UIColor *)oyeDarkTextColor {
     return [UIColor blackColor];
 }

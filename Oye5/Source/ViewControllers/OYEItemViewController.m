@@ -60,10 +60,13 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 - (void)setupUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
 
-    [self setupNavigationBar];
+//    [self setupNavigationBar];
     [self setupTableView];
-    [self setupQuestionButton];
-    [self setupOfferButton];
+//    [self setupQuestionButton];
+//    [self setupOfferButton];
+    
+    self.questionButton.hidden = YES;
+    self.offerButton.hidden = YES;
 }
 
 - (void)setupNavigationBar {

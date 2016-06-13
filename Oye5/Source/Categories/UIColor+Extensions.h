@@ -11,6 +11,7 @@
 @interface UIColor (Extensions)
 
 + (UIColor *)oyePrimaryColor;
++ (UIColor *)oyePrimaryColorWithAlpha:(CGFloat)alpha;
 + (UIColor *)oyeDarkTextColor;
 + (UIColor *)oyeMediumTextColor;
 + (UIColor *)oyeLightTextColor;

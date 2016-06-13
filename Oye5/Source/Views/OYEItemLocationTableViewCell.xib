@@ -9,40 +9,56 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OYEItemLocationTableViewCell" rowHeight="267" id="KGk-i7-Jjw" customClass="OYEItemLocationTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="264"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="263"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OAg-Wa-x5D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+                    </mapView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tR-o1-mas">
-                        <rect key="frame" x="8" y="8" width="304" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Pjl-Gp-Evz"/>
-                        </constraints>
+                        <rect key="frame" x="12" y="155" width="296" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OAg-Wa-x5D">
-                        <rect key="frame" x="0.0" y="37" width="320" height="226"/>
-                    </mapView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqT-9z-Iaw">
+                        <rect key="frame" x="0.0" y="155" width="320" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="ydx-Sa-gyL"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="12" maxY="0.0"/>
+                        <state key="normal" image="rightArrow"/>
+                        <connections>
+                            <action selector="didTapPickupButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PeL-A5-dhj"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="mqT-9z-Iaw" secondAttribute="trailing" constant="-8" id="0pl-wl-nJG"/>
                     <constraint firstAttribute="trailingMargin" secondItem="OAg-Wa-x5D" secondAttribute="trailing" constant="-8" id="68c-vI-idA"/>
-                    <constraint firstItem="9tR-o1-mas" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="J8w-U0-mSt"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="OAg-Wa-x5D" secondAttribute="bottom" constant="-8" id="Rdc-YZ-o1M"/>
-                    <constraint firstItem="OAg-Wa-x5D" firstAttribute="top" secondItem="9tR-o1-mas" secondAttribute="bottom" constant="8" id="WWf-Wu-c4d"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="mqT-9z-Iaw" secondAttribute="bottom" constant="-8" id="HQB-WA-PWn"/>
+                    <constraint firstItem="9tR-o1-mas" firstAttribute="top" secondItem="mqT-9z-Iaw" secondAttribute="top" id="Ol6-Wh-jW0"/>
+                    <constraint firstItem="9tR-o1-mas" firstAttribute="trailing" secondItem="mqT-9z-Iaw" secondAttribute="trailing" constant="-12" id="Qkf-b7-heM"/>
+                    <constraint firstItem="9tR-o1-mas" firstAttribute="top" secondItem="OAg-Wa-x5D" secondAttribute="bottom" id="XKs-9B-Yae"/>
+                    <constraint firstItem="9tR-o1-mas" firstAttribute="bottom" secondItem="mqT-9z-Iaw" secondAttribute="bottom" id="c5W-gZ-oK3"/>
                     <constraint firstItem="OAg-Wa-x5D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="lcw-Xp-dG0"/>
-                    <constraint firstItem="9tR-o1-mas" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="tkm-ZA-wvc"/>
-                    <constraint firstItem="9tR-o1-mas" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="z6U-nX-ZQw"/>
+                    <constraint firstItem="9tR-o1-mas" firstAttribute="leading" secondItem="mqT-9z-Iaw" secondAttribute="leading" constant="12" id="ngt-r6-dN0"/>
+                    <constraint firstItem="mqT-9z-Iaw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="sLH-OG-ZfW"/>
+                    <constraint firstItem="OAg-Wa-x5D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="w8a-aW-EeI"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="button" destination="mqT-9z-Iaw" id="d91-yL-THV"/>
                 <outlet property="locationLabel" destination="9tR-o1-mas" id="45b-Yi-vHh"/>
                 <outlet property="mapView" destination="OAg-Wa-x5D" id="iWK-aw-ekg"/>
             </connections>
             <point key="canvasLocation" x="261" y="197"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="rightArrow" width="6" height="10"/>
+    </resources>
 </document>
