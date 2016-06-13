@@ -37,6 +37,7 @@ static NSString * const OYETagsReuseIdentifier = @"OYETagsReuseIdentifier";
 @property (weak, nonatomic) IBOutlet UICollectionView *tagsCollectionView;
 @property (weak, nonatomic) IBOutlet UIView *lineSeparatorAboveDescription;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UIView *secondSectionView;
 
 @property (strong, nonatomic) OYEItem *item;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
@@ -67,7 +68,7 @@ static NSString * const OYETagsReuseIdentifier = @"OYETagsReuseIdentifier";
     CGFloat descriptionHeight = ceil((descriptionSize.width / width)) * [self itemDescriptionFont].lineHeight + descriptionBuffer;
     
     CGFloat imageHeight = width;
-    CGFloat spaceBetweenImageAndDescription = 287.0;
+    CGFloat spaceBetweenImageAndDescription = 307.0;
     
     CGFloat height = descriptionHeight + imageHeight + spaceBetweenImageAndDescription;
     
@@ -108,10 +109,7 @@ static NSString * const OYETagsReuseIdentifier = @"OYETagsReuseIdentifier";
     [self setupConditionLabel];
     [self setupPriceLabel];
     [self setupMakeAnOfferButton];
-    [self setupAddedDateLabel];
-    [self setupCategoryLabel];
-    [self setupTagsCollectionView];
-    [self setupDescriptionTextView];
+    [self setupSecondSectionView];
     
     if (self.item) {
         [self setupWithItem];
@@ -194,6 +192,15 @@ static NSString * const OYETagsReuseIdentifier = @"OYETagsReuseIdentifier";
     self.makeAnOfferButton.titleLabel.font = [UIFont mediumOyeFontOfSize:12];
     [self.makeAnOfferButton setTitleColor:[UIColor oyeLightTextColor] forState:UIControlStateNormal];
     self.makeAnOfferButton.backgroundColor = [UIColor oyePrimaryColor];
+}
+
+- (void)setupSecondSectionView {
+    self.secondSectionView.backgroundColor = [UIColor oyeLightGrayBackgroundColor];
+    
+    [self setupAddedDateLabel];
+    [self setupCategoryLabel];
+    [self setupTagsCollectionView];
+    [self setupDescriptionTextView];
 }
 
 - (void)setupAddedDateLabel {
