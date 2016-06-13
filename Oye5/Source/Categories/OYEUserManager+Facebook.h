@@ -10,10 +10,10 @@
 
 #import "OYEUserManager.h"
 
-@class OYEUser;
+@class OYEFacebookUser;
 
 @interface OYEUserManager (Facebook)
 
-- (void)getFacebookUserWithImageSize:(CGSize)imageSize completionBlock:(void(^)(OYEUser *user, NSError *error))completionBlock;
+- (void)getFacebookUserWithImageSize:(CGSize)imageSize completionBlock:(void(^)(OYEFacebookUser *user, NSError *error))completionBlock;
 
 @end

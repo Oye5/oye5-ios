@@ -65,9 +65,9 @@ static CGFloat const OYEUserImageSize = 100;
 }
 
 - (void)getFacebookUser {
-    [self getFacebookUserWithImageSize:CGSizeMake(OYEUserImageSize, OYEUserImageSize) completionBlock:^(OYEUser *user, NSError *error) {
+    [self getFacebookUserWithImageSize:CGSizeMake(OYEUserImageSize, OYEUserImageSize) completionBlock:^(OYEFacebookUser *user, NSError *error) {
         if (user) {
-            [self signInUser:user];
+            [self signInUser:(OYEUser *)user];
         }
     }];
 }

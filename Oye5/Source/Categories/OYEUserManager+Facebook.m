@@ -9,7 +9,7 @@
 @import FBSDKCoreKit;
 
 #import "OYEUserManager+Facebook.h"
-#import "OYEUser.h"
+#import "OYEFacebookUser.h"
 
 #import "NSObject+Motis.h"
 
@@ -18,10 +18,10 @@ static NSInteger const OYEFacebookUserManagerErrorNotLoggedIn = -1000;
 
 @implementation OYEUserManager (Facebook)
 
-- (void)getFacebookUserWithImageSize:(CGSize)imageSize completionBlock:(void(^)(OYEUser *user, NSError *error))completionBlock {
+- (void)getFacebookUserWithImageSize:(CGSize)imageSize completionBlock:(void(^)(OYEFacebookUser *user, NSError *error))completionBlock {
     if (completionBlock && [FBSDKAccessToken currentAccessToken]) {
         if ([FBSDKProfile currentProfile]) {
-            OYEUser *user = [self userFromFBSDKProfile:[FBSDKProfile currentProfile] withImageSize:imageSize];
+            OYEFacebookUser *user = [self userFromFBSDKProfile:[FBSDKProfile currentProfile] withImageSize:imageSize];
             completionBlock(user, nil);
         } else {
             // Fields can be found at:  https://developers.facebook.com/docs/graph-api/reference/user
@@ -40,7 +40,7 @@ static NSInteger const OYEFacebookUserManagerErrorNotLoggedIn = -1000;
             
             [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{ @"fields" : parameterValue}]startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
-                    OYEUser *user = [OYEUser new];
+                    OYEFacebookUser *user = [OYEFacebookUser new];
                     [user mts_setValuesForKeysWithDictionary:result];
                     
                     completionBlock(user, error);
@@ -54,14 +54,14 @@ static NSInteger const OYEFacebookUserManagerErrorNotLoggedIn = -1000;
     }
 }
 
-- (OYEUser *)userFromFBSDKProfile:(FBSDKProfile *)fbProfile withImageSize:(CGSize)imageSize {
-    OYEUser *user = [OYEUser new];
+- (OYEFacebookUser *)userFromFBSDKProfile:(FBSDKProfile *)fbProfile withImageSize:(CGSize)imageSize {
+    OYEFacebookUser *user = [OYEFacebookUser new];
     
     user.userID = fbProfile.userID;
     user.name = fbProfile.name;
     user.firstName = fbProfile.firstName;
     user.middleName = fbProfile.middleName;
-    user.lastname = fbProfile.lastName;
+    user.lastName = fbProfile.lastName;
     user.imageURL = [fbProfile imageURLForPictureMode:FBSDKProfilePictureModeSquare size:imageSize];
     user.type = OYEUserTypeFacebook;
     

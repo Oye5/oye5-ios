@@ -20,7 +20,7 @@
     user.token = googleUser.authentication.idToken;
     user.name = googleUser.profile.name;
     user.firstName = googleUser.profile.givenName;
-    user.lastname = googleUser.profile.familyName;
+    user.lastName = googleUser.profile.familyName;
     user.email = googleUser.profile.email;
     
     if (googleUser.profile.hasImage) {

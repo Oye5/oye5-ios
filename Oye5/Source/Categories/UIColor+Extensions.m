@@ -10,6 +10,9 @@
 
 @implementation UIColor (Extensions)
 
++ (UIColor *)oyePrimaryColor {
+    return [UIColor colorWithRed:[self colorComponentWithValue:249.0] green:0.0 blue:[self colorComponentWithValue:93.0] alpha:1.0];
+}
 + (UIColor *)oyeDarkTextColor {
     return [UIColor blackColor];
 }
@@ -31,7 +34,7 @@
 }
 
 + (UIColor *)oyeLineSeparatorColor {
-    return [UIColor colorWithWhite:0 alpha:0.25];
+    return [UIColor colorWithWhite:0 alpha:0.1];
 }
 
 + (UIColor *)oyeShadowColor {

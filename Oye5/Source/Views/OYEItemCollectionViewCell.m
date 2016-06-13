@@ -63,6 +63,7 @@ static CGFloat const OYEIMaxDistance = 100000.0;
 - (void)setupImageView
 {
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.layer.masksToBounds = YES;
 }
 
 - (void)setupDescriptionTextView {

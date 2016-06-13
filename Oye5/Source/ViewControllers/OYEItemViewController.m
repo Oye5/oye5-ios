@@ -77,6 +77,7 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
     insets.bottom = self.view.height - self.questionButton.top;
 
     self.tableView.contentInset = insets;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor clearColor];
 
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemDetailTableViewCell class]) bundle:nil] forCellReuseIdentifier:OYEItemTableViewCellIdentfierDetail];

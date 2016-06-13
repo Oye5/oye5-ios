@@ -10,6 +10,7 @@
 
 @interface UIColor (Extensions)
 
++ (UIColor *)oyePrimaryColor;
 + (UIColor *)oyeDarkTextColor;
 + (UIColor *)oyeMediumTextColor;
 + (UIColor *)oyeLightTextColor;
