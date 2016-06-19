@@ -1,19 +1,18 @@
 //
-//  OYEItemLocationTableViewCell.m
+//  OYEItemLocationCollectionViewCell.m
 //  Oye5
 //
-//  Created by Rita Kyauk on 3/13/16.
+//  Created by Rita Kyauk on 6/13/16.
 //  Copyright © 2016 Oye5. All rights reserved.
 //
 
 @import MapKit;
 @import CoreLocation;
 
-#import "OYEItemLocationTableViewCell.h"
+#import "OYEItemLocationCollectionViewCell.h"
 #import "OYEItem.h"
 #import "OYELocation.h"
 #import "OYEItemLocationAnnotation.h"
-
 #import "UIFont+Extensions.h"
 #import "UIColor+Extensions.h"
 #import "UIView+Extensions.h"
@@ -21,7 +20,7 @@
 static CGFloat const OYEDefaultRadiusInMiles = 5.0;
 static CGFloat const MetersPerMile = 1609.34;
 
-@interface OYEItemLocationTableViewCell () <MKMapViewDelegate>
+@interface OYEItemLocationCollectionViewCell () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -32,23 +31,19 @@ static CGFloat const MetersPerMile = 1609.34;
 
 @end
 
-@implementation OYEItemLocationTableViewCell
+@implementation OYEItemLocationCollectionViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
+    
     // Initialization code
     [self setupLocationManager];
     [self setupUI];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 + (CGFloat)cellHeight:(NSDictionary *)data {
-    OYEItem *item = data[OYETableViewCellHeightItemKey];
-    CGFloat width = [data[OYETableViewCellHeightWidthKey] floatValue];
+    OYEItem *item = data[OYECollectionViewCellHeightItemKey];
+    CGFloat width = [data[OYECollectionViewCellHeightWidthKey] floatValue];
     
     CGSize titleSize = [item.itemDescription sizeWithAttributes:@{NSFontAttributeName:[self locationLabelFont]}];
     CGFloat titleBuffer = 16;
@@ -73,6 +68,8 @@ static CGFloat const MetersPerMile = 1609.34;
 }
 
 - (void)setupUI {
+    self.backgroundColor = [UIColor oyeWhiteBackGroundColor];
+    
     [self setupLocationLabel];
     [self setupMapView];
 }
@@ -92,8 +89,8 @@ static CGFloat const MetersPerMile = 1609.34;
                                                                                        attributes:@{NSFontAttributeName:[UIFont mediumOyeFontOfSize:12],
                                                                                                     NSForegroundColorAttributeName:[UIColor oyeMediumTextColor]}];
     NSAttributedString *locationDescription = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@, %@", self.item.location.city, self.item.location.state]
-                                                                       attributes:@{NSFontAttributeName:[UIFont mediumOyeFontOfSize:12],
-                                                                                    NSForegroundColorAttributeName:[UIColor oyeDarkTextColor]}];
+                                                                              attributes:@{NSFontAttributeName:[UIFont mediumOyeFontOfSize:12],
+                                                                                           NSForegroundColorAttributeName:[UIColor oyeDarkTextColor]}];
     [locationString appendAttributedString:locationDescription];
     self.locationLabel.attributedText = locationString;
     

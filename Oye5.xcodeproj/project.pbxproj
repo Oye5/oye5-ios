@@ -32,6 +32,7 @@
 		6617D57A1C9A356700101292 /* OYEItemLocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5791C9A356700101292 /* OYEItemLocationAnnotation.m */; };
 		6617D5891C9DD78300101292 /* OYEItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5881C9DD78300101292 /* OYEItemManager.m */; };
 		6617D58C1C9DD81700101292 /* OYEModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D58B1C9DD81700101292 /* OYEModelManager.m */; };
+		661B23C21D166ACC001E8798 /* OYEBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B23C11D166ACC001E8798 /* OYEBaseCollectionViewCell.m */; };
 		66218A661CCD37C3003BD0B3 /* SocketAckEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66218A501CCD37C3003BD0B3 /* SocketAckEmitter.swift */; };
 		66218A671CCD37C3003BD0B3 /* SocketAckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66218A511CCD37C3003BD0B3 /* SocketAckManager.swift */; };
 		66218A681CCD37C3003BD0B3 /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66218A521CCD37C3003BD0B3 /* SocketAnyEvent.swift */; };
@@ -127,6 +128,10 @@
 		66E303311CF291AF00B4EC12 /* OYEFacebookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E303301CF291AF00B4EC12 /* OYEFacebookUser.m */; };
 		66EC351B1D0D49E1002429A2 /* OYETagCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC35191D0D49E1002429A2 /* OYETagCollectionViewCell.m */; };
 		66EC351C1D0D49E1002429A2 /* OYETagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66EC351A1D0D49E1002429A2 /* OYETagCollectionViewCell.xib */; };
+		66EC35251D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC35231D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.m */; };
+		66EC35261D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66EC35241D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.xib */; };
+		66EC352A1D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC35281D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.m */; };
+		66EC352B1D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66EC35291D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +196,8 @@
 		6617D5881C9DD78300101292 /* OYEItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemManager.m; path = Oye5/Source/ModelManagers/OYEItemManager.m; sourceTree = "<group>"; };
 		6617D58A1C9DD81700101292 /* OYEModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEModelManager.h; path = Oye5/Source/ModelManagers/OYEModelManager.h; sourceTree = "<group>"; };
 		6617D58B1C9DD81700101292 /* OYEModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEModelManager.m; path = Oye5/Source/ModelManagers/OYEModelManager.m; sourceTree = "<group>"; };
+		661B23C01D166ACC001E8798 /* OYEBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEBaseCollectionViewCell.h; path = Source/Views/OYEBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		661B23C11D166ACC001E8798 /* OYEBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEBaseCollectionViewCell.m; path = Source/Views/OYEBaseCollectionViewCell.m; sourceTree = "<group>"; };
 		66218A4F1CCD37C2003BD0B3 /* Oye5-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Oye5-Bridging-Header.h"; sourceTree = "<group>"; };
 		66218A501CCD37C3003BD0B3 /* SocketAckEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketAckEmitter.swift; path = Oye5/ThirdParty/SocketIOClientSwift/SocketAckEmitter.swift; sourceTree = "<group>"; };
 		66218A511CCD37C3003BD0B3 /* SocketAckManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketAckManager.swift; path = Oye5/ThirdParty/SocketIOClientSwift/SocketAckManager.swift; sourceTree = "<group>"; };
@@ -317,6 +324,12 @@
 		66EC35181D0D49E1002429A2 /* OYETagCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYETagCollectionViewCell.h; path = Source/Views/OYETagCollectionViewCell.h; sourceTree = "<group>"; };
 		66EC35191D0D49E1002429A2 /* OYETagCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYETagCollectionViewCell.m; path = Source/Views/OYETagCollectionViewCell.m; sourceTree = "<group>"; };
 		66EC351A1D0D49E1002429A2 /* OYETagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYETagCollectionViewCell.xib; path = Source/Views/OYETagCollectionViewCell.xib; sourceTree = "<group>"; };
+		66EC35221D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItemDetailsCollectionViewCell.h; path = Source/Views/OYEItemDetailsCollectionViewCell.h; sourceTree = "<group>"; };
+		66EC35231D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemDetailsCollectionViewCell.m; path = Source/Views/OYEItemDetailsCollectionViewCell.m; sourceTree = "<group>"; };
+		66EC35241D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEItemDetailsCollectionViewCell.xib; path = Source/Views/OYEItemDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		66EC35271D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEItemLocationCollectionViewCell.h; path = Source/Views/OYEItemLocationCollectionViewCell.h; sourceTree = "<group>"; };
+		66EC35281D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEItemLocationCollectionViewCell.m; path = Source/Views/OYEItemLocationCollectionViewCell.m; sourceTree = "<group>"; };
+		66EC35291D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYEItemLocationCollectionViewCell.xib; path = Source/Views/OYEItemLocationCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -604,11 +617,19 @@
 		6641285E1C82C02C0028987B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				661B23C01D166ACC001E8798 /* OYEBaseCollectionViewCell.h */,
+				661B23C11D166ACC001E8798 /* OYEBaseCollectionViewCell.m */,
 				6617D5721C96451600101292 /* OYEBaseTableViewCell.h */,
 				6617D5731C96451600101292 /* OYEBaseTableViewCell.m */,
 				6617D5451C95257E00101292 /* OYEItemCollectionViewCell.h */,
 				6617D5461C95257E00101292 /* OYEItemCollectionViewCell.m */,
 				6617D5471C95257E00101292 /* OYEItemCollectionViewCell.xib */,
+				66EC35221D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.h */,
+				66EC35231D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.m */,
+				66EC35241D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.xib */,
+				66EC35271D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.h */,
+				66EC35281D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.m */,
+				66EC35291D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.xib */,
 				6617D5601C96180800101292 /* OYEItemDetailTableViewCell.h */,
 				6617D5611C96180800101292 /* OYEItemDetailTableViewCell.m */,
 				6617D5621C96180800101292 /* OYEItemDetailTableViewCell.xib */,
@@ -842,6 +863,7 @@
 				6641290B1C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				664129061C83C14C0028987B /* SF-UI-Text-Medium.otf in Resources */,
 				664129041C83C14C0028987B /* SF-UI-Text-Light.otf in Resources */,
+				66EC352B1D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.xib in Resources */,
 				66218AA81CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib in Resources */,
 				6617D5711C9626EE00101292 /* OYEItemImageViewController.xib in Resources */,
 				66218A801CCD641D003BD0B3 /* OYEChatViewController.xib in Resources */,
@@ -859,6 +881,7 @@
 				664128FF1C83C14C0028987B /* SF-UI-Display-Ultralight.otf in Resources */,
 				664129001C83C14C0028987B /* SF-UI-Text-Bold.otf in Resources */,
 				664129091C83C14C0028987B /* SF-UI-Text-RegularItalic.otf in Resources */,
+				66EC35261D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.xib in Resources */,
 				664129051C83C14C0028987B /* SF-UI-Text-LightItalic.otf in Resources */,
 				664128F71C83C14C0028987B /* SF-UI-Display-Black.otf in Resources */,
 				6617D5641C96180800101292 /* OYEItemDetailTableViewCell.xib in Resources */,
@@ -887,6 +910,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				66218AAE1CDEFD64003BD0B3 /* OYEUserManager+Facebook.m in Sources */,
+				66EC35251D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.m in Sources */,
+				661B23C21D166ACC001E8798 /* OYEBaseCollectionViewCell.m in Sources */,
 				66218A761CCD37C3003BD0B3 /* SocketPacket.swift in Sources */,
 				66218AA61CDEA725003BD0B3 /* OYEGoogleSignOutButton.m in Sources */,
 				6662416C1CA7A215003C9C06 /* OYEItemShareTableViewCell.m in Sources */,
@@ -915,6 +940,7 @@
 				66218A6B1CCD37C3003BD0B3 /* SocketEngineClient.swift in Sources */,
 				66E303311CF291AF00B4EC12 /* OYEFacebookUser.m in Sources */,
 				66218A6E1CCD37C3003BD0B3 /* SocketEngineSpec.swift in Sources */,
+				66EC352A1D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.m in Sources */,
 				66218A701CCD37C3003BD0B3 /* SocketEventHandler.swift in Sources */,
 				6617D5551C9525CC00101292 /* OYEProfileViewController.m in Sources */,
 				66218AAB1CDEFD1B003BD0B3 /* OYEUserManager+Google.m in Sources */,

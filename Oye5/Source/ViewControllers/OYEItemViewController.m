@@ -10,6 +10,8 @@
 
 #import "OYEItemViewController.h"
 #import "OYEItem.h"
+#import "OYEItemDetailsCollectionViewCell.h"
+#import "OYEItemLocationCollectionViewCell.h"
 #import "OYEItemDetailTableViewCell.h"
 #import "OYEItemLocationTableViewCell.h"
 #import "OYEItemShareTableViewCell.h"
@@ -17,6 +19,17 @@
 #import "UIColor+Extensions.h"
 #import "UIFont+Extensions.h"
 #import "UIButton+Extensions.h"
+
+typedef NS_ENUM(NSUInteger, OYEItemCollectionViewSectionType) {
+    OYEItemCollectionViewSectionTypeItemDetails,
+    OYEItemCollectionViewSectionTypeCount
+};
+
+typedef NS_ENUM(NSUInteger, OYEItemCollectionViewRowType) {
+    OYEItemCollectionViewRowTypeDetail,
+    OYEItemCollectionViewRowTypeLocation,
+    OYEItemCollectionViewRowTypeCount
+};
 
 typedef NS_ENUM(NSUInteger, OYEItemTableViewRowType) {
     OYEItemTableViewRowTypeDetail,
@@ -26,15 +39,19 @@ typedef NS_ENUM(NSUInteger, OYEItemTableViewRowType) {
     OYEItemTableViewRowTypeCount
 };
 
+static NSString * const OYEItemCollectionViewCellIdentfierDetail = @"OYEItemDetailsCollectionViewCell";
+static NSString * const OYEItemCollectionViewCellIdentfierLocation = @"OYEItemLocationCollectionViewCell";
+
 static NSString * const OYEItemTableViewCellIdentfierDetail = @"OYEItemDetailTableViewCell";
 static NSString * const OYEItemTableViewCellIdentfierLocation = @"OYEItemLocationTableViewCell";
 static NSString * const OYEItemTableViewCellIdentfierShare = @"OYEItemShareTableViewCell";
 static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTableViewCell";
 
-@interface OYEItemViewController () <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, OYEItemShareTableViewCellDelegate>
+@interface OYEItemViewController () <UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, OYEItemShareTableViewCellDelegate>
 
 @property (strong, nonatomic) OYEItem *item;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *questionButton;
 @property (weak, nonatomic) IBOutlet UIButton *offerButton;
@@ -61,6 +78,7 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
     self.automaticallyAdjustsScrollViewInsets = NO;
 
 //    [self setupNavigationBar];
+    [self setupCollectionView];
     [self setupTableView];
 //    [self setupQuestionButton];
 //    [self setupOfferButton];
@@ -72,6 +90,17 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 - (void)setupNavigationBar {
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Share", nil) style:UIBarButtonItemStylePlain target:self action:@selector(didSelectShareButton:)];
     self.navigationItem.rightBarButtonItem = shareButton;
+}
+
+- (void)setupCollectionView {
+    self.collectionView.backgroundColor = [UIColor oyeLightGrayBackgroundColor];
+    
+    UIEdgeInsets insets = self.collectionView.contentInset;
+    insets.bottom = self.tabBarController.tabBar.height;
+    self.collectionView.contentInset = insets;
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemDetailsCollectionViewCell class]) bundle:[NSBundle bundleForClass:[OYEItemDetailsCollectionViewCell class]]] forCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierDetail];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemLocationCollectionViewCell class]) bundle:[NSBundle bundleForClass:[OYEItemLocationCollectionViewCell class]]] forCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierLocation];
 }
 
 - (void)setupTableView {
@@ -97,6 +126,20 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 - (void)setupOfferButton {
     [self.offerButton setTitle:NSLocalizedString(@"Make an Offer", nil) forState:UIControlStateNormal];
     [self.offerButton setupAsPrimaryButton];
+}
+
+- (UICollectionViewCell *)detailCellInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
+    OYEItemDetailsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierDetail forIndexPath:indexPath];
+    cell.item = self.item;
+    
+    return cell;
+}
+
+- (UICollectionViewCell *)locationCellInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
+    OYEItemLocationCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierLocation forIndexPath:indexPath];
+    cell.item = self.item;
+    
+    return cell;
 }
 
 - (UITableViewCell *)detailCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
@@ -128,6 +171,59 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
     cell.item = self.item;
     
     return cell;
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return OYEItemCollectionViewSectionTypeCount;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return OYEItemCollectionViewRowTypeCount;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case OYEItemCollectionViewSectionTypeItemDetails:
+            switch (indexPath.row) {
+                case OYEItemCollectionViewRowTypeDetail:
+                    return [self detailCellInCollectionView:collectionView atIndexPath:indexPath];
+                case OYEItemCollectionViewRowTypeLocation:
+                    return [self locationCellInCollectionView:collectionView atIndexPath:indexPath];
+            }
+            break;
+     }
+    
+    return [UICollectionViewCell new];
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    NSDictionary *heightInformation = @{OYECollectionViewCellHeightItemKey:self.item, OYECollectionViewCellHeightWidthKey:@(self.tableView.width)};
+
+    switch (indexPath.section) {
+        case OYEItemCollectionViewSectionTypeItemDetails:
+            switch (indexPath.row) {
+                case OYEItemTableViewRowTypeDetail:
+                    return CGSizeMake(self.view.width, [OYEItemDetailsCollectionViewCell cellHeight:heightInformation]);
+                case OYEItemTableViewRowTypeLocation:
+                    return CGSizeMake(self.view.width, [OYEItemLocationCollectionViewCell cellHeight:heightInformation]);
+            }
+            break;
+    }
+    
+    return CGSizeZero;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView
+                   layout:(UICollectionViewLayout *)collectionViewLayout
+minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 8;
 }
 
 #pragma mark - UITableViewDataSource
