@@ -12,9 +12,7 @@
 #import "OYEItem.h"
 #import "OYEItemDetailsCollectionViewCell.h"
 #import "OYEItemLocationCollectionViewCell.h"
-#import "OYEItemDetailTableViewCell.h"
-#import "OYEItemLocationTableViewCell.h"
-#import "OYEItemShareTableViewCell.h"
+//#import "OYEItemShareTableViewCell.h"
 
 #import "UIColor+Extensions.h"
 #import "UIFont+Extensions.h"
@@ -31,30 +29,14 @@ typedef NS_ENUM(NSUInteger, OYEItemCollectionViewRowType) {
     OYEItemCollectionViewRowTypeCount
 };
 
-typedef NS_ENUM(NSUInteger, OYEItemTableViewRowType) {
-    OYEItemTableViewRowTypeDetail,
-    OYEItemTableViewRowTypeLocation,
-    OYEItemTableViewRowTypeShare,
-    OYEItemTableViewRowTypeReport,
-    OYEItemTableViewRowTypeCount
-};
-
 static NSString * const OYEItemCollectionViewCellIdentfierDetail = @"OYEItemDetailsCollectionViewCell";
 static NSString * const OYEItemCollectionViewCellIdentfierLocation = @"OYEItemLocationCollectionViewCell";
 
-static NSString * const OYEItemTableViewCellIdentfierDetail = @"OYEItemDetailTableViewCell";
-static NSString * const OYEItemTableViewCellIdentfierLocation = @"OYEItemLocationTableViewCell";
-static NSString * const OYEItemTableViewCellIdentfierShare = @"OYEItemShareTableViewCell";
-static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTableViewCell";
-
-@interface OYEItemViewController () <UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, OYEItemShareTableViewCellDelegate>
+@interface OYEItemViewController () <UICollectionViewDataSource, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate/*, OYEItemShareTableViewCellDelegate*/>
 
 @property (strong, nonatomic) OYEItem *item;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *questionButton;
-@property (weak, nonatomic) IBOutlet UIButton *offerButton;
 
 @end
 
@@ -79,12 +61,6 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
 
 //    [self setupNavigationBar];
     [self setupCollectionView];
-    [self setupTableView];
-//    [self setupQuestionButton];
-//    [self setupOfferButton];
-    
-    self.questionButton.hidden = YES;
-    self.offerButton.hidden = YES;
 }
 
 - (void)setupNavigationBar {
@@ -103,31 +79,6 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemLocationCollectionViewCell class]) bundle:[NSBundle bundleForClass:[OYEItemLocationCollectionViewCell class]]] forCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierLocation];
 }
 
-- (void)setupTableView {
-    
-    UIEdgeInsets insets = self.tableView.contentInset;
-    insets.bottom = self.view.height - self.questionButton.top;
-
-    self.tableView.contentInset = insets;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = [UIColor clearColor];
-
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemDetailTableViewCell class]) bundle:nil] forCellReuseIdentifier:OYEItemTableViewCellIdentfierDetail];
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemLocationTableViewCell class]) bundle:nil] forCellReuseIdentifier:OYEItemTableViewCellIdentfierLocation];
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemShareTableViewCell class]) bundle:nil] forCellReuseIdentifier:OYEItemTableViewCellIdentfierShare];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OYEItemTableViewCellIdentfierReport];
-}
-
-- (void)setupQuestionButton {
-    [self.questionButton setTitle:NSLocalizedString(@"Ask a Question", nil) forState:UIControlStateNormal];
-    [self.questionButton setupAsSecondaryButton];
-}
-
-- (void)setupOfferButton {
-    [self.offerButton setTitle:NSLocalizedString(@"Make an Offer", nil) forState:UIControlStateNormal];
-    [self.offerButton setupAsPrimaryButton];
-}
-
 - (UICollectionViewCell *)detailCellInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
     OYEItemDetailsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierDetail forIndexPath:indexPath];
     cell.item = self.item;
@@ -142,36 +93,20 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
     return cell;
 }
 
-- (UITableViewCell *)detailCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
-    OYEItemDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierDetail forIndexPath:indexPath];
-    
-    cell.item = self.item;
-    
-    return cell;
-}
-
-- (UITableViewCell *)locationCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
-    OYEItemLocationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierLocation forIndexPath:indexPath];
-    
-    cell.item = self.item;
-    
-    return cell;
-}
-
-- (UITableViewCell *)shareCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+//- (UITableViewCell *)shareCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierShare forIndexPath:indexPath];
 //    
 //    cell.textLabel.text = NSLocalizedString(@"SHARE THIS PRODUCT", nil);
 //    cell.textLabel.font = [UIFont mediumOyeFontOfSize:16];
 //    cell.textLabel.textAlignment = NSTextAlignmentCenter;
 //    cell.textLabel.textColor = [UIColor oyeMediumTextColor];
-    
-    OYEItemShareTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierShare forIndexPath:indexPath];
-    cell.delegate = self;
-    cell.item = self.item;
-    
-    return cell;
-}
+//    
+//    OYEItemShareTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierShare forIndexPath:indexPath];
+//    cell.delegate = self;
+//    cell.item = self.item;
+//    
+//    return cell;
+//}
 
 #pragma mark - UICollectionViewDataSource
 
@@ -204,14 +139,14 @@ static NSString * const OYEItemTableViewCellIdentfierReport = @"OYEItemReportTab
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSDictionary *heightInformation = @{OYECollectionViewCellHeightItemKey:self.item, OYECollectionViewCellHeightWidthKey:@(self.tableView.width)};
+    NSDictionary *heightInformation = @{OYECollectionViewCellHeightItemKey:self.item, OYECollectionViewCellHeightWidthKey:@(self.collectionView.width)};
 
     switch (indexPath.section) {
         case OYEItemCollectionViewSectionTypeItemDetails:
             switch (indexPath.row) {
-                case OYEItemTableViewRowTypeDetail:
+                case OYEItemCollectionViewRowTypeDetail:
                     return CGSizeMake(self.view.width, [OYEItemDetailsCollectionViewCell cellHeight:heightInformation]);
-                case OYEItemTableViewRowTypeLocation:
+                case OYEItemCollectionViewRowTypeLocation:
                     return CGSizeMake(self.view.width, [OYEItemLocationCollectionViewCell cellHeight:heightInformation]);
             }
             break;
@@ -226,74 +161,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 8;
 }
 
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return OYEItemTableViewRowTypeCount;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case OYEItemTableViewRowTypeDetail:
-            return [self detailCellInTableView:tableView atIndexPath:indexPath];
-        case OYEItemTableViewRowTypeLocation:
-            return [self locationCellInTableView:tableView atIndexPath:indexPath];
-        case OYEItemTableViewRowTypeShare:
-            return [self shareCellInTableView:tableView atIndexPath:indexPath];
-        case OYEItemTableViewRowTypeReport:
-            return [tableView dequeueReusableCellWithIdentifier:OYEItemTableViewCellIdentfierReport forIndexPath:indexPath];
-    }
-    
-    // It shouldn't reach this
-    DDLogError(@"Undefined row");
-    
-    return [UITableViewCell new];
-}
-
-#pragma mark - UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *heightInformation = @{OYETableViewCellHeightItemKey:self.item, OYETableViewCellHeightWidthKey:@(self.tableView.width)};
-    
-    switch (indexPath.row) {
-        case OYEItemTableViewRowTypeDetail:
-            return [OYEItemDetailTableViewCell cellHeight:heightInformation];
-        case OYEItemTableViewRowTypeLocation:
-            return [OYEItemLocationTableViewCell cellHeight:heightInformation];
-        case OYEItemTableViewRowTypeShare:
-            return [OYEItemShareTableViewCell cellHeight:heightInformation];
-        default:
-            return 44;
-    }
-}
-
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.row == OYEItemTableViewRowTypeShare) {
-//        // Use buttons for now instead of UIActivityViewController
-//        return indexPath;
-//    }
-    
-    return nil;
-}
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    switch (indexPath.row) {
-//        case OYEItemTableViewRowTypeShare:
-//            [self shareItem];
-//            break;
-//            
-//        default:
-//            break;
-//    }
-//}
-
 #pragma mark - Action
-
-- (IBAction)didSelectQuestionButton:(id)sender {
-}
-
-- (IBAction)didSelectOfferButton:(id)sender {
-}
 
 - (void)didSelectShareButton:(id)sender {
     UIActivityViewController *viewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.item] applicationActivities:nil];

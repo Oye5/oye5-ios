@@ -8,9 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OYEItemViewController">
             <connections>
                 <outlet property="collectionView" destination="xU3-oC-O91" id="Q03-e7-Cnj"/>
-                <outlet property="offerButton" destination="50J-sV-4c3" id="K1Z-rv-nBD"/>
-                <outlet property="questionButton" destination="krh-kX-VvO" id="ZTR-Zx-jMc"/>
-                <outlet property="tableView" destination="DLc-7x-uH1" id="3YC-VW-KMa"/>
                 <outlet property="view" destination="BVA-7F-vlR" id="3D5-Bs-fxp"/>
             </connections>
         </placeholder>
@@ -19,31 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DLc-7x-uH1">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="Jbh-aN-4YB"/>
-                        <outlet property="delegate" destination="-1" id="21s-B7-jkS"/>
-                    </connections>
-                </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krh-kX-VvO">
-                    <rect key="frame" x="8" y="464" width="288" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="sc6-4O-fiY"/>
-                    </constraints>
-                    <state key="normal" title="Ask a Question"/>
-                    <connections>
-                        <action selector="didSelectQuestionButton:" destination="-1" eventType="touchUpInside" id="Vph-OF-XqO"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50J-sV-4c3">
-                    <rect key="frame" x="304" y="464" width="288" height="30"/>
-                    <state key="normal" title="Make an Offer"/>
-                    <connections>
-                        <action selector="didSelectOfferButton:" destination="-1" eventType="touchUpInside" id="sl7-bH-aPC"/>
-                    </connections>
-                </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xU3-oC-O91">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I5A-1y-646">
@@ -60,20 +32,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="50J-sV-4c3" firstAttribute="leading" secondItem="krh-kX-VvO" secondAttribute="trailing" constant="8" id="0gQ-up-lPw"/>
-                <constraint firstItem="DLc-7x-uH1" firstAttribute="top" secondItem="BVA-7F-vlR" secondAttribute="top" id="2Xp-Rp-L0Y"/>
-                <constraint firstAttribute="bottom" secondItem="DLc-7x-uH1" secondAttribute="bottom" id="2oU-ap-pMs"/>
-                <constraint firstItem="DLc-7x-uH1" firstAttribute="leading" secondItem="BVA-7F-vlR" secondAttribute="leading" id="2rL-l2-mmf"/>
-                <constraint firstAttribute="bottom" secondItem="krh-kX-VvO" secondAttribute="bottom" constant="57" id="7ul-JM-5Gq"/>
                 <constraint firstAttribute="bottom" secondItem="xU3-oC-O91" secondAttribute="bottom" id="Hki-qb-4Rl"/>
                 <constraint firstItem="xU3-oC-O91" firstAttribute="leading" secondItem="BVA-7F-vlR" secondAttribute="leading" id="JBQ-XA-ADg"/>
                 <constraint firstAttribute="trailing" secondItem="xU3-oC-O91" secondAttribute="trailing" id="MK1-yG-g4q"/>
-                <constraint firstItem="50J-sV-4c3" firstAttribute="height" secondItem="krh-kX-VvO" secondAttribute="height" id="Z1T-Yz-CDT"/>
-                <constraint firstItem="50J-sV-4c3" firstAttribute="width" secondItem="krh-kX-VvO" secondAttribute="width" id="aGM-Uo-wKT"/>
-                <constraint firstAttribute="trailing" secondItem="50J-sV-4c3" secondAttribute="trailing" constant="8" id="ciA-xJ-f1l"/>
-                <constraint firstItem="50J-sV-4c3" firstAttribute="bottom" secondItem="krh-kX-VvO" secondAttribute="bottom" id="gAo-Ef-F2a"/>
-                <constraint firstItem="krh-kX-VvO" firstAttribute="leading" secondItem="BVA-7F-vlR" secondAttribute="leading" constant="8" id="iBS-9W-9gP"/>
-                <constraint firstAttribute="trailing" secondItem="DLc-7x-uH1" secondAttribute="trailing" id="k6J-qo-3Lh"/>
                 <constraint firstItem="xU3-oC-O91" firstAttribute="top" secondItem="BVA-7F-vlR" secondAttribute="top" id="mLx-VD-pLJ"/>
             </constraints>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
