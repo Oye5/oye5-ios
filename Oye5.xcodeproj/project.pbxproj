@@ -29,6 +29,7 @@
 		6617D5891C9DD78300101292 /* OYEItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D5881C9DD78300101292 /* OYEItemManager.m */; };
 		6617D58C1C9DD81700101292 /* OYEModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617D58B1C9DD81700101292 /* OYEModelManager.m */; };
 		661B23C21D166ACC001E8798 /* OYEBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B23C11D166ACC001E8798 /* OYEBaseCollectionViewCell.m */; };
+		661B23C81D17796B001E8798 /* OYELabelAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B23C71D17796B001E8798 /* OYELabelAnnotationView.m */; };
 		66218A661CCD37C3003BD0B3 /* SocketAckEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66218A501CCD37C3003BD0B3 /* SocketAckEmitter.swift */; };
 		66218A671CCD37C3003BD0B3 /* SocketAckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66218A511CCD37C3003BD0B3 /* SocketAckManager.swift */; };
 		66218A681CCD37C3003BD0B3 /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66218A521CCD37C3003BD0B3 /* SocketAnyEvent.swift */; };
@@ -188,6 +189,8 @@
 		6617D58B1C9DD81700101292 /* OYEModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEModelManager.m; path = Oye5/Source/ModelManagers/OYEModelManager.m; sourceTree = "<group>"; };
 		661B23C01D166ACC001E8798 /* OYEBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEBaseCollectionViewCell.h; path = Source/Views/OYEBaseCollectionViewCell.h; sourceTree = "<group>"; };
 		661B23C11D166ACC001E8798 /* OYEBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEBaseCollectionViewCell.m; path = Source/Views/OYEBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		661B23C61D17796B001E8798 /* OYELabelAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYELabelAnnotationView.h; path = Source/Views/OYELabelAnnotationView.h; sourceTree = "<group>"; };
+		661B23C71D17796B001E8798 /* OYELabelAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYELabelAnnotationView.m; path = Source/Views/OYELabelAnnotationView.m; sourceTree = "<group>"; };
 		66218A4F1CCD37C2003BD0B3 /* Oye5-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Oye5-Bridging-Header.h"; sourceTree = "<group>"; };
 		66218A501CCD37C3003BD0B3 /* SocketAckEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketAckEmitter.swift; path = Oye5/ThirdParty/SocketIOClientSwift/SocketAckEmitter.swift; sourceTree = "<group>"; };
 		66218A511CCD37C3003BD0B3 /* SocketAckManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketAckManager.swift; path = Oye5/ThirdParty/SocketIOClientSwift/SocketAckManager.swift; sourceTree = "<group>"; };
@@ -412,6 +415,52 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		661B23C31D17789A001E8798 /* Collection view cells */ = {
+			isa = PBXGroup;
+			children = (
+				661B23C01D166ACC001E8798 /* OYEBaseCollectionViewCell.h */,
+				661B23C11D166ACC001E8798 /* OYEBaseCollectionViewCell.m */,
+				6617D5451C95257E00101292 /* OYEItemCollectionViewCell.h */,
+				6617D5461C95257E00101292 /* OYEItemCollectionViewCell.m */,
+				6617D5471C95257E00101292 /* OYEItemCollectionViewCell.xib */,
+				66EC35221D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.h */,
+				66EC35231D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.m */,
+				66EC35241D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.xib */,
+				66EC35271D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.h */,
+				66EC35281D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.m */,
+				66EC35291D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.xib */,
+				66EC35181D0D49E1002429A2 /* OYETagCollectionViewCell.h */,
+				66EC35191D0D49E1002429A2 /* OYETagCollectionViewCell.m */,
+				66EC351A1D0D49E1002429A2 /* OYETagCollectionViewCell.xib */,
+			);
+			name = "Collection view cells";
+			sourceTree = "<group>";
+		};
+		661B23C41D1778C5001E8798 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				66218AA41CDEA725003BD0B3 /* OYEGoogleSignOutButton.h */,
+				66218AA51CDEA725003BD0B3 /* OYEGoogleSignOutButton.m */,
+				66218AA71CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib */,
+				66A390931CE81B9D0042173C /* OYEUnderlineButton.h */,
+				66A390941CE81B9D0042173C /* OYEUnderlineButton.m */,
+				66A390961CE81BBE0042173C /* OYEUnderlineButton.xib */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		661B23C51D1778E4001E8798 /* Table view cells */ = {
+			isa = PBXGroup;
+			children = (
+				6617D5721C96451600101292 /* OYEBaseTableViewCell.h */,
+				6617D5731C96451600101292 /* OYEBaseTableViewCell.m */,
+				6662416A1CA7A215003C9C06 /* OYEItemShareTableViewCell.h */,
+				6662416B1CA7A215003C9C06 /* OYEItemShareTableViewCell.m */,
+				6662416D1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib */,
+			);
+			name = "Table view cells";
+			sourceTree = "<group>";
+		};
 		66218A4E1CCD3786003BD0B3 /* Socket IO */ = {
 			isa = PBXGroup;
 			children = (
@@ -607,33 +656,13 @@
 		6641285E1C82C02C0028987B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				661B23C01D166ACC001E8798 /* OYEBaseCollectionViewCell.h */,
-				661B23C11D166ACC001E8798 /* OYEBaseCollectionViewCell.m */,
-				6617D5721C96451600101292 /* OYEBaseTableViewCell.h */,
-				6617D5731C96451600101292 /* OYEBaseTableViewCell.m */,
-				6617D5451C95257E00101292 /* OYEItemCollectionViewCell.h */,
-				6617D5461C95257E00101292 /* OYEItemCollectionViewCell.m */,
-				6617D5471C95257E00101292 /* OYEItemCollectionViewCell.xib */,
-				66EC35221D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.h */,
-				66EC35231D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.m */,
-				66EC35241D0E98F6002429A2 /* OYEItemDetailsCollectionViewCell.xib */,
-				66EC35271D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.h */,
-				66EC35281D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.m */,
-				66EC35291D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.xib */,
-				66EC35181D0D49E1002429A2 /* OYETagCollectionViewCell.h */,
-				66EC35191D0D49E1002429A2 /* OYETagCollectionViewCell.m */,
-				66EC351A1D0D49E1002429A2 /* OYETagCollectionViewCell.xib */,
-				6662416A1CA7A215003C9C06 /* OYEItemShareTableViewCell.h */,
-				6662416B1CA7A215003C9C06 /* OYEItemShareTableViewCell.m */,
-				6662416D1CA7A23A003C9C06 /* OYEItemShareTableViewCell.xib */,
-				66218AA41CDEA725003BD0B3 /* OYEGoogleSignOutButton.h */,
-				66218AA51CDEA725003BD0B3 /* OYEGoogleSignOutButton.m */,
-				66218AA71CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib */,
+				661B23C41D1778C5001E8798 /* Buttons */,
+				661B23C31D17789A001E8798 /* Collection view cells */,
+				661B23C51D1778E4001E8798 /* Table view cells */,
 				66A3909D1CE82AD40042173C /* OYESegmentedControl.h */,
 				66A3909E1CE82AD40042173C /* OYESegmentedControl.m */,
-				66A390931CE81B9D0042173C /* OYEUnderlineButton.h */,
-				66A390941CE81B9D0042173C /* OYEUnderlineButton.m */,
-				66A390961CE81BBE0042173C /* OYEUnderlineButton.xib */,
+				661B23C61D17796B001E8798 /* OYELabelAnnotationView.h */,
+				661B23C71D17796B001E8798 /* OYELabelAnnotationView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -955,6 +984,7 @@
 				66218A6A1CCD37C3003BD0B3 /* SocketEngine.swift in Sources */,
 				66E3032B1CE945F400B4EC12 /* OYEUserLocationManager.m in Sources */,
 				6617D54F1C95259400101292 /* UIFont+Extensions.m in Sources */,
+				661B23C81D17796B001E8798 /* OYELabelAnnotationView.m in Sources */,
 				6617D54E1C95259400101292 /* UIColor+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

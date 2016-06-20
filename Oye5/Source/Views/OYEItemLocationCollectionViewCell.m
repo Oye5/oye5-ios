@@ -13,6 +13,7 @@
 #import "OYEItem.h"
 #import "OYELocation.h"
 #import "OYEItemLocationAnnotation.h"
+#import "OYELabelAnnotationView.h"
 #import "UIFont+Extensions.h"
 #import "UIColor+Extensions.h"
 #import "UIView+Extensions.h"
@@ -85,6 +86,7 @@ static CGFloat const MetersPerMile = 1609.34;
 }
 
 - (void)setupWithItem {
+    // Location string
     NSMutableAttributedString *locationString = [[NSMutableAttributedString alloc] initWithString:@"Pick-up in: "
                                                                                        attributes:@{NSFontAttributeName:[UIFont mediumOyeFontOfSize:12],
                                                                                                     NSForegroundColorAttributeName:[UIColor oyeMediumTextColor]}];
@@ -94,11 +96,12 @@ static CGFloat const MetersPerMile = 1609.34;
     [locationString appendAttributedString:locationDescription];
     self.locationLabel.attributedText = locationString;
     
-    CLLocationCoordinate2D coordinate = [self.item.location coordinate];
+    // Clear annotations
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotation:[OYEItemLocationAnnotation annotationWithItem:self.item]];
     
     // Set visible area
+    CLLocationCoordinate2D coordinate = [self.item.location coordinate];
     double sizeInMapPoints = MKMapPointsPerMeterAtLatitude(coordinate.latitude) * OYEDefaultRadiusInMiles * MetersPerMile;
     MKMapPoint mapPoint = MKMapPointForCoordinate(coordinate);
     [self.mapView setVisibleMapRect:MKMapRectMake(mapPoint.x - sizeInMapPoints / 2.0, mapPoint.y - sizeInMapPoints / 2.0, sizeInMapPoints, sizeInMapPoints) edgePadding:UIEdgeInsetsMake(50, 50, 50, 50) animated:YES];
@@ -134,9 +137,11 @@ static CGFloat const MetersPerMile = 1609.34;
     if ([annotation isKindOfClass:[OYEItemLocationAnnotation class]]) {
         NSString *reuseIdentifer = @"OYEItemLocationTableViewCell";
         
-        MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifer];
-        
-        annotationView.pinTintColor = [MKPinAnnotationView greenPinColor];
+        OYELabelAnnotationView *annotationView = (OYELabelAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifer];
+        if (!annotationView) {
+            annotationView = [[OYELabelAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifer];
+        }
+        [annotationView setText:NSLocalizedString(@"5 km", nil)];
         
         return annotationView;
     }
@@ -148,6 +153,7 @@ static CGFloat const MetersPerMile = 1609.34;
             rendererForOverlay:(id<MKOverlay>)overlay {
     if ([overlay isKindOfClass:[MKCircle class]]) {
         MKCircleRenderer *renderer = [[MKCircleRenderer alloc] initWithCircle:overlay];
+        renderer.lineWidth = 2.0;
         renderer.strokeColor = [UIColor oyePrimaryColor];
         renderer.fillColor = [UIColor oyePrimaryColorWithAlpha:0.55];
         
