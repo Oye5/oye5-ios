@@ -12,6 +12,7 @@
 #import "OYEItem.h"
 #import "OYEItemDetailsCollectionViewCell.h"
 #import "OYEItemLocationCollectionViewCell.h"
+#import "OYETitleCollectionReusableView.h"
 //#import "OYEItemShareTableViewCell.h"
 
 #import "UIColor+Extensions.h"
@@ -20,17 +21,21 @@
 
 typedef NS_ENUM(NSUInteger, OYEItemCollectionViewSectionType) {
     OYEItemCollectionViewSectionTypeItemDetails,
+    OYEItemCollectionViewSectionTypeSimilarItems,
     OYEItemCollectionViewSectionTypeCount
 };
 
-typedef NS_ENUM(NSUInteger, OYEItemCollectionViewRowType) {
-    OYEItemCollectionViewRowTypeDetail,
-    OYEItemCollectionViewRowTypeLocation,
-    OYEItemCollectionViewRowTypeCount
+typedef NS_ENUM(NSUInteger, OYEItemCollectionViewDetailsRowType) {
+    OYEItemCollectionViewDetailsRowTypeDetail,
+    OYEItemCollectionViewDetailsRowTypeLocation,
+    OYEItemCollectionViewDetailsRowTypeCount
 };
 
 static NSString * const OYEItemCollectionViewCellIdentfierDetail = @"OYEItemDetailsCollectionViewCell";
 static NSString * const OYEItemCollectionViewCellIdentfierLocation = @"OYEItemLocationCollectionViewCell";
+static NSString * const OYESectionHeaderReuseIdentifierSimilarItems = @"OYETitleCollectionReusableView";
+
+static CGFloat const OYESectionHeaderHeightSimilarItems = 44.0;
 
 @interface OYEItemViewController () <UICollectionViewDataSource, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate/*, OYEItemShareTableViewCellDelegate*/>
 
@@ -77,6 +82,8 @@ static NSString * const OYEItemCollectionViewCellIdentfierLocation = @"OYEItemLo
     
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemDetailsCollectionViewCell class]) bundle:[NSBundle bundleForClass:[OYEItemDetailsCollectionViewCell class]]] forCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierDetail];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemLocationCollectionViewCell class]) bundle:[NSBundle bundleForClass:[OYEItemLocationCollectionViewCell class]]] forCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierLocation];
+    
+    [self.collectionView registerClass:[OYETitleCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:OYESectionHeaderReuseIdentifierSimilarItems];
 }
 
 - (UICollectionViewCell *)detailCellInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
@@ -115,18 +122,30 @@ static NSString * const OYEItemCollectionViewCellIdentfierLocation = @"OYEItemLo
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return OYEItemCollectionViewRowTypeCount;
+    switch (section) {
+        case OYEItemCollectionViewSectionTypeItemDetails:
+            return OYEItemCollectionViewDetailsRowTypeCount;
+            
+        case OYEItemCollectionViewSectionTypeSimilarItems:
+            return 0;
+            
+        default:
+            return 0;
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case OYEItemCollectionViewSectionTypeItemDetails:
             switch (indexPath.row) {
-                case OYEItemCollectionViewRowTypeDetail:
+                case OYEItemCollectionViewDetailsRowTypeDetail:
                     return [self detailCellInCollectionView:collectionView atIndexPath:indexPath];
-                case OYEItemCollectionViewRowTypeLocation:
+                case OYEItemCollectionViewDetailsRowTypeLocation:
                     return [self locationCellInCollectionView:collectionView atIndexPath:indexPath];
             }
+            break;
+            
+        case OYEItemCollectionViewSectionTypeSimilarItems:
             break;
      }
     
@@ -144,9 +163,9 @@ static NSString * const OYEItemCollectionViewCellIdentfierLocation = @"OYEItemLo
     switch (indexPath.section) {
         case OYEItemCollectionViewSectionTypeItemDetails:
             switch (indexPath.row) {
-                case OYEItemCollectionViewRowTypeDetail:
+                case OYEItemCollectionViewDetailsRowTypeDetail:
                     return CGSizeMake(self.view.width, [OYEItemDetailsCollectionViewCell cellHeight:heightInformation]);
-                case OYEItemCollectionViewRowTypeLocation:
+                case OYEItemCollectionViewDetailsRowTypeLocation:
                     return CGSizeMake(self.view.width, [OYEItemLocationCollectionViewCell cellHeight:heightInformation]);
             }
             break;
@@ -158,7 +177,37 @@ static NSString * const OYEItemCollectionViewCellIdentfierLocation = @"OYEItemLo
 - (CGFloat)collectionView:(UICollectionView *)collectionView
                    layout:(UICollectionViewLayout *)collectionViewLayout
 minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 8;
+    return 0;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case OYEItemCollectionViewSectionTypeSimilarItems:
+            return CGSizeMake(collectionView.width, OYESectionHeaderHeightSimilarItems);
+            
+        default:
+            return CGSizeZero;
+    }
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if (kind == UICollectionElementKindSectionHeader) {
+        switch (indexPath.section) {
+            case OYEItemCollectionViewSectionTypeSimilarItems:
+            {
+                OYETitleCollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:OYESectionHeaderReuseIdentifierSimilarItems forIndexPath:indexPath];
+ 
+                return header;
+            }
+                
+            default:
+                return nil;
+        }
+    }
+    return nil;
+    
 }
 
 #pragma mark - Action
