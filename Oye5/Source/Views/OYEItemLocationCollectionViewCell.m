@@ -98,10 +98,23 @@ static CGFloat const MetersPerMile = 1609.34;
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotation:[OYEItemLocationAnnotation annotationWithItem:self.item]];
     
+    // Set visible area
     double sizeInMapPoints = MKMapPointsPerMeterAtLatitude(coordinate.latitude) * OYEDefaultRadiusInMiles * MetersPerMile;
     MKMapPoint mapPoint = MKMapPointForCoordinate(coordinate);
     [self.mapView setVisibleMapRect:MKMapRectMake(mapPoint.x - sizeInMapPoints / 2.0, mapPoint.y - sizeInMapPoints / 2.0, sizeInMapPoints, sizeInMapPoints) edgePadding:UIEdgeInsetsMake(50, 50, 50, 50) animated:YES];
     
+    // Clear all overlays
+    [self.mapView removeOverlays:self.mapView.overlays];
+    
+    // Add map tint overlay
+    MKMapPoint points[4] = {{0, 0},
+                            {MKMapSizeWorld.width, 0},
+                            {MKMapSizeWorld.width, MKMapSizeWorld.height},
+                            {0, MKMapSizeWorld.height}};
+    MKPolygon *square = [MKPolygon polygonWithPoints:points count:4];
+    [self.mapView addOverlay:square];
+    
+    // Add circle
     MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinate radius:(OYEDefaultRadiusInMiles * MetersPerMile)];
     [self.mapView addOverlay:circle];
 }
@@ -136,7 +149,12 @@ static CGFloat const MetersPerMile = 1609.34;
     if ([overlay isKindOfClass:[MKCircle class]]) {
         MKCircleRenderer *renderer = [[MKCircleRenderer alloc] initWithCircle:overlay];
         renderer.strokeColor = [UIColor oyePrimaryColor];
-        renderer.fillColor = [UIColor oyePrimaryColorWithAlpha:0.5];
+        renderer.fillColor = [UIColor oyePrimaryColorWithAlpha:0.55];
+        
+        return renderer;
+    } else if ([overlay isKindOfClass:[MKPolygon class]]) {
+        MKPolygonRenderer *renderer = [[MKPolygonRenderer alloc] initWithPolygon:overlay];
+        renderer.fillColor = [UIColor colorWithWhite:0 alpha:0.75];
         
         return renderer;
     }
