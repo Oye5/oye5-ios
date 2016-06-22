@@ -29,37 +29,53 @@
         [self.titleView setTitle:title forState:UIControlStateNormal];
 
         CGSize titleSize = [title sizeWithAttributes:@{NSFontAttributeName:self.titleView.titleLabel.font}];
+        CGFloat titleHeight = titleSize.height + 16;
         self.titleView.width = titleSize.width;
-        self.titleView.top = 0.0;
+        self.titleView.height = titleHeight;
+        self.titleView.top = (self.height - self.titleView.height) / 2.0;
         self.titleView.left = (self.width - titleSize.width) / 2.0;
-        
 
         [self addSubview:self.titleView];
 
-        // Top
-        NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:self.titleView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
+        // Center X
+        NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:self.titleView
+                                                                             attribute:NSLayoutAttributeCenterX
+                                                                             relatedBy:NSLayoutRelationEqual
+                                                                                toItem:self
+                                                                             attribute:NSLayoutAttributeCenterX
+                                                                            multiplier:1.0
+                                                                              constant:0.0];
         
-        // Center
-        NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint constraintWithItem:self.titleView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
-        
-        // Height
-        NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:self.titleView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0.0];
+        // Center Y
+        NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self.titleView
+                                                                             attribute:NSLayoutAttributeCenterY
+                                                                             relatedBy:NSLayoutRelationEqual
+                                                                                toItem:self
+                                                                             attribute:NSLayoutAttributeCenterY
+                                                                            multiplier:1.0 constant:0.0];
         
         // Width
-        NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:self.titleView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0];
-
-        widthConstraint = [NSLayoutConstraint constraintWithItem:self.titleView
-                                                         attribute:NSLayoutAttributeWidth
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:nil
-                                                         attribute:NSLayoutAttributeNotAnAttribute 
-                                                        multiplier:1.0 
-                                                          constant:titleSize.width];
+        NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:self.titleView
+                                                                           attribute:NSLayoutAttributeWidth
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:nil
+                                                                           attribute:NSLayoutAttributeNotAnAttribute
+                                                                          multiplier:1.0
+                                                                            constant:titleSize.width];
+        
+        // Height
+        NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:self.titleView
+                                                                            attribute:NSLayoutAttributeWidth
+                                                                            relatedBy:NSLayoutRelationEqual
+                                                                               toItem:nil
+                                                                            attribute:NSLayoutAttributeNotAnAttribute
+                                                                           multiplier:1.0
+                                                                             constant:titleHeight];
         // Add constraints
-        [self addConstraint:topConstraint];
         [self addConstraint:centerXConstraint];
-        [self addConstraint:heightConstraint];
-        [self addConstraint:widthConstraint];        
+        [self addConstraint:centerYConstraint];
+        [self.titleView addConstraint:widthConstraint];
+        [self.titleView addConstraint:heightConstraint];
     }
     
     return self;
