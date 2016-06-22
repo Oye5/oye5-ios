@@ -13,5 +13,7 @@
 @interface OYEItemCollectionViewCell : UICollectionViewCell
 
 - (void)setItem:(OYEItem *)item;
+- (void)setLeftMargin:(CGFloat)leftMargin;
+- (void)setRightMargin:(CGFloat)rightMargin;
 
 @end

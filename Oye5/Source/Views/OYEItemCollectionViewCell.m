@@ -22,6 +22,10 @@ static CGFloat const OYEIMaxDistance = 100000.0;
 @interface OYEItemCollectionViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIView *shawdowView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shadowViewBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shadowViewLeadingConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shadowViewTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shadowViewTrailingConstraint;
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
@@ -44,6 +48,16 @@ static CGFloat const OYEIMaxDistance = 100000.0;
     [self setupDescriptionTextView];
     [self setupDistanceLabel];
     [self setupPriceLabel];
+}
+
+#pragma mark - Public
+
+- (void)setLeftMargin:(CGFloat)leftMargin {
+    self.shadowViewLeadingConstraint.constant = leftMargin;
+}
+
+- (void)setRightMargin:(CGFloat)rightMargin {
+    self.shadowViewTrailingConstraint.constant = rightMargin;
 }
 
 #pragma mark - Private

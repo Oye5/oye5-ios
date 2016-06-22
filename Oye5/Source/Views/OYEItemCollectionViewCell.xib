@@ -92,6 +92,10 @@
                 <outlet property="distanceLabel" destination="kUF-36-u24" id="Ock-5B-tLo"/>
                 <outlet property="imageView" destination="eZj-ou-E7f" id="Qom-KV-Bj4"/>
                 <outlet property="priceLabel" destination="oEg-EJ-OvW" id="OC3-Em-P4D"/>
+                <outlet property="shadowViewBottomConstraint" destination="AfE-om-Lt6" id="zlL-ib-aGl"/>
+                <outlet property="shadowViewLeadingConstraint" destination="HwQ-FC-avT" id="I5I-fJ-LTK"/>
+                <outlet property="shadowViewTopConstraint" destination="XkU-xE-QwP" id="tsq-hi-nOP"/>
+                <outlet property="shadowViewTrailingConstraint" destination="oew-KK-yIT" id="e0z-1I-Ilk"/>
                 <outlet property="shawdowView" destination="qvy-an-2rt" id="5zg-ce-eaT"/>
             </connections>
         </collectionViewCell>

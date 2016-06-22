@@ -19,7 +19,7 @@
 #import "UIView+Extensions.h"
 
 static CGFloat const OYEExploreCollectionViewVerticalInset = 5.0;
-static CGFloat const OYEExploreCollectionViewHorizontalInset = 5.0;
+static CGFloat const OYEExploreCollectionViewHorizontalInset = 8.0;
 
 @interface OYEShopViewController () <UISearchBarDelegate, OYESegmentedControlDelegate>
 
@@ -112,7 +112,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     cell.item = item;
 }
 
-#pragma mark <UICollectionViewDataSource>
+#pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -132,7 +132,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
+#pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     OYEItemViewController *viewController = [OYEItemViewController new];

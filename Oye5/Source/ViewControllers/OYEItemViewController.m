@@ -12,9 +12,10 @@
 #import "OYEItem.h"
 #import "OYEItemDetailsCollectionViewCell.h"
 #import "OYEItemLocationCollectionViewCell.h"
+#import "OYEItemCollectionViewCell.h"
 #import "OYETitleCollectionReusableView.h"
+#import "OYEItemManager.h"
 //#import "OYEItemShareTableViewCell.h"
-
 #import "UIColor+Extensions.h"
 #import "UIFont+Extensions.h"
 #import "UIButton+Extensions.h"
@@ -33,15 +34,17 @@ typedef NS_ENUM(NSUInteger, OYEItemCollectionViewDetailsRowType) {
 
 static NSString * const OYEItemCollectionViewCellIdentfierDetail = @"OYEItemDetailsCollectionViewCell";
 static NSString * const OYEItemCollectionViewCellIdentfierLocation = @"OYEItemLocationCollectionViewCell";
+static NSString * const OYEItemCollectionViewCellIdentfierSimilarItem = @"OYEItemCollectionViewCell";
 static NSString * const OYESectionHeaderReuseIdentifierSimilarItems = @"OYETitleCollectionReusableView";
 
 static CGFloat const OYESectionHeaderHeightSimilarItems = 44.0;
 
 @interface OYEItemViewController () <UICollectionViewDataSource, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate/*, OYEItemShareTableViewCellDelegate*/>
 
-@property (strong, nonatomic) OYEItem *item;
-
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (strong, nonatomic) OYEItem *item;
+@property (strong, nonatomic) NSArray<OYEItem *> *similarItems;
 
 @end
 
@@ -50,6 +53,9 @@ static CGFloat const OYESectionHeaderHeightSimilarItems = 44.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+#warning Need to request similar items here
+    self.similarItems = [OYEItemManager getItems];
     
     [self setupUI];
 }
@@ -82,6 +88,7 @@ static CGFloat const OYESectionHeaderHeightSimilarItems = 44.0;
     
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemDetailsCollectionViewCell class]) bundle:[NSBundle bundleForClass:[OYEItemDetailsCollectionViewCell class]]] forCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierDetail];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemLocationCollectionViewCell class]) bundle:[NSBundle bundleForClass:[OYEItemLocationCollectionViewCell class]]] forCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierLocation];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierSimilarItem];
     
     [self.collectionView registerClass:[OYETitleCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:OYESectionHeaderReuseIdentifierSimilarItems];
 }
@@ -98,6 +105,23 @@ static CGFloat const OYESectionHeaderHeightSimilarItems = 44.0;
     cell.item = self.item;
     
     return cell;
+}
+
+- (UICollectionViewCell *)similarItemCellInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
+    OYEItemCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:OYEItemCollectionViewCellIdentfierSimilarItem forIndexPath:indexPath];
+    cell.item = self.similarItems[indexPath.row];
+    CGFloat outerMargin = 10.0;
+    CGFloat innerMargin = 5.0;
+    if (indexPath.row % 2) {
+        [cell setRightMargin:outerMargin];
+        [cell setLeftMargin:innerMargin];
+    } else {
+        [cell setLeftMargin:outerMargin];
+        [cell setRightMargin:innerMargin];
+    }
+    
+    return cell;
+
 }
 
 //- (UITableViewCell *)shareCellInTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
@@ -127,7 +151,7 @@ static CGFloat const OYESectionHeaderHeightSimilarItems = 44.0;
             return OYEItemCollectionViewDetailsRowTypeCount;
             
         case OYEItemCollectionViewSectionTypeSimilarItems:
-            return 0;
+            return self.similarItems.count;
             
         default:
             return 0;
@@ -146,10 +170,22 @@ static CGFloat const OYESectionHeaderHeightSimilarItems = 44.0;
             break;
             
         case OYEItemCollectionViewSectionTypeSimilarItems:
-            break;
+            return [self similarItemCellInCollectionView:collectionView atIndexPath:indexPath];
      }
     
     return [UICollectionViewCell new];
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == OYEItemCollectionViewSectionTypeSimilarItems) {
+        
+        OYEItemViewController *viewController = [OYEItemViewController new];
+        viewController.item = self.similarItems[indexPath.row];
+        
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -169,6 +205,14 @@ static CGFloat const OYESectionHeaderHeightSimilarItems = 44.0;
                     return CGSizeMake(self.view.width, [OYEItemLocationCollectionViewCell cellHeight:heightInformation]);
             }
             break;
+        case OYEItemCollectionViewSectionTypeSimilarItems:
+        {
+            UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)collectionViewLayout;
+            
+            CGSize cellSize = CGSizeMake((collectionView.width  - flowLayout.minimumLineSpacing /*- 2 * OYEExploreCollectionViewHorizontalInset*/) / 2, 250);
+            
+            return cellSize;
+        }
     }
     
     return CGSizeZero;
@@ -177,7 +221,13 @@ static CGFloat const OYESectionHeaderHeightSimilarItems = 44.0;
 - (CGFloat)collectionView:(UICollectionView *)collectionView
                    layout:(UICollectionViewLayout *)collectionViewLayout
 minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
+    switch (section) {
+        case OYEItemCollectionViewSectionTypeItemDetails:
+            return 0;
+        case OYEItemCollectionViewSectionTypeSimilarItems:
+        default:
+            return 0;
+    }
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section

@@ -36,15 +36,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3o-kI-lkq">
-                                <rect key="frame" x="20" y="64" width="230" height="44"/>
+                                <rect key="frame" x="20" y="64" width="230" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="0Ui-7c-N6I"/>
-                                    <constraint firstAttribute="height" constant="44" id="1bb-PG-bhm"/>
+                                    <constraint firstAttribute="height" constant="36" id="1bb-PG-bhm"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vkl-Ba-Xk7">
-                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="101" width="600" height="499"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="sko-da-WF7">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -71,10 +71,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="q3o-kI-lkq" firstAttribute="leading" secondItem="agW-yf-Aj1" secondAttribute="leadingMargin" id="Dn8-53-eWt"/>
+                            <constraint firstItem="vkl-Ba-Xk7" firstAttribute="top" secondItem="q3o-kI-lkq" secondAttribute="bottom" constant="1" id="F6v-P9-m1S"/>
                             <constraint firstItem="vkl-Ba-Xk7" firstAttribute="leading" secondItem="agW-yf-Aj1" secondAttribute="leadingMargin" constant="-20" id="TrM-4D-4pd"/>
                             <constraint firstItem="q3o-kI-lkq" firstAttribute="top" secondItem="v6p-7p-Qnv" secondAttribute="bottom" id="W2V-72-5rK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vkl-Ba-Xk7" secondAttribute="trailing" constant="-20" id="c4g-6B-ygx"/>
-                            <constraint firstItem="vkl-Ba-Xk7" firstAttribute="top" secondItem="agW-yf-Aj1" secondAttribute="topMargin" constant="108" id="iQS-jf-yIa"/>
                             <constraint firstItem="vkl-Ba-Xk7" firstAttribute="bottom" secondItem="agW-yf-Aj1" secondAttribute="bottomMargin" id="zgr-9s-eiL"/>
                         </constraints>
                     </view>
