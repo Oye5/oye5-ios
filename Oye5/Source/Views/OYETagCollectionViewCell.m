@@ -22,8 +22,7 @@
     self.nameLabel.textColor = [UIColor oyeDarkTextColor];
     self.nameLabel.layer.borderColor = [UIColor oyeDarkTextColor].CGColor;
     self.nameLabel.layer.borderWidth = 1.0;
-    self.nameLabel.layer.cornerRadius = 2.0;
-    self.nameLabel.layer.masksToBounds = YES;
+    [self.nameLabel setupCornerRadius];
 }
 
 @end

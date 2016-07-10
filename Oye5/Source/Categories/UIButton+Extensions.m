@@ -16,11 +16,11 @@
     [self setupBasics];
     [self setTitleColor:[UIColor oyeLightTextColor] forState:UIControlStateNormal];
 
-    self.backgroundColor = [UIColor oyeDarkTextColor];
+    self.backgroundColor = [UIColor oyePrimaryColor];
 }
 
 - (void)setupAsSecondaryButton {
-    [self setupWithBorderColor:[UIColor oyeDarkTextColor]];
+    [self setupWithBorderColor:[UIColor oyePrimaryColor]];
 }
 
 - (void)setupWithBorderColor:(UIColor *)color {
@@ -33,8 +33,12 @@
 }
 
 - (void)setupBasics {
-    self.layer.cornerRadius = 2;
     self.titleLabel.font = [UIFont oyeFontOfSize:16];
+    [self setupCornerRadius];
+}
+
+- (void)toggleButton {
+    self.selected = !self.selected;
 }
 
 @end

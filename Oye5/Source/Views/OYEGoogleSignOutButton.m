@@ -9,8 +9,6 @@
 #import <GoogleSignIn/GoogleSignIn.h>
 
 #import "OYEGoogleSignOutButton.h"
-#import "UIFont+Extensions.h"
-#import "UIColor+Extensions.h"
 
 static CGFloat const OYEGoogleLogoSize = 18.0;
 

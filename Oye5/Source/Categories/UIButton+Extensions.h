@@ -13,5 +13,6 @@
 - (void)setupAsPrimaryButton;
 - (void)setupAsSecondaryButton;
 - (void)setupWithBorderColor:(UIColor *)color;
+- (void)toggleButton;
 
 @end

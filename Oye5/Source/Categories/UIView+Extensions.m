@@ -95,8 +95,6 @@
     self.frame = frame;
 }
 
-#pragma mark - Private
-
 - (void)addContraintsToAddView:(UIView *)view {
     // Top
     NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
@@ -115,4 +113,18 @@
     [self addConstraint:heightConstraint];
     [self addConstraint:widthConstraint];
 }
+
+- (void)setupCornerRadius:(CGFloat)cornerRadius {
+    self.layer.cornerRadius = cornerRadius;
+    self.layer.masksToBounds = YES;
+}
+
+- (void)setupCornerRadius {
+    [self setupCornerRadius:2.0];
+}
+
+- (void)setupCornerRadiusAsCircle {
+    [self setupCornerRadius:(self.width / 2.0)];
+}
+
 @end

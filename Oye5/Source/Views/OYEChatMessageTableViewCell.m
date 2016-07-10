@@ -8,8 +8,6 @@
 
 #import "OYEChatMessageTableViewCell.h"
 #import "OYEChatMessage.h"
-#import "UIFont+Extensions.h"
-#import "UIColor+Extensions.h"
 
 #define OYE_CHAT_MESSAGE_FONT               [UIFont mediumOyeFontOfSize:16]
 #define OYE_CHAT_MESSAGE_VERTICAL_INSET             5

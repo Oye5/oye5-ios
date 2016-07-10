@@ -30,11 +30,15 @@
     return [UIColor whiteColor];
 }
 
-+ (UIColor *)oyeLightGrayBackgroundColor {
++ (UIColor *)oyeDarkBackgroundColor {
+    return [UIColor colorWithRed:[self colorComponentWithValue:25] green:[self colorComponentWithValue:20] blue:[self colorComponentWithValue:21] alpha:1];
+}
+
++ (UIColor *)oyeMediumBackgroundColor {
     return [UIColor colorWithRed:[self colorComponentWithValue:229] green:[self colorComponentWithValue:230] blue:[self colorComponentWithValue:231] alpha:1];
 }
 
-+ (UIColor *)oyeWhiteBackGroundColor {
++ (UIColor *)oyeLightBackgroundColor {
     return [UIColor whiteColor];
 }
 

@@ -14,9 +14,6 @@
 #import "OYEUserLocationManager.h"
 #import "OYELocation.h"
 
-#import "UIColor+Extensions.h"
-#import "UIFont+Extensions.h"
-
 static CGFloat const OYEIMaxDistance = 100000.0;
 
 @interface OYEItemCollectionViewCell ()
@@ -70,8 +67,7 @@ static CGFloat const OYEIMaxDistance = 100000.0;
 }
 
 - (void)setupCardView {
-    self.cardView.layer.cornerRadius = 2.0;
-    self.cardView.layer.masksToBounds = YES;
+    [self.cardView setupCornerRadius];
 }
 
 - (void)setupImageView
@@ -83,19 +79,19 @@ static CGFloat const OYEIMaxDistance = 100000.0;
 - (void)setupDescriptionTextView {
     self.descriptionTextView.font = [UIFont oyeFontOfSize:14];
     self.descriptionTextView.textColor = [UIColor oyeDarkTextColor];
-    self.descriptionTextView.backgroundColor = [UIColor oyeWhiteBackGroundColor];
+    self.descriptionTextView.backgroundColor = [UIColor oyeLightBackgroundColor];
 }
 
 - (void)setupDistanceLabel {
     self.distanceLabel.font = [UIFont oyeFontOfSize:14];
     self.distanceLabel.textColor = [UIColor oyeMediumTextColor];
-    self.distanceLabel.backgroundColor = [UIColor oyeWhiteBackGroundColor];
+    self.distanceLabel.backgroundColor = [UIColor oyeLightBackgroundColor];
 }
 
 - (void)setupPriceLabel {
     self.priceLabel.font = [UIFont boldOyeFontOfSize:14];
     self.priceLabel.textColor = [UIColor oyeDarkTextColor];
-    self.priceLabel.backgroundColor = [UIColor oyeWhiteBackGroundColor];
+    self.priceLabel.backgroundColor = [UIColor oyeLightBackgroundColor];
 }
 
 #pragma mark - Override

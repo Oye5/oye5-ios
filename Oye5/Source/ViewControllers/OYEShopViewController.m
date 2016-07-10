@@ -9,9 +9,10 @@
 @import CoreLocation.CLLocation;
 
 #import "OYEShopViewController.h"
+#import "OYEItemViewController.h"
+#import "OYEFiltersViewController.h"
 #import "OYEItemCollectionViewCell.h"
 #import "OYEItem.h"
-#import "OYEItemViewController.h"
 #import "OYEItemManager.h"
 #import "OYESegmentedControl.h"
 
@@ -21,7 +22,7 @@
 static CGFloat const OYEExploreCollectionViewVerticalInset = 5.0;
 static CGFloat const OYEExploreCollectionViewHorizontalInset = 8.0;
 
-@interface OYEShopViewController () <UISearchBarDelegate, OYESegmentedControlDelegate>
+@interface OYEShopViewController () <UISearchBarDelegate, OYESegmentedControlDelegate, OYEFiltersViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *segmentedControlContainer;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -36,11 +37,11 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    self.view.backgroundColor = [UIColor oyeLightGrayBackgroundColor];
+    self.view.backgroundColor = [UIColor oyeMediumBackgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self setupSearchBar];
@@ -199,10 +200,30 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     DDLogDebug(@"*");
 }
 
+#pragma mark - OYEFiltersViewControllerDelegate
+
+- (void)didCancelFiltersViewController:(OYEFiltersViewController *)viewController {
+    DDLogDebug(@"*");
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didSaveFiltersViewController:(OYEFiltersViewController *)viewController {
+    DDLogDebug(@"*");
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.collectionView reloadData];
+    }];
+}
+
 #pragma mark - Actions
 
 - (void)filterItems:(id)sender {
     DDLogDebug(@"*");
+    
+    OYEFiltersViewController *viewController = [OYEFiltersViewController viewControllerWithDelegate:self];
+    
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 @end

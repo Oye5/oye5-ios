@@ -15,8 +15,9 @@
 + (UIColor *)oyeDarkTextColor;
 + (UIColor *)oyeMediumTextColor;
 + (UIColor *)oyeLightTextColor;
-+ (UIColor *)oyeLightGrayBackgroundColor;
-+ (UIColor *)oyeWhiteBackGroundColor;
++ (UIColor *)oyeDarkBackgroundColor;
++ (UIColor *)oyeMediumBackgroundColor;
++ (UIColor *)oyeLightBackgroundColor;
 + (UIColor *)oyeLineSeparatorColor;
 
 + (CGFloat)colorComponentWithValue:(CGFloat)value;

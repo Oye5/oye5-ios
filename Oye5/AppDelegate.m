@@ -143,12 +143,12 @@
                                           barMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    [[UINavigationBar appearance] setTintColor:[UIColor oyeWhiteBackGroundColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor oyeLightBackgroundColor]];
     
     // UISearchBar
     [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setBorderStyle:UITextBorderStyleNone];
     [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setLayerCornerRadius:1.0];
-    [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setLayerBorderColor:[UIColor oyeLightGrayBackgroundColor]];
+    [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setLayerBorderColor:[UIColor oyeMediumBackgroundColor]];
     [[UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setLayerBorderWidth:1.0];
 }
 

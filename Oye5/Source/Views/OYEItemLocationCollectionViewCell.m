@@ -69,7 +69,7 @@ static CGFloat const MetersPerMile = 1609.34;
 }
 
 - (void)setupUI {
-    self.backgroundColor = [UIColor oyeWhiteBackGroundColor];
+    self.backgroundColor = [UIColor oyeLightBackgroundColor];
     
     [self setupLocationLabel];
     [self setupMapView];

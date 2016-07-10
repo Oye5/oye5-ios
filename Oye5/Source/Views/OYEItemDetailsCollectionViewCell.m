@@ -13,8 +13,6 @@
 #import "OYEItemImageViewController.h"
 #import "OYEUser.h"
 #import "OYETagCollectionViewCell.h"
-#import "UIColor+Extensions.h"
-#import "UIFont+Extensions.h"
 
 static NSString * const OYETagsReuseIdentifier = @"OYETagsReuseIdentifier";
 
@@ -139,9 +137,8 @@ static NSString * const OYETagsReuseIdentifier = @"OYETagsReuseIdentifier";
 
 - (void)setupSellerImageView {
     self.sellerImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.sellerImageView.layer.cornerRadius = self.sellerImageView.width / 2.0;
-    self.sellerImageView.layer.masksToBounds = YES;
-    self.sellerImageView.backgroundColor = [UIColor oyeLightGrayBackgroundColor];
+    self.sellerImageView.backgroundColor = [UIColor oyeMediumBackgroundColor];
+    [self.sellerImageView setupCornerRadiusAsCircle];
 }
 
 - (void)setupSellerNameLabel {
@@ -158,9 +155,8 @@ static NSString * const OYETagsReuseIdentifier = @"OYETagsReuseIdentifier";
     [self.sellerMessageButton setTitle:NSLocalizedString(@"Message", nil) forState:UIControlStateNormal];
     self.sellerMessageButton.titleLabel.font = [UIFont mediumOyeFontOfSize:12];
     [self.sellerMessageButton setTitleColor:[UIColor oyeMediumTextColor] forState:UIControlStateNormal];
-    self.sellerMessageButton.backgroundColor = [UIColor oyeLightGrayBackgroundColor];
-    self.sellerMessageButton.layer.cornerRadius = 2.0;
-    self.sellerMessageButton.layer.masksToBounds = YES;
+    self.sellerMessageButton.backgroundColor = [UIColor oyeMediumBackgroundColor];
+    [self.sellerMessageButton setupCornerRadius];
 }
 
 - (void)setuplineSeparatorBelowSellerView {
@@ -189,7 +185,7 @@ static NSString * const OYETagsReuseIdentifier = @"OYETagsReuseIdentifier";
 }
 
 - (void)setupSecondSectionView {
-    self.secondSectionView.backgroundColor = [UIColor oyeLightGrayBackgroundColor];
+    self.secondSectionView.backgroundColor = [UIColor oyeMediumBackgroundColor];
     
     [self setupAddedDateLabel];
     [self setupCategoryLabel];

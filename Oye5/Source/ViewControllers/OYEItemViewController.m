@@ -80,7 +80,7 @@ static CGFloat const OYESectionHeaderHeightSimilarItems = 44.0;
 }
 
 - (void)setupCollectionView {
-    self.collectionView.backgroundColor = [UIColor oyeLightGrayBackgroundColor];
+    self.collectionView.backgroundColor = [UIColor oyeMediumBackgroundColor];
     
     UIEdgeInsets insets = self.collectionView.contentInset;
     insets.bottom = self.tabBarController.tabBar.height;

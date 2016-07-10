@@ -29,4 +29,7 @@
 
 - (void)addContraintsToAddView:(UIView *)view;
 
+- (void)setupCornerRadius;
+- (void)setupCornerRadiusAsCircle;
+
 @end
