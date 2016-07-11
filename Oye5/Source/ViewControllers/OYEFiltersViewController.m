@@ -7,44 +7,45 @@
 //
 
 #import "OYEFiltersViewController.h"
+#import "OYEUserDefaultsManager.h"
 #import "UIButton+Extensions.h"
 
 @interface OYEFiltersViewController ()
 
-@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *titleItem;
-@property (weak, nonatomic) IBOutlet UIButton *resetButton;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, weak) IBOutlet UIButton *cancelButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *titleItem;
+@property (nonatomic, weak) IBOutlet UIButton *resetButton;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
-@property (weak, nonatomic) IBOutlet UIView *filtersView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *filtersViewWidthConstraint;
+@property (nonatomic, weak) IBOutlet UIView *filtersView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *filtersViewWidthConstraint;
 
-@property (weak, nonatomic) IBOutlet UIView *distanceView;
-@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
-@property (weak, nonatomic) IBOutlet UIView *distanceSeparator;
-@property (weak, nonatomic) IBOutlet UISlider *distanceSlider;
+@property (nonatomic, weak) IBOutlet UIView *distanceView;
+@property (nonatomic, weak) IBOutlet UILabel *distanceLabel;
+@property (nonatomic, weak) IBOutlet UIView *distanceSeparator;
+@property (nonatomic, weak) IBOutlet UISlider *distanceSlider;
 
-@property (weak, nonatomic) IBOutlet UIView *sortView;
-@property (weak, nonatomic) IBOutlet UILabel *sortLabel;
-@property (weak, nonatomic) IBOutlet UIView *sortSeparator;
-@property (weak, nonatomic) IBOutlet UIButton *sortByNewestButton;
-@property (weak, nonatomic) IBOutlet UIButton *sortByPriceLowToHighButton;
-@property (weak, nonatomic) IBOutlet UIButton *sortByPriceHighToLowButton;
+@property (nonatomic, weak) IBOutlet UIView *sortView;
+@property (nonatomic, weak) IBOutlet UILabel *sortLabel;
+@property (nonatomic, weak) IBOutlet UIView *sortSeparator;
+@property (nonatomic, weak) IBOutlet UIButton *sortByNewestButton;
+@property (nonatomic, weak) IBOutlet UIButton *sortByPriceLowToHighButton;
+@property (nonatomic, weak) IBOutlet UIButton *sortByPriceHighToLowButton;
 
-@property (weak, nonatomic) IBOutlet UIView *categoriesView;
-@property (weak, nonatomic) IBOutlet UILabel *categoriesLabel;
-@property (weak, nonatomic) IBOutlet UIView *categoriesSeparator;
-@property (weak, nonatomic) IBOutlet UIButton *categoryElectronicsButton;
-@property (weak, nonatomic) IBOutlet UIButton *categoryFashionAndAcessoriesButton;
-@property (weak, nonatomic) IBOutlet UIButton *categoryHomeAndGardenButton;
-@property (weak, nonatomic) IBOutlet UIButton *categoryBooksMoviesAndMusicButton;
-@property (weak, nonatomic) IBOutlet UIButton *categorySportsAndLeisureButton;
-@property (weak, nonatomic) IBOutlet UIButton *categoryCarsAndMotorsButton;
-@property (weak, nonatomic) IBOutlet UIButton *categoryBabyAndChildButton;
-@property (weak, nonatomic) IBOutlet UIButton *categoryOtherButton;
+@property (nonatomic, weak) IBOutlet UIView *categoriesView;
+@property (nonatomic, weak) IBOutlet UILabel *categoriesLabel;
+@property (nonatomic, weak) IBOutlet UIView *categoriesSeparator;
+@property (nonatomic, weak) IBOutlet UIButton *categoryElectronicsButton;
+@property (nonatomic, weak) IBOutlet UIButton *categoryFashionAndAccessoriesButton;
+@property (nonatomic, weak) IBOutlet UIButton *categoryHomeAndGardenButton;
+@property (nonatomic, weak) IBOutlet UIButton *categoryBooksMoviesAndMusicButton;
+@property (nonatomic, weak) IBOutlet UIButton *categorySportsAndLeisureButton;
+@property (nonatomic, weak) IBOutlet UIButton *categoryCarsAndMotorsButton;
+@property (nonatomic, weak) IBOutlet UIButton *categoryBabyAndChildButton;
+@property (nonatomic, weak) IBOutlet UIButton *categoryOtherButton;
 
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (nonatomic, weak) IBOutlet UIButton *saveButton;
 
 @property (nonatomic, weak) id<OYEFiltersViewControllerDelegate> delegate;
 
@@ -119,7 +120,12 @@
     [self.distanceView setupCornerRadius];
     [self setupSection:NSLocalizedString(@"Distance", nil) label:self.distanceLabel separator:self.distanceSeparator];
     
+    self.distanceSlider.minimumValue = 1.0;
+    self.distanceSlider.maximumValue = 30.0;
     self.distanceSlider.tintColor = [UIColor oyeDarkBackgroundColor];
+    [self.distanceSlider setThumbImage:[UIImage imageNamed:@"dot-black"] forState:UIControlStateNormal];
+    
+    [self resetDistanceFilter];
 }
 
 - (void)setupSortSection {
@@ -130,7 +136,7 @@
     [self.sortByPriceLowToHighButton setTitle:NSLocalizedString(@"Price low to high", nil) forState:UIControlStateNormal];
     [self.sortByPriceHighToLowButton setTitle:NSLocalizedString(@"Price high to low", nil) forState:UIControlStateNormal];
     
-    [self checkSortFilter];
+    [self resetSortByFilter];
 }
 
 - (void)setupCategoriesSection {
@@ -139,7 +145,7 @@
     
     // Setup titles
     [self.categoryElectronicsButton setTitle:NSLocalizedString(@"Electronics", nil) forState:UIControlStateNormal];
-    [self.categoryFashionAndAcessoriesButton setTitle:NSLocalizedString(@"Fasion & Accesories", nil) forState:UIControlStateNormal];
+    [self.categoryFashionAndAccessoriesButton setTitle:NSLocalizedString(@"Fasion & Accesories", nil) forState:UIControlStateNormal];
     [self.categoryHomeAndGardenButton setTitle:NSLocalizedString(@"Home & Garden", nil) forState:UIControlStateNormal];
     [self.categoryBooksMoviesAndMusicButton setTitle:NSLocalizedString(@"Books, Movies, & Music", nil) forState:UIControlStateNormal];
     [self.categorySportsAndLeisureButton setTitle:NSLocalizedString(@"Sports & Leisure", nil) forState:UIControlStateNormal];
@@ -147,7 +153,7 @@
     [self.categoryBabyAndChildButton setTitle:NSLocalizedString(@"Baby & Children", nil) forState:UIControlStateNormal];
     [self.categoryOtherButton setTitle:NSLocalizedString(@"Other", nil) forState:UIControlStateNormal];
     
-    // Setup current settings
+    [self resetCategoryFilters];
 }
 
 - (void)setupSection:(NSString *)section label:(UILabel *)label separator:(UIView *)separator {
@@ -209,7 +215,84 @@
     self.scrollView.contentSize = self.filtersView.size;
 }
 
-- (void)checkSortFilter {
+- (void)resetDistanceFilter {
+    self.distanceSlider.value = [OYEUserDefaultsManager filterDistance];
+}
+
+- (void)resetSortByFilter {
+    OYEFilterSortByType sortByType = [OYEUserDefaultsManager filterSortType];
+    
+    self.sortByNewestButton.selected = (sortByType == OYEFilterSortByTypeNewestFirst);
+    self.sortByPriceLowToHighButton.selected = (sortByType == OYEFilterSortByTypePriceLowToHigh);
+    self.sortByPriceHighToLowButton.selected = (sortByType == OYEFilterSortByTypePriceHighToLow);
+}
+
+- (void)resetCategoryFilters {
+    NSUInteger categoryFilters = [OYEUserDefaultsManager filterCategories];
+    
+    self.categoryElectronicsButton.selected = (categoryFilters & OYEFilterCategoryTypeElectronics);
+    self.categoryFashionAndAccessoriesButton.selected = (categoryFilters & OYEFilterCategoryTypeFashionAndAccessories);
+    self.categoryHomeAndGardenButton.selected = (categoryFilters & OYEFilterCategoryTypeHomeAndGarden);
+    self.categoryBooksMoviesAndMusicButton.selected = (categoryFilters & OYEFilterCategoryTypeBooksMoviesAndMusic);
+    self.categorySportsAndLeisureButton.selected = (categoryFilters & OYEFilterCategoryTypeSportsAndLeisure);
+    self.categoryCarsAndMotorsButton.selected = (categoryFilters & OYEFilterCategoryTypeCarsAndMotors);
+    self.categoryBabyAndChildButton.selected = (categoryFilters & OYEFilterCategoryTypeBabyAndChild);
+    self.categoryOtherButton.selected = (categoryFilters & OYEFilterCategoryTypeOther);
+}
+
+- (void)saveDistanceFilter {
+    [OYEUserDefaultsManager setFilterDistance:self.distanceSlider.value];
+}
+
+- (void)saveSortByType {
+    if (self.sortByNewestButton.selected) {
+        [OYEUserDefaultsManager setFilterSortByType:OYEFilterSortByTypeNewestFirst];
+    } else if (self.sortByPriceLowToHighButton.selected) {
+        [OYEUserDefaultsManager setFilterSortByType:OYEFilterSortByTypePriceLowToHigh];
+    } else {
+        [OYEUserDefaultsManager setFilterSortByType:OYEFilterSortByTypePriceHighToLow];
+    }
+}
+
+- (void)saveCategoryFilters {
+    NSUInteger categoryFilters = 0;
+    
+    if (self.categoryElectronicsButton.selected) {
+        categoryFilters |= OYEFilterCategoryTypeElectronics;
+    }
+    
+    if (self.categoryFashionAndAccessoriesButton.selected) {
+        categoryFilters |= OYEFilterCategoryTypeFashionAndAccessories;
+    }
+    
+    if (self.categoryHomeAndGardenButton.selected) {
+        categoryFilters |= OYEFilterCategoryTypeHomeAndGarden;
+    }
+    
+    if (self.categoryBooksMoviesAndMusicButton.selected) {
+        categoryFilters |= OYEFilterCategoryTypeBooksMoviesAndMusic;
+    }
+    
+    if (self.categorySportsAndLeisureButton.selected) {
+        categoryFilters |= OYEFilterCategoryTypeSportsAndLeisure;
+    }
+    
+    if (self.categoryCarsAndMotorsButton.selected) {
+        categoryFilters |= OYEFilterCategoryTypeCarsAndMotors;
+    }
+    
+    if (self.categoryBabyAndChildButton.selected) {
+        categoryFilters |= OYEFilterCategoryTypeBabyAndChild;
+    }
+    
+    if (self.categoryOtherButton.selected) {
+        categoryFilters |= OYEFilterCategoryTypeOther;
+    }
+    
+    [OYEUserDefaultsManager setFilterCategories:categoryFilters];
+}
+
+- (void)verifySortyByFilter {
     if (!self.sortByNewestButton.selected
         && !self.sortByPriceLowToHighButton.selected
         && !self.sortByPriceHighToLowButton.selected) {
@@ -227,10 +310,18 @@
 
 - (IBAction)resetFilters:(id)sender {
     DDLogDebug(@"*");
+
+    [self resetDistanceFilter];
+    [self resetSortByFilter];
+    [self resetCategoryFilters];
 }
 
 - (IBAction)saveFilters:(id)sender {
     DDLogDebug(@"*");
+    
+    [self saveDistanceFilter];
+    [self saveSortByType];
+    [self saveCategoryFilters];
 
     [self.delegate didSaveFiltersViewController:self];
 }
@@ -246,7 +337,7 @@
         self.sortByPriceLowToHighButton.selected = NO;
         self.sortByPriceHighToLowButton.selected = NO;
     } else {
-        [self checkSortFilter];
+        [self verifySortyByFilter];
     }
 }
 
@@ -257,7 +348,7 @@
         self.sortByNewestButton.selected = NO;
         self.sortByPriceHighToLowButton.selected = NO;
     } else {
-        [self checkSortFilter];
+        [self verifySortyByFilter];
     }
 }
 
@@ -268,7 +359,7 @@
         self.sortByNewestButton.selected = NO;
         self.sortByPriceLowToHighButton.selected = NO;
     } else {
-        [self checkSortFilter];
+        [self verifySortyByFilter];
     }
 }
 
@@ -279,7 +370,7 @@
 
 - (IBAction)filterForFashionAndAccessories:(id)sender {
     DDLogDebug(@"*");
-    [self.categoryFashionAndAcessoriesButton toggleButton];
+    [self.categoryFashionAndAccessoriesButton toggleButton];
 }
 
 - (IBAction)filterForHomeAndGarden:(id)sender {

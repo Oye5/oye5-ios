@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OYEFiltersViewController">
@@ -17,7 +15,7 @@
                 <outlet property="categoryBooksMoviesAndMusicButton" destination="00X-GG-ASJ" id="ZC8-EE-mg9"/>
                 <outlet property="categoryCarsAndMotorsButton" destination="FB3-CP-fCG" id="ROk-Af-8xx"/>
                 <outlet property="categoryElectronicsButton" destination="4Ph-UR-OqW" id="vwa-UU-qP7"/>
-                <outlet property="categoryFashionAndAcessoriesButton" destination="Kdl-oC-MAx" id="fqe-64-n2G"/>
+                <outlet property="categoryFashionAndAccessoriesButton" destination="Kdl-oC-MAx" id="yGL-8w-SnH"/>
                 <outlet property="categoryHomeAndGardenButton" destination="mS7-ul-bWG" id="uYi-ch-XAl"/>
                 <outlet property="categoryOtherButton" destination="453-NB-rAN" id="jCX-UP-xof"/>
                 <outlet property="categorySportsAndLeisureButton" destination="0Ug-6h-1Yh" id="AuF-IT-dsz"/>
@@ -94,19 +92,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25h-Rf-Q6m">
                     <rect key="frame" x="12" y="12" width="296" height="88"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="ZEX-Xb-Pso">
-                            <rect key="frame" x="12" y="46" width="25" height="25"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="ZEX-Xb-Pso" secondAttribute="height" multiplier="1:1" id="GJg-AS-IxR"/>
-                                <constraint firstAttribute="width" constant="25" id="mSb-10-qWJ"/>
-                            </constraints>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="world" translatesAutoresizingMaskIntoConstraints="NO" id="Hqg-Dg-8UV">
-                            <rect key="frame" x="259" y="46" width="25" height="25"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="Hqg-Dg-8UV" secondAttribute="height" multiplier="1:1" id="5iJ-hB-oJ9"/>
-                            </constraints>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZS5-8J-n36">
                             <rect key="frame" x="8" y="33" width="280" height="1"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -123,8 +108,8 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dG1-ut-bb5">
-                            <rect key="frame" x="43" y="43" width="210" height="31"/>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="home" maximumValueImage="world" translatesAutoresizingMaskIntoConstraints="NO" id="dG1-ut-bb5">
+                            <rect key="frame" x="10" y="46" width="276" height="31"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="5Ks-ma-CKZ"/>
                             </constraints>
@@ -136,20 +121,15 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="ZS5-8J-n36" secondAttribute="trailing" constant="8" id="4xB-kf-kqe"/>
-                        <constraint firstItem="Hqg-Dg-8UV" firstAttribute="centerY" secondItem="ZEX-Xb-Pso" secondAttribute="centerY" id="5GJ-fE-sje"/>
                         <constraint firstItem="7xk-NY-f0O" firstAttribute="top" secondItem="25h-Rf-Q6m" secondAttribute="top" constant="8" id="9C3-xI-oHv"/>
-                        <constraint firstItem="dG1-ut-bb5" firstAttribute="centerY" secondItem="ZEX-Xb-Pso" secondAttribute="centerY" id="DFm-TU-x61"/>
-                        <constraint firstItem="dG1-ut-bb5" firstAttribute="leading" secondItem="ZEX-Xb-Pso" secondAttribute="trailing" constant="8" id="L7P-45-eNq"/>
+                        <constraint firstAttribute="trailing" secondItem="dG1-ut-bb5" secondAttribute="trailing" constant="12" id="ApL-Wd-9k8"/>
+                        <constraint firstItem="dG1-ut-bb5" firstAttribute="leading" secondItem="25h-Rf-Q6m" secondAttribute="leading" constant="12" id="Bpr-Qp-cKQ"/>
                         <constraint firstItem="ZS5-8J-n36" firstAttribute="leading" secondItem="25h-Rf-Q6m" secondAttribute="leading" constant="8" id="POg-hb-guo"/>
                         <constraint firstItem="ZS5-8J-n36" firstAttribute="top" secondItem="7xk-NY-f0O" secondAttribute="bottom" constant="4" id="Pvr-ZF-jzH"/>
-                        <constraint firstItem="Hqg-Dg-8UV" firstAttribute="width" secondItem="ZEX-Xb-Pso" secondAttribute="width" id="TxI-la-eP3"/>
                         <constraint firstAttribute="trailing" secondItem="7xk-NY-f0O" secondAttribute="trailing" constant="8" id="YXD-Cl-ug7"/>
-                        <constraint firstItem="ZEX-Xb-Pso" firstAttribute="leading" secondItem="25h-Rf-Q6m" secondAttribute="leading" constant="12" id="bKZ-8U-vXG"/>
                         <constraint firstItem="7xk-NY-f0O" firstAttribute="leading" secondItem="25h-Rf-Q6m" secondAttribute="leading" constant="8" id="elf-vv-aen"/>
                         <constraint firstAttribute="height" constant="88" id="leK-Rx-lDs"/>
-                        <constraint firstAttribute="trailing" secondItem="Hqg-Dg-8UV" secondAttribute="trailing" constant="12" id="lql-26-2yZ"/>
-                        <constraint firstItem="Hqg-Dg-8UV" firstAttribute="leading" secondItem="dG1-ut-bb5" secondAttribute="trailing" constant="8" id="s2P-U6-B9e"/>
-                        <constraint firstItem="ZEX-Xb-Pso" firstAttribute="top" secondItem="ZS5-8J-n36" secondAttribute="bottom" constant="12" id="yyj-z3-CVe"/>
+                        <constraint firstItem="dG1-ut-bb5" firstAttribute="top" secondItem="ZS5-8J-n36" secondAttribute="bottom" constant="12" id="mgu-FM-u1D"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ejA-19-oYz">
@@ -341,7 +321,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXM-fC-8af">
-                    <rect key="frame" x="62" y="512" width="196" height="44"/>
+                    <rect key="frame" x="12" y="512" width="296" height="44"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="dem-Ev-rtd"/>
@@ -359,10 +339,10 @@
                 <constraint firstAttribute="height" constant="568" id="70a-NJ-ZIg"/>
                 <constraint firstItem="V6m-X3-JN4" firstAttribute="top" secondItem="ejA-19-oYz" secondAttribute="bottom" constant="12" id="CgR-C4-Mvm"/>
                 <constraint firstItem="ejA-19-oYz" firstAttribute="top" secondItem="25h-Rf-Q6m" secondAttribute="bottom" constant="12" id="Cgs-ry-8Kd"/>
+                <constraint firstItem="eXM-fC-8af" firstAttribute="leading" secondItem="GER-tv-vrv" secondAttribute="leading" constant="12" id="DDj-EL-tiV"/>
                 <constraint firstItem="25h-Rf-Q6m" firstAttribute="top" secondItem="GER-tv-vrv" secondAttribute="top" constant="12" id="Nfc-rb-hlZ"/>
                 <constraint firstAttribute="trailing" secondItem="V6m-X3-JN4" secondAttribute="trailing" constant="12" id="S9a-g6-80U"/>
-                <constraint firstItem="eXM-fC-8af" firstAttribute="width" secondItem="V6m-X3-JN4" secondAttribute="width" multiplier="0.66" id="WaN-WT-xiB"/>
-                <constraint firstItem="eXM-fC-8af" firstAttribute="centerX" secondItem="GER-tv-vrv" secondAttribute="centerX" id="ZYl-M8-aiA"/>
+                <constraint firstAttribute="trailing" secondItem="eXM-fC-8af" secondAttribute="trailing" constant="12" id="csu-ZD-ECR"/>
                 <constraint firstItem="V6m-X3-JN4" firstAttribute="leading" secondItem="GER-tv-vrv" secondAttribute="leading" constant="12" id="dJr-69-8FF"/>
                 <constraint firstItem="25h-Rf-Q6m" firstAttribute="leading" secondItem="GER-tv-vrv" secondAttribute="leading" constant="12" id="fou-bz-JSz"/>
                 <constraint firstItem="ejA-19-oYz" firstAttribute="leading" secondItem="GER-tv-vrv" secondAttribute="leading" constant="12" id="gD3-nL-QiT"/>
@@ -375,7 +355,7 @@
         </view>
     </objects>
     <resources>
-        <image name="home" width="44" height="36"/>
-        <image name="world" width="44" height="44"/>
+        <image name="home" width="24" height="20"/>
+        <image name="world" width="24" height="24"/>
     </resources>
 </document>
