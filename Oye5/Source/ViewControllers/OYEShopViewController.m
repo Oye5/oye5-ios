@@ -10,6 +10,7 @@
 
 #import "OYEShopViewController.h"
 #import "OYEItemViewController.h"
+#import "OYELocationViewController.h"
 #import "OYEFiltersViewController.h"
 #import "OYEItemCollectionViewCell.h"
 #import "OYEItem.h"
@@ -22,7 +23,7 @@
 static CGFloat const OYEExploreCollectionViewVerticalInset = 5.0;
 static CGFloat const OYEExploreCollectionViewHorizontalInset = 8.0;
 
-@interface OYEShopViewController () <UISearchBarDelegate, OYESegmentedControlDelegate, OYEFiltersViewControllerDelegate>
+@interface OYEShopViewController () <UISearchBarDelegate, OYESegmentedControlDelegate, OYELocationViewControllerDelegate, OYEFiltersViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *segmentedControlContainer;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -44,8 +45,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     self.view.backgroundColor = [UIColor oyeMediumBackgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self setupSearchBar];
-    [self setupFilterButton];
+    [self setupNavigationBar];
     [self setupSegmentedControlContainer];
     [self setupCollectionView];
     
@@ -57,6 +57,23 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setupNavigationBar {
+    [self setupLocationButton];
+    [self setupSearchBar];
+    [self setupFilterButton];
+}
+
+- (void)setupLocationButton {
+    UIImage *image = [UIImage imageNamed:@"location"];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+    [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(changeLocation:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    self.navigationItem.leftBarButtonItem = buttonItem;
+}
+
 - (void)setupSearchBar {
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.navigationController.navigationBar.width, self.navigationController.navigationBar.height)];
     searchBar.delegate = self;
@@ -65,7 +82,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 }
 
 - (void)setupFilterButton {
-    UIImage *image = [UIImage imageNamed:@"filterButton"];
+    UIImage *image = [UIImage imageNamed:@"filter"];
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
     [button setImage:image forState:UIControlStateNormal];
     [button addTarget:self action:@selector(filterItems:) forControlEvents:UIControlEventTouchUpInside];
@@ -200,6 +217,20 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     DDLogDebug(@"*");
 }
 
+#pragma mark - OYELocationViewControllerDelegate
+
+- (void)didCancelLocationViewController:(OYELocationViewController *)viewController {
+    DDLogDebug(@"*");
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didChangeLocationViewController:(OYELocationViewController *)viewController {
+    DDLogDebug(@"*");
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - OYEFiltersViewControllerDelegate
 
 - (void)didCancelFiltersViewController:(OYEFiltersViewController *)viewController {
@@ -208,7 +239,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)didSaveFiltersViewController:(OYEFiltersViewController *)viewController {
+- (void)didChangeFiltersViewController:(OYEFiltersViewController *)viewController {
     DDLogDebug(@"*");
     
     [self dismissViewControllerAnimated:YES completion:^{
@@ -218,7 +249,15 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 
 #pragma mark - Actions
 
-- (void)filterItems:(id)sender {
+- (void)changeLocation:(UIButton *)sender {
+    DDLogDebug(@"*");
+    
+    OYELocationViewController *viewController = [OYELocationViewController viewControllerWithDelegate:self];
+    
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+- (void)filterItems:(UIButton *)sender {
     DDLogDebug(@"*");
     
     OYEFiltersViewController *viewController = [OYEFiltersViewController viewControllerWithDelegate:self];
