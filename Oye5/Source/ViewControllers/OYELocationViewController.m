@@ -31,10 +31,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupToolbar];
+    [self setupUI];
 }
 
 #pragma mark - Private
+
+- (void)setupUI {
+    self.view.backgroundColor = [UIColor oyePrimaryColor];
+    
+    [self setupToolbar];
+}
 
 - (void)setupToolbar {
     self.toolbar.barTintColor = [UIColor oyePrimaryColor];

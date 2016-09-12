@@ -34,6 +34,10 @@
 		661A18321D3309F800D61DCC /* OYEUserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 661A18311D3309F800D61DCC /* OYEUserDefaultsManager.m */; };
 		661A18351D3B478200D61DCC /* OYELocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661A18341D3B478200D61DCC /* OYELocationViewController.m */; };
 		661A18371D3B487000D61DCC /* OYELocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 661A18361D3B487000D61DCC /* OYELocationViewController.xib */; };
+		661A183B1D7CC70900D61DCC /* OYECategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 661A18391D7CC70900D61DCC /* OYECategoryCollectionViewCell.m */; };
+		661A183C1D7CC70900D61DCC /* OYECategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 661A183A1D7CC70900D61DCC /* OYECategoryCollectionViewCell.xib */; };
+		661A18461D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661A18441D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.m */; };
+		661A18471D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 661A18451D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.xib */; };
 		661B23C21D166ACC001E8798 /* OYEBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B23C11D166ACC001E8798 /* OYEBaseCollectionViewCell.m */; };
 		661B23C81D17796B001E8798 /* OYELabelAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B23C71D17796B001E8798 /* OYELabelAnnotationView.m */; };
 		661B23CE1D17962A001E8798 /* OYETitleCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B23CD1D17962A001E8798 /* OYETitleCollectionReusableView.m */; };
@@ -206,6 +210,13 @@
 		661A18331D3B478200D61DCC /* OYELocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYELocationViewController.h; path = Source/ViewControllers/OYELocationViewController.h; sourceTree = "<group>"; };
 		661A18341D3B478200D61DCC /* OYELocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYELocationViewController.m; path = Source/ViewControllers/OYELocationViewController.m; sourceTree = "<group>"; };
 		661A18361D3B487000D61DCC /* OYELocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYELocationViewController.xib; path = Source/ViewControllers/OYELocationViewController.xib; sourceTree = "<group>"; };
+		661A18381D7CC70900D61DCC /* OYECategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYECategoryCollectionViewCell.h; path = Source/Views/OYECategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		661A18391D7CC70900D61DCC /* OYECategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYECategoryCollectionViewCell.m; path = Source/Views/OYECategoryCollectionViewCell.m; sourceTree = "<group>"; };
+		661A183A1D7CC70900D61DCC /* OYECategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYECategoryCollectionViewCell.xib; path = Source/Views/OYECategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		661A18401D7E7A8600D61DCC /* OYEConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OYEConstants.h; path = Source/Other/OYEConstants.h; sourceTree = "<group>"; };
+		661A18431D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYESearchResultsCollectionViewController.h; path = Source/ViewControllers/OYESearchResultsCollectionViewController.h; sourceTree = "<group>"; };
+		661A18441D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYESearchResultsCollectionViewController.m; path = Source/ViewControllers/OYESearchResultsCollectionViewController.m; sourceTree = "<group>"; };
+		661A18451D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OYESearchResultsCollectionViewController.xib; path = Source/ViewControllers/OYESearchResultsCollectionViewController.xib; sourceTree = "<group>"; };
 		661B23C01D166ACC001E8798 /* OYEBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYEBaseCollectionViewCell.h; path = Source/Views/OYEBaseCollectionViewCell.h; sourceTree = "<group>"; };
 		661B23C11D166ACC001E8798 /* OYEBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OYEBaseCollectionViewCell.m; path = Source/Views/OYEBaseCollectionViewCell.m; sourceTree = "<group>"; };
 		661B23C61D17796B001E8798 /* OYELabelAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OYELabelAnnotationView.h; path = Source/Views/OYELabelAnnotationView.h; sourceTree = "<group>"; };
@@ -395,6 +406,7 @@
 				6617D5511C9525A500101292 /* OYELogFormatter.m */,
 				6617D5781C9A356700101292 /* OYEItemLocationAnnotation.h */,
 				6617D5791C9A356700101292 /* OYEItemLocationAnnotation.m */,
+				661A18401D7E7A8600D61DCC /* OYEConstants.h */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -626,6 +638,9 @@
 			children = (
 				6617D5371C95253400101292 /* OYESearchViewController.h */,
 				6617D5381C95253400101292 /* OYESearchViewController.m */,
+				661A18381D7CC70900D61DCC /* OYECategoryCollectionViewCell.h */,
+				661A18391D7CC70900D61DCC /* OYECategoryCollectionViewCell.m */,
+				661A183A1D7CC70900D61DCC /* OYECategoryCollectionViewCell.xib */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -745,6 +760,9 @@
 				661A18331D3B478200D61DCC /* OYELocationViewController.h */,
 				661A18341D3B478200D61DCC /* OYELocationViewController.m */,
 				661A18361D3B487000D61DCC /* OYELocationViewController.xib */,
+				661A18431D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.h */,
+				661A18441D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.m */,
+				661A18451D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -919,10 +937,12 @@
 				66218A851CCD92A4003BD0B3 /* OYEChatMessageTableViewCell.xib in Resources */,
 				664129071C83C14C0028987B /* SF-UI-Text-MediumItalic.otf in Resources */,
 				664128F81C83C14C0028987B /* SF-UI-Display-Bold.otf in Resources */,
+				661A18471D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.xib in Resources */,
 				6641290B1C83C14C0028987B /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				664129061C83C14C0028987B /* SF-UI-Text-Medium.otf in Resources */,
 				664129041C83C14C0028987B /* SF-UI-Text-Light.otf in Resources */,
 				66EC352B1D0E9A8D002429A2 /* OYEItemLocationCollectionViewCell.xib in Resources */,
+				661A183C1D7CC70900D61DCC /* OYECategoryCollectionViewCell.xib in Resources */,
 				66218AA81CDEA759003BD0B3 /* OYEGoogleSignOutButton.xib in Resources */,
 				6617D5711C9626EE00101292 /* OYEItemImageViewController.xib in Resources */,
 				66218A801CCD641D003BD0B3 /* OYEChatViewController.xib in Resources */,
@@ -995,6 +1015,7 @@
 				6617D5701C9626EE00101292 /* OYEItemImageViewController.m in Sources */,
 				661A182E1D32D56D00D61DCC /* UIImage+Extensions.m in Sources */,
 				66218A691CCD37C3003BD0B3 /* SocketClientSpec.swift in Sources */,
+				661A18461D7E7F1B00D61DCC /* OYESearchResultsCollectionViewController.m in Sources */,
 				66218A6D1CCD37C3003BD0B3 /* SocketEnginePollable.swift in Sources */,
 				661B23CE1D17962A001E8798 /* OYETitleCollectionReusableView.m in Sources */,
 				6617D5891C9DD78300101292 /* OYEItemManager.m in Sources */,
@@ -1029,6 +1050,7 @@
 				66218AA31CDC5783003BD0B3 /* OYEUserManager.m in Sources */,
 				66218A661CCD37C3003BD0B3 /* SocketAckEmitter.swift in Sources */,
 				66E3032E1CE9766E00B4EC12 /* OYEBaseViewController.m in Sources */,
+				661A183B1D7CC70900D61DCC /* OYECategoryCollectionViewCell.m in Sources */,
 				661A18351D3B478200D61DCC /* OYELocationViewController.m in Sources */,
 				66218A6C1CCD37C3003BD0B3 /* SocketEnginePacketType.swift in Sources */,
 				6617D58C1C9DD81700101292 /* OYEModelManager.m in Sources */,

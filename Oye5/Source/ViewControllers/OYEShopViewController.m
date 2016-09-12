@@ -16,12 +16,10 @@
 #import "OYEItem.h"
 #import "OYEItemManager.h"
 #import "OYESegmentedControl.h"
+#import "OYEConstants.h"
 
 #import "UIColor+Extensions.h"
 #import "UIView+Extensions.h"
-
-static CGFloat const OYEExploreCollectionViewVerticalInset = 5.0;
-static CGFloat const OYEExploreCollectionViewHorizontalInset = 8.0;
 
 @interface OYEShopViewController () <UISearchBarDelegate, OYESegmentedControlDelegate, OYELocationViewControllerDelegate, OYEFiltersViewControllerDelegate>
 
@@ -108,7 +106,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     // Do any additional setup after loading the view.
     self.collectionView.backgroundColor = [UIColor clearColor];
     
-    self.collectionView.contentInset = UIEdgeInsetsMake(OYEExploreCollectionViewVerticalInset, OYEExploreCollectionViewHorizontalInset, OYEExploreCollectionViewVerticalInset, OYEExploreCollectionViewHorizontalInset);
+    self.collectionView.contentInset = UIEdgeInsetsMake(OYESearchResultsContentInset, OYESearchResultsContentInset, OYESearchResultsContentInset, OYESearchResultsContentInset);
     
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OYEItemCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
 }
@@ -159,35 +157,6 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
-
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
@@ -196,7 +165,7 @@ static NSString * const reuseIdentifier = @"OYEItemCollectionViewCell";
 {
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)collectionViewLayout;
     
-    CGSize cellSize = CGSizeMake((self.collectionView.width  - flowLayout.minimumLineSpacing - 2 * OYEExploreCollectionViewHorizontalInset) / 2, 250);
+    CGSize cellSize = CGSizeMake((self.collectionView.width  - flowLayout.minimumInteritemSpacing - 2 * OYESearchResultsContentInset) / 2, 250);
     
     return cellSize;
 }
