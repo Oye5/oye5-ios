@@ -15,7 +15,15 @@
 }
 
 + (UIColor *)oyePrimaryColorWithAlpha:(CGFloat)alpha {
-    return [UIColor colorWithRed:[self colorComponentWithValue:249.0] green:0.0 blue:[self colorComponentWithValue:93.0] alpha:alpha];
+    return [UIColor colorWithRed:0.0 green:[self colorComponentWithValue:191.0] blue:[self colorComponentWithValue:215.0] alpha:alpha];
+}
+
++ (UIColor *)oyeSecondaryColor {
+    return [self oyeSecondaryColorWithAlpha:1.0];
+}
+
++ (UIColor *)oyeSecondaryColorWithAlpha:(CGFloat)alpha {
+    return [UIColor colorWithRed:[self colorComponentWithValue:105.0] green:[self colorComponentWithValue:105.0] blue:[self colorComponentWithValue:105.0] alpha:alpha];
 }
 
 + (UIColor *)oyeDarkTextColor {

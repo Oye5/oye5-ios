@@ -42,7 +42,9 @@ static CGFloat const OYEUserImageSize = 100;
 
 - (void)setup {
     [self setupFacebookLogin];
-    [self setupGoogleLogin];
+    
+    // Not using Google login for now
+//    [self setupGoogleLogin];
 }
 
 #pragma mark - Private

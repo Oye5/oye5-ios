@@ -13,15 +13,16 @@
 
 #import "OYELoginViewController.h"
 #import "OYEUser.h"
+#import "UIButton+Extensions.h"
 
 @interface OYELoginViewController () <FBSDKLoginButtonDelegate, GIDSignInUIDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *facebookButtonContainer;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookButtonContainerWidthConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *facebookButtonContainerHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *googleButtonContainer;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *googleButtonContainerWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *googleButtonContainerHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *googleButtonContainerBottomSpaceConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
+@property (weak, nonatomic) IBOutlet UIButton *signInButton;
 
 @end
 
@@ -33,6 +34,8 @@
     
     [self setupFacebookButton];
     [self setupGoogleButton];
+    [self setupSignUpButton];
+    [self setupSignInButton];
     [self setupBackground];
 }
 
@@ -45,9 +48,8 @@
     FBSDKLoginButton *facebookButton = [FBSDKLoginButton new];
     facebookButton.delegate = self;
     facebookButton.origin = CGPointZero;
-    
-    self.facebookButtonContainerWidthConstraint.constant = facebookButton.width;
-    self.facebookButtonContainerHeightConstraint.constant = facebookButton.height;
+    facebookButton.size = self.facebookButtonContainer.size;
+    facebookButton.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     [self.facebookButtonContainer addSubview:facebookButton];
     
@@ -55,18 +57,32 @@
 }
 
 - (void)setupGoogleButton {
+    
+    // Hide Google button since we will not support Google login for now
+    self.googleButtonContainer.hidden = YES;
+    self.googleButtonContainerHeightConstraint.constant = 0;
+    self.googleButtonContainerBottomSpaceConstraint.constant = 0;
+    return;
+    
     [GIDSignIn sharedInstance].uiDelegate = self;
 
     GIDSignInButton *googleButton = [GIDSignInButton new];
     googleButton.origin = CGPointZero;
+    googleButton.size = self.googleButtonContainer.size;
+    googleButton.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     googleButton.colorScheme = kGIDSignInButtonColorSchemeDark;
-    
-    self.googleButtonContainerWidthConstraint.constant = googleButton.width;
-    self.googleButtonContainerHeightConstraint.constant = googleButton.height;
     
     [self.googleButtonContainer addSubview:googleButton];
     
     self.googleButtonContainer.backgroundColor = [UIColor clearColor];
+}
+
+- (void)setupSignUpButton {
+    [self.signUpButton setupAsPrimaryButton];
+}
+
+- (void)setupSignInButton {
+    [self.signInButton setupAsSecondaryButton];
 }
 
 - (void)setupBackground {
@@ -108,6 +124,16 @@
 
 - (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)signUp:(UIButton *)sender {
+    DDLogDebug(@"*");
+}
+
+- (IBAction)signIn:(UIButton *)sender {
+    DDLogDebug(@"*");
 }
 
 @end

@@ -12,6 +12,8 @@
 
 + (UIColor *)oyePrimaryColor;
 + (UIColor *)oyePrimaryColorWithAlpha:(CGFloat)alpha;
++ (UIColor *)oyeSecondaryColor;
++ (UIColor *)oyeSecondaryColorWithAlpha:(CGFloat)alpha;
 + (UIColor *)oyeDarkTextColor;
 + (UIColor *)oyeMediumTextColor;
 + (UIColor *)oyeLightTextColor;

@@ -27,13 +27,13 @@
     [self setupBasics];
     
     self.layer.borderColor = color.CGColor;
-    self.layer.borderWidth = 1;
+    self.layer.borderWidth = 2;
 
     [self setTitleColor:color forState:UIControlStateNormal];
 }
 
 - (void)setupBasics {
-    self.titleLabel.font = [UIFont oyeFontOfSize:16];
+    self.titleLabel.font = [UIFont mediumOyeFontOfSize:16];
     [self setupCornerRadius];
 }
 
