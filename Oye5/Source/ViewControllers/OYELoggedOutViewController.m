@@ -1,5 +1,5 @@
 //
-//  OYELoginViewController.m
+//  OYELoggedOutViewController.m
 //  Oye5
 //
 //  Created by Rita Kyauk on 3/26/16.
@@ -11,11 +11,11 @@
 
 #import <GoogleSignIn/GoogleSignIn.h>
 
-#import "OYELoginViewController.h"
+#import "OYELoggedOutViewController.h"
 #import "OYEUser.h"
 #import "UIButton+Extensions.h"
 
-@interface OYELoginViewController () <FBSDKLoginButtonDelegate, GIDSignInUIDelegate>
+@interface OYELoggedOutViewController () <FBSDKLoginButtonDelegate, GIDSignInUIDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *facebookButtonContainer;
 @property (weak, nonatomic) IBOutlet UIView *googleButtonContainer;
@@ -26,7 +26,7 @@
 
 @end
 
-@implementation OYELoginViewController
+@implementation OYELoggedOutViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

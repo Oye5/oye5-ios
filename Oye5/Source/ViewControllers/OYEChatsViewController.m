@@ -7,7 +7,7 @@
 //
 
 #import "OYEChatsViewController.h"
-#import "OYELoginViewController.h"
+#import "OYELoggedOutViewController.h"
 #import "OYEChatViewController.h"
 
 static NSString * const OYEChatsCellReuseIdentifier = @"OYEChatsCell";

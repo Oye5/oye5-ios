@@ -10,7 +10,7 @@
 @import FBSDKLoginKit;
 
 #import "OYELoggedInViewController.h"
-#import "OYELoginViewController.h"
+#import "OYELoggedOutViewController.h"
 #import "OYEUserManager.h"
 #import "OYEUser.h"
 #import "OYEGoogleSignOutButton.h"
@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *logOutButtonContainerWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *logOutButtonContainerHeightConstraint;
 
-@property (strong, nonatomic) OYELoginViewController *loginViewController;
+@property (strong, nonatomic) OYELoggedOutViewController *loginViewController;
 @property (strong, nonatomic) OYEGoogleSignOutButton *googleButton;
 
 @end
@@ -39,9 +39,9 @@
 
 #pragma mark - Override getters
 
-- (OYELoginViewController *)loginViewController {
+- (OYELoggedOutViewController *)loginViewController {
     if (!_loginViewController) {
-        _loginViewController = [OYELoginViewController new];
+        _loginViewController = [OYELoggedOutViewController new];
     }
     
     return _loginViewController;

@@ -1,5 +1,5 @@
 //
-//  OYELoginViewController.h
+//  OYELoggedOutViewController.h
 //  Oye5
 //
 //  Created by Rita Kyauk on 3/26/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OYELoginViewController : UIViewController
+@interface OYELoggedOutViewController : UIViewController
 
 @end
