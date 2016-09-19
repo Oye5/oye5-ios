@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
@@ -8,7 +9,7 @@
             <connections>
                 <outlet property="facebookButtonContainer" destination="ywd-W0-NIn" id="w27-GP-9u4"/>
                 <outlet property="googleButtonContainer" destination="lUY-Yg-Ujo" id="9AM-Ve-k9g"/>
-                <outlet property="googleButtonContainerBottomSpaceConstraint" destination="Q8y-ad-GUG" id="zJh-jv-mtf"/>
+                <outlet property="googleButtonContainerBottomSpaceConstraint" destination="V90-8X-7CE" id="6Ad-JG-TkN"/>
                 <outlet property="googleButtonContainerHeightConstraint" destination="zVb-AX-4Wj" id="i3F-Yt-5LQ"/>
                 <outlet property="signInButton" destination="dTP-z0-8cS" id="pdN-Sk-Woa"/>
                 <outlet property="signUpButton" destination="PWW-dO-bky" id="KCp-WH-MJf"/>
@@ -31,7 +32,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWW-dO-bky">
-                    <rect key="frame" x="40" y="338" width="240" height="40"/>
+                    <rect key="frame" x="40" y="382" width="240" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="XiK-4J-IEi"/>
                     </constraints>
@@ -41,7 +42,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTP-z0-8cS">
-                    <rect key="frame" x="40" y="382" width="240" height="40"/>
+                    <rect key="frame" x="40" y="338" width="240" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="rWz-rm-sqM"/>
                     </constraints>
@@ -62,17 +63,17 @@
             <constraints>
                 <constraint firstItem="dTP-z0-8cS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="2cd-xv-RF2"/>
                 <constraint firstItem="lUY-Yg-Ujo" firstAttribute="top" secondItem="ywd-W0-NIn" secondAttribute="bottom" constant="4" id="2td-WK-qE2"/>
+                <constraint firstItem="PWW-dO-bky" firstAttribute="top" secondItem="dTP-z0-8cS" secondAttribute="bottom" constant="4" id="3EV-a6-VJW"/>
                 <constraint firstItem="ywd-W0-NIn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3f6-SG-hpQ"/>
                 <constraint firstAttribute="trailing" secondItem="ywd-W0-NIn" secondAttribute="trailing" constant="40" id="4QG-lk-kYk"/>
                 <constraint firstItem="PWW-dO-bky" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Rz-bs-uB2"/>
                 <constraint firstItem="cyV-Ys-fNy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Asg-dV-tSD"/>
+                <constraint firstAttribute="bottom" secondItem="PWW-dO-bky" secondAttribute="bottom" constant="58" id="FxH-l8-fcW"/>
                 <constraint firstItem="cyV-Ys-fNy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fzn-r5-16G"/>
                 <constraint firstAttribute="trailing" secondItem="dTP-z0-8cS" secondAttribute="trailing" constant="40" id="KLk-az-cO9"/>
                 <constraint firstItem="ywd-W0-NIn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="LJq-1o-pY8"/>
-                <constraint firstItem="PWW-dO-bky" firstAttribute="bottom" secondItem="dTP-z0-8cS" secondAttribute="top" constant="-4" id="MPf-Sh-1mA"/>
                 <constraint firstAttribute="trailing" secondItem="PWW-dO-bky" secondAttribute="trailing" constant="40" id="PJT-ec-muG"/>
-                <constraint firstItem="PWW-dO-bky" firstAttribute="top" secondItem="lUY-Yg-Ujo" secondAttribute="bottom" constant="4" id="Q8y-ad-GUG"/>
-                <constraint firstAttribute="bottom" secondItem="dTP-z0-8cS" secondAttribute="bottom" constant="58" id="ROO-yE-UI3"/>
+                <constraint firstItem="dTP-z0-8cS" firstAttribute="top" secondItem="lUY-Yg-Ujo" secondAttribute="bottom" constant="4" id="V90-8X-7CE"/>
                 <constraint firstAttribute="bottom" secondItem="cyV-Ys-fNy" secondAttribute="bottom" id="VKn-XE-Ffw"/>
                 <constraint firstItem="PWW-dO-bky" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="eHV-26-Mzz"/>
                 <constraint firstItem="lUY-Yg-Ujo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eL2-Ku-hEz"/>

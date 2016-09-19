@@ -10,7 +10,7 @@
 
 @implementation OYEUserManager (OYE)
 
-- (void)signUpOyeWithEmail:(NSString *)email password:(NSString *)password {
+- (void)signUpOyeWithEmail:(NSString *)email username:(NSString *)username password:(NSString *)password completionBlock:(void (^)(NSString *token, NSError *NSError))completionBlock {
     
 }
 

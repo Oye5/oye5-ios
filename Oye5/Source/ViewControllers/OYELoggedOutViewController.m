@@ -12,10 +12,11 @@
 #import <GoogleSignIn/GoogleSignIn.h>
 
 #import "OYELoggedOutViewController.h"
+#import "OYESignUpViewController.h"
 #import "OYEUser.h"
 #import "UIButton+Extensions.h"
 
-@interface OYELoggedOutViewController () <FBSDKLoginButtonDelegate, GIDSignInUIDelegate>
+@interface OYELoggedOutViewController () <FBSDKLoginButtonDelegate, GIDSignInUIDelegate, OYESignUpViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *facebookButtonContainer;
 @property (weak, nonatomic) IBOutlet UIView *googleButtonContainer;
@@ -34,8 +35,8 @@
     
     [self setupFacebookButton];
     [self setupGoogleButton];
-    [self setupSignUpButton];
     [self setupSignInButton];
+    [self setupSignUpButton];
     [self setupBackground];
 }
 
@@ -77,12 +78,12 @@
     self.googleButtonContainer.backgroundColor = [UIColor clearColor];
 }
 
-- (void)setupSignUpButton {
-    [self.signUpButton setupAsPrimaryButton];
+- (void)setupSignInButton {
+    [self.signInButton setupAsPrimaryButton];
 }
 
-- (void)setupSignInButton {
-    [self.signInButton setupAsSecondaryButton];
+- (void)setupSignUpButton {
+    [self.signUpButton setupAsSecondaryButton];
 }
 
 - (void)setupBackground {
@@ -130,10 +131,21 @@
 
 - (IBAction)signUp:(UIButton *)sender {
     DDLogDebug(@"*");
+    
+    OYESignUpViewController *viewController = [OYESignUpViewController new];
+    viewController.delegate = self;
+    
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 - (IBAction)signIn:(UIButton *)sender {
     DDLogDebug(@"*");
+}
+
+#pragma mark - OYESignUpViewControllerDelegate
+
+- (void)cancelSignUp {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

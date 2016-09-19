@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OYESignUpViewController">
+            <connections>
+                <outlet property="emailTextField" destination="1JQ-Zj-kud" id="D7D-Co-Q0u"/>
+                <outlet property="passwordTextField" destination="rcX-ik-RyD" id="UAb-fE-C7y"/>
+                <outlet property="signUpButton" destination="sV7-Rm-Sau" id="tI7-B8-qmb"/>
+                <outlet property="usernameTextField" destination="AVw-ha-Yjc" id="Ibg-3D-Frq"/>
+                <outlet property="view" destination="iN0-l3-epB" id="22G-Xw-eBx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-Zj-kud">
+                    <rect key="frame" x="40" y="101" width="240" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Dsa-dS-vaA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Ida-XC-cGE"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AVw-ha-Yjc">
+                    <rect key="frame" x="40" y="153" width="240" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="cOh-aT-dKX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Xpr-XU-URw"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rcX-ik-RyD">
+                    <rect key="frame" x="40" y="205" width="240" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="dae-eN-DQH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="roN-vG-Ras"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV7-Rm-Sau">
+                    <rect key="frame" x="40" y="297" width="240" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Q7N-55-wps"/>
+                    </constraints>
+                    <state key="normal" title="Sign up"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2c-fy-GgT">
+                    <rect key="frame" x="20" y="40" width="21" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="g2y-zm-gyk"/>
+                        <constraint firstAttribute="width" constant="21" id="y4l-pi-3u9"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="cancel-large"/>
+                    <connections>
+                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="SUD-6h-tUy"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="sV7-Rm-Sau" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="2Z4-cJ-zM7"/>
+                <constraint firstAttribute="trailing" secondItem="sV7-Rm-Sau" secondAttribute="trailing" constant="40" id="4xf-oT-gxV"/>
+                <constraint firstItem="sV7-Rm-Sau" firstAttribute="top" secondItem="rcX-ik-RyD" secondAttribute="bottom" constant="48" id="5p0-7I-RIS"/>
+                <constraint firstAttribute="trailing" secondItem="AVw-ha-Yjc" secondAttribute="trailing" constant="40" id="AXQ-eW-FE1"/>
+                <constraint firstItem="AVw-ha-Yjc" firstAttribute="top" secondItem="1JQ-Zj-kud" secondAttribute="bottom" constant="8" id="Aj4-NH-JcZ"/>
+                <constraint firstItem="rcX-ik-RyD" firstAttribute="top" secondItem="AVw-ha-Yjc" secondAttribute="bottom" constant="8" id="Ayq-ez-pvR"/>
+                <constraint firstAttribute="trailing" secondItem="1JQ-Zj-kud" secondAttribute="trailing" constant="40" id="Cna-xa-cX7"/>
+                <constraint firstAttribute="trailing" secondItem="rcX-ik-RyD" secondAttribute="trailing" constant="40" id="Hm7-Fz-4CU"/>
+                <constraint firstItem="D2c-fy-GgT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="Lnp-CM-G99"/>
+                <constraint firstItem="AVw-ha-Yjc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="MO5-Ic-ai6"/>
+                <constraint firstItem="1JQ-Zj-kud" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="Tj8-jr-Ipz"/>
+                <constraint firstItem="1JQ-Zj-kud" firstAttribute="top" secondItem="D2c-fy-GgT" secondAttribute="bottom" constant="40" id="eGe-7e-ud7"/>
+                <constraint firstItem="rcX-ik-RyD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="ok5-0M-Ie6"/>
+                <constraint firstItem="D2c-fy-GgT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ptz-eQ-u1U"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cancel-large" width="21" height="21"/>
+    </resources>
+</document>
